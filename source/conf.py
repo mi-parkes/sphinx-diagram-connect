@@ -15,13 +15,28 @@ logger = sphinx.util.logging.getLogger(__name__)
 extensions = [
     'sphinxcontrib.plantuml',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.githubpages'
 ]
 
 exclude_patterns = []
 
 language = 'en'
 
-html_theme = 'alabaster'
+html_theme = 'sphinx_book_theme'
+
+html_theme_options = {
+    "path_to_docs": "source",
+    "repository_url": "https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks",
+    "repository_branch": "main",
+    "show_navbar_depth": 2,
+    "show_toc_level": 1,  
+    "use_repository_button": True,
+    "use_source_button": True,
+    "home_page_in_toc" : True,
+    "use_issues_button": True,
+    "use_edit_page_button": True, 
+}
+
 html_static_path = ['_static']
 
 env_plantuml = os.getenv("PLANTUML")
