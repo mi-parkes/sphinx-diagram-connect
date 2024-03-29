@@ -21,5 +21,12 @@ Some other text here
 
     *[#Orange] Example of clickable references
     **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Reference1 ]]
+    **[#lightblue] [[ ":ref:`N_00001`" Internal Page Reference2 on sphinx-need ]]
 
     @endmindmap
+
+.. need:: Some Other Need
+    :id: N_00002
+    :status: open
+
+    Some Other Need description

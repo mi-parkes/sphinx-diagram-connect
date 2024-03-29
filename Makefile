@@ -20,4 +20,4 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 labels:
-	python3 -m sphinx.ext.intersphinx "$(BUILDDIR)"/html/objects.inv
+	python3 -m sphinx.ext.intersphinx $(BUILDDIR)/html/objects.inv

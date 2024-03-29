@@ -30,16 +30,29 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/assets/jsonview.bundle.css?v=f6ef2277" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/common.css?v=bd9ab754" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/styles.css?v=6c8eb985" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/modern.css?v=ffa536d2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-needs/layouts.css?v=448c382f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/assets/jsonview.bundle.js?v=18cd53c5"></script>
+    <script src="../../../_static/assets/jsonview_loader.js?v=f7ff7e7d"></script>
+    <script src="../../../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+    <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+    <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=f783d6a5"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'test/textx/testz/test-plantuml3';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -411,11 +424,12 @@ document.write(`
 <p>Some other text here</p>
 <figure class="align-default" id="plantuml-label2">
 <p class="plantuml">
-<object data="../../../_images/plantuml-7dcbe33fb0a73434d191cf984764cd672618ad93.svg" type="image/svg+xml" style="width:503px;height:78px;background:#FFFFFF;">
-<img src="../../../_images/plantuml-7dcbe33fb0a73434d191cf984764cd672618ad93.png" alt="&#64;startmindmap mindmap2
+<object data="../../../_images/plantuml-23c9a726f0965eb839487f651f34731a1e85a2f3.svg" type="image/svg+xml" style="width:618px;height:134px;background:#FFFFFF;">
+<img src="../../../_images/plantuml-23c9a726f0965eb839487f651f34731a1e85a2f3.png" alt="&#64;startmindmap mindmap2
 
 *[#Orange] Example of clickable references
 **[#lightgreen] [[ &quot;:ref:`plantuml label1`&quot; Internal Page Reference1 ]]
+**[#lightblue] [[ &quot;:ref:`N_00001`&quot; Internal Page Reference2 on sphinx-need ]]
 
 &#64;endmindmap"/>
 
@@ -424,6 +438,26 @@ document.write(`
 <p><span class="caption-text">PlantUML Caption with <strong>bold</strong> and <em>italic</em></span><a class="headerlink" href="#plantuml-label2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<div class="need_container docutils container" id="SNCB-f93d4e5d">
+<table class="need needs_grid_simple needs_layout_clean rtd-exclude-wy-table no-sphinx-material-strip needs_style_none needs_type_need table" id="N_00002">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Need</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Some Other Need</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#N_00002" title="N_00002">N_00002</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><span><img alt="../../../_images/arrow-down-circle.svg" class="sn_collapse_img no-scaled-link" src="../../../_images/arrow-down-circle.svg" width="17px" /></span></span><span class="needs visible"><span><img alt="../../../_images/arrow-right-circle.svg" class="sn_collapse_img no-scaled-link" src="../../../_images/arrow-right-circle.svg" width="17px" /></span></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span></span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>Some Other Need description</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 
