@@ -3,23 +3,13 @@ author  = 'MP'
 version = '1.0'
 
 import os, sys
-import sphinx
-from sphinx.errors import NoUri
-from docutils import nodes
-import glob
-import re
-import xml.etree.ElementTree as ET
-from sphinx.events import EventListener
-from sphinx_needs.needsfile import NeedsList
-
-logger = sphinx.util.logging.getLogger(__name__)
 
 extensions = [
     'sphinxcontrib.plantuml',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx_needs',
-    'sphinx-ref-in-plantuml-hyperlinks'
+    'sphinx_ref_in_plantuml_hyperlinks'
 ]
 
 exclude_patterns = []
@@ -41,7 +31,7 @@ html_theme_options = {
     "use_edit_page_button": True, 
 }
 
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 env_plantuml = os.getenv("PLANTUML")
 

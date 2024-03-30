@@ -1,0 +1,88 @@
+import os, sys
+import sphinx
+from sphinx.errors import NoUri
+from docutils import nodes
+import glob
+import re
+import xml.etree.ElementTree as ET
+from sphinx.events import EventListener
+from sphinx_needs.needsfile import NeedsList
+
+logger = sphinx.util.logging.getLogger(__name__)
+
+__version__ = "0.5.0"
+version_info = (0,5,0)
+
+def init_needs(app):
+    needs_list = NeedsList(app.env.config,app.outdir,app.srcdir)
+    needs_list.load_json(os.path.join(app.builder.outdir,"needs.json"))
+    if needs_list and needs_list.needs_list:
+        if "versions" in needs_list.needs_list:
+            keys=list(needs_list.needs_list["versions"].keys())
+            if keys:
+                version=keys[0]
+                if "needs" in needs_list.needs_list["versions"][version]:
+                    return needs_list.needs_list["versions"][version]["needs"]
+    else:
+        return None
+
+def resolve_ref(app,target):
+    refdomain="std"
+    typ="ref"
+    refdoc=os.path.join(app.builder.imagedir,"dummy.svg")
+    node=nodes.literal_block("dummy","dummy")
+    node['refexplicit']=False
+    try:
+        try:
+            domain = app.env.domains[refdomain]
+        except KeyError as exc:
+            raise NoUri(target,typ) from exc
+        newnode = domain.resolve_xref(app.env,refdoc, app.builder,typ, target.lower(),node,None)
+        if newnode:
+            return newnode.attributes['refuri']
+        else:
+            return None
+    except NoUri:
+        return None
+
+def resolve_references(app,docname):
+    if app.builder.format=='html':
+        needs_build_json=getattr(app.config,"needs_build_json",False)
+        needs_list=init_needs(app) if needs_build_json else None
+        pattern = r"(:ref:`([^`]+)`)"
+        for filename in glob.glob(os.path.join(app.builder.outdir,app.builder.imagedir)+"/*.svg",recursive=True):
+            tree = ET.parse(filename)
+            root = tree.getroot()
+            modified=False
+            for element in root.iter():
+                if 'href' in element.attrib:
+                    match = re.search(pattern,element.attrib['href'])
+                    if match:
+                        resolved=False
+                        complete,old_href=match.groups()
+                        new_href=resolve_ref(app,old_href)
+                        if new_href:
+                            element.attrib['href']=new_href
+                            resolved=True
+                        elif needs_list:
+                            if old_href in needs_list:
+                                # TODO: the following needs to be adjusted based on app.builder.imagedir
+                                element.attrib['href']=f"../{needs_list[old_href]['docname']}.html#{old_href}"
+                                resolved=True
+                        if resolved:
+                            modified=True
+                        else:
+                            logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
+            if modified:
+                logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')
+                with open(filename,"w") as f:
+                    f.write(ET.tostring(root, encoding='utf-8').decode())
+    return
+
+def setup(app):
+    app.connect('build-finished',resolve_references)
+    return {
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+        "version": __version__,
+    }
