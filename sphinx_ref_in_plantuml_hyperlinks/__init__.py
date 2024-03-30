@@ -1,7 +1,3 @@
-project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
-author  = 'MP'
-version = '1.0'
-
 import os, sys
 import sphinx
 from sphinx.errors import NoUri
@@ -14,52 +10,8 @@ from sphinx_needs.needsfile import NeedsList
 
 logger = sphinx.util.logging.getLogger(__name__)
 
-extensions = [
-    'sphinxcontrib.plantuml',
-    'sphinx.ext.autosectionlabel',
-    'sphinx.ext.githubpages',
-    'sphinx_needs',
-]
-
-exclude_patterns = []
-
-language = 'en'
-
-html_theme = 'sphinx_book_theme'
-
-html_theme_options = {
-    "path_to_docs": "source",
-    "repository_url": "https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks",
-    "repository_branch": "main",
-    "show_navbar_depth": 2,
-    "show_toc_level": 1,  
-    "use_repository_button": True,
-    "use_source_button": True,
-    "home_page_in_toc" : True,
-    "use_issues_button": True,
-    "use_edit_page_button": True, 
-}
-
-html_static_path = ['_static']
-
-env_plantuml = os.getenv("PLANTUML")
-
-if env_plantuml != None:
-    plantuml = env_plantuml
-else:
-    if sys.platform.startswith("linux"):
-        plantuml = 'java -jar /usr/share/plantuml/plantuml.jar'
-    elif sys.platform == "darwin":
-        plantuml = 'java -jar /usr/local/plantuml/plantuml.jar'
-plantuml_output_format = 'svg'
-
-def setup(app):
-    app.connect('build-finished',build_finished)
-    #app.connect('missing-reference', unresolved_reference)
-    return {'version': '0.1', 'parallel_read_safe': True}
-
-def unresolved_reference(env,node,contnode):
-  print("unresolved_reference")
+__version__ = "0.5.0"
+version_info = (0,5,0)
 
 def init_needs(app):
     needs_list = NeedsList(app.env.config,app.outdir,app.srcdir)
@@ -93,8 +45,9 @@ def resolve_ref(app,target):
     except NoUri:
         return None
 
-def build_finished(app,docname):
+def resolve_references(app,docname):
     if app.builder.format=='html':
+        needs_build_json=getattr(app.config,"needs_build_json",False)
         needs_list=init_needs(app) if needs_build_json else None
         pattern = r"(:ref:`([^`]+)`)"
         for filename in glob.glob(os.path.join(app.builder.outdir,app.builder.imagedir)+"/*.svg",recursive=True):
@@ -126,12 +79,10 @@ def build_finished(app,docname):
                     f.write(ET.tostring(root, encoding='utf-8').decode())
     return
 
-# SPHINX-NEEDS SETTINGS
-needs_id_required = False
-needs_id_regex = "^[A-Z0-9_-]*"
-
-needs_build_json = True
-
-needs_types = [
-    dict(directive="need", title="Need", prefix="N_",color="#FDF5E6", style="rectangle")
-]
+def setup(app):
+    app.connect('build-finished',resolve_references)
+    return {
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+        "version": __version__,
+    }

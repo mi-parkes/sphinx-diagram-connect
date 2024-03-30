@@ -1,6 +1,6 @@
 # Demo using sphinx std:ref: in PlantUML hyperlinks
 
-The demo shows PlantUML scripts using sphinx :ref: to be resolved as Sphinx postprocessing step after the documentation build finished.
+`sphinx_ref_in_plantuml_hyperlinks` is a Sphinx extension that resolves Sphinx `std:ref:` references in PlantUML scripts.
 
 ![](source/images/refInPlantuml.png)
 
