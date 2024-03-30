@@ -105,16 +105,21 @@ def build_finished(app,docname):
                 if 'href' in element.attrib:
                     match = re.search(pattern,element.attrib['href'])
                     if match:
+                        resolved=False
                         complete,old_href=match.groups()
                         new_href=resolve_ref(app,old_href)
                         if new_href:
                             element.attrib['href']=new_href
-                            modified=True
+                            resolved=True
                         elif needs_list:
                             if old_href in needs_list:
                                 # TODO: the following needs to be adjusted based on app.builder.imagedir
                                 element.attrib['href']=f"../{needs_list[old_href]['docname']}.html#{old_href}"
-                                modified=True
+                                resolved=True
+                        if resolved:
+                            modified=True
+                        else:
+                            logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
             if modified:
                 logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')
                 with open(filename,"w") as f:
