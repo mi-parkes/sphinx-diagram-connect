@@ -1,3 +1,4 @@
+
 project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
 author  = 'MP'
 version = '1.0'
@@ -19,7 +20,7 @@ language = 'en'
 html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
-    "path_to_docs": "source",
+    "path_to_docs": "doc/source",
     "repository_url": "https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks",
     "repository_branch": "main",
     "show_navbar_depth": 2,
@@ -53,3 +54,5 @@ needs_build_json = True
 needs_types = [
     dict(directive="need", title="Need", prefix="N_",color="#FDF5E6", style="rectangle")
 ]
+
+#sphinx_ref_in_plantuml_hyperlinks_verbose=True

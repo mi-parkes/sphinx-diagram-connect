@@ -4,6 +4,8 @@
 
 ![](https://mi-parkes.github.io/sphinx-ref-in-plantuml-hyperlinks/_images/refInPlantuml.png)
 
+## Example of Use
+
     .. uml::
         :caption: PlantUML Caption with **bold** and *italic*
         :name: PlantUML Label2
@@ -15,3 +17,29 @@
         **[#lightblue] [[ ":ref:`N_00001`" Internal Page Reference2 on Sphinx-Needs ]]
 
         @endmindmap
+
+## Installation (Linux)
+
+    git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
+    cd sphinx-ref-in-plantuml-hyperlinks
+
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r doc/requirements.txt
+
+    python3 -m build --wheel
+    pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
+
+## Activation
+
+In your conf.py configuration file, add `sphinx_ref_in_plantuml_hyperlinks` to your extensions list:
+
+    extensions = [
+      ...
+      'sphinx_ref_in_plantuml_hyperlinks'
+      ...
+    ]
+
+## List Labels:
+
+    python3 -m sphinx.ext.intersphinx build/html/objects.inv
