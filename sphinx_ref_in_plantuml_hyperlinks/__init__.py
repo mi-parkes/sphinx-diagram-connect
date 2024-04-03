@@ -29,7 +29,8 @@ def init_needs(app):
 def resolve_ref(app,target):
     refdomain="std"
     typ="ref"
-    refdoc=os.path.join(app.builder.imagedir,"dummy.svg")
+    #refdoc=os.path.join(app.builder.imagedir,"dummy.svg")
+    refdoc=app.builder.imagedir+"/dummy.svg"
     node=nodes.literal_block("dummy","dummy")
     node['refexplicit']=False
     try:
@@ -78,8 +79,10 @@ def resolve_references(app,docname):
                             logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
             if modified:
                 logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')
-                with open(filename,"w") as f:
-                    f.write(ET.tostring(root, encoding='utf-8').decode())
+                try:
+                    tree.write(filename)
+                except Exception as exc:
+                    logger.error("Failed to write file:'%s' - %s" % (filename[len(os.getcwd())+1:],exc))
     return
 
 def setup(app):
