@@ -18,7 +18,15 @@
 
         @endmindmap
 
-## Installation (Linux)
+## Installation
+
+You can install [sphinx-ref-in-plantuml-hyperlinks](https://pypi.org/project/sphinx-ref-in-plantuml-hyperlinks/) with pip
+
+```
+pip install sphinx-ref-in-plantuml-hyperlinks
+```
+
+Alternatively (Linux)
 
     git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
     cd sphinx-ref-in-plantuml-hyperlinks

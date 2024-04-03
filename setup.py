@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='sphinx-ref-in-plantuml-hyperlinks',
-    version='0.5.0',
+    version='0.6.0',
     packages=['sphinx_ref_in_plantuml_hyperlinks'],
     py_modules=[],
     author='Michael Parkes',
