@@ -48,6 +48,7 @@ def resolve_ref(app,target):
 
 def resolve_references(app,docname):
     if app.builder.format=='html':
+        ET.register_namespace("","http://www.w3.org/2000/svg")
         sphinx_ref_in_plantuml_hyperlinks_verbose=getattr(app.config,"sphinx_ref_in_plantuml_hyperlinks_verbose",False)
         needs_build_json=getattr(app.config,"needs_build_json",False)
         needs_list=init_needs(app) if needs_build_json else None
