@@ -5,6 +5,7 @@ from docutils import nodes
 import glob
 import re
 import xml.etree.ElementTree as ET
+from lxml import etree
 from sphinx.events import EventListener
 from sphinx_needs.needsfile import NeedsList
 
@@ -48,40 +49,53 @@ def resolve_ref(app,target):
 
 def resolve_references(app,docname):
     if app.builder.format=='html':
-        ET.register_namespace("","http://www.w3.org/2000/svg")
         sphinx_ref_in_plantuml_hyperlinks_verbose=getattr(app.config,"sphinx_ref_in_plantuml_hyperlinks_verbose",False)
         needs_build_json=getattr(app.config,"needs_build_json",False)
         needs_list=init_needs(app) if needs_build_json else None
         pattern = r"(:ref:`([^`]+)`)"
+        href = ""
+
         for filename in glob.glob(os.path.join(app.builder.outdir,app.builder.imagedir)+"/*.svg",recursive=True):
-            tree = ET.parse(filename)
-            root = tree.getroot()
+            # Read the SVG file
+            with open(filename, 'rb') as file:
+                svg_content = file.read()
+
+            # Parse the SVG content
+            parser = etree.XMLParser(ns_clean=True)
+            root = etree.fromstring(svg_content, parser)
+
             modified=False
             for element in root.iter():
-                if 'href' in element.attrib:
-                    match = re.search(pattern,element.attrib['href'])
-                    if match:
-                        resolved=False
-                        complete,old_href=match.groups()
-                        new_href=resolve_ref(app,old_href)
-                        if new_href:
-                            element.attrib['href']=new_href
-                            if sphinx_ref_in_plantuml_hyperlinks_verbose:
-                                logger.info("href resolution: '%s' -> '%s'" % (old_href,new_href),color='purple')
-                            resolved=True
-                        elif needs_list:
-                            if old_href in needs_list:
-                                # TODO: the following needs to be adjusted based on app.builder.imagedir
-                                element.attrib['href']=f"../{needs_list[old_href]['docname']}.html#{old_href}"
+                keys = element.attrib.keys()
+                if len(keys) > 0:
+                    href = keys[0]
+                    if  href.endswith('href'):
+                        match = re.search(pattern,element.attrib[href])
+                        if match:
+                            resolved=False
+                            complete,old_href=match.groups()
+                            new_href=resolve_ref(app,old_href)
+                            if new_href:
+                                element.attrib[href]=new_href
+                                if sphinx_ref_in_plantuml_hyperlinks_verbose:
+                                    logger.info("href resolution: '%s' -> '%s'" % (old_href,new_href),color='purple')
                                 resolved=True
-                        if resolved:
-                            modified=True
-                        else:
-                            logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
+                            elif needs_list:
+                                if old_href in needs_list:
+                                    # TODO: the following needs to be adjusted based on app.builder.imagedir
+                                    element.attrib[href]=f"../{needs_list[old_href]['docname']}.html#{old_href}"
+                                    resolved=True
+                            if resolved:
+                                modified=True
+                            else:
+                                logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
+
             if modified:
                 logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')
                 try:
-                    tree.write(filename)
+                    # Write the modified SVG content back to a file
+                    with open(filename, 'wb') as file:
+                        file.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
                 except Exception as exc:
                     logger.error("Failed to write file:'%s' - %s" % (filename[len(os.getcwd())+1:],exc))
     return
