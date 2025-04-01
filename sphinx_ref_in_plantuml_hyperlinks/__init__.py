@@ -11,8 +11,8 @@ from sphinx_needs.needsfile import NeedsList
 
 logger = sphinx.util.logging.getLogger(__name__)
 
-__version__ = "0.6.0"
-version_info = (0,6,0)
+__version__ = "0.7.0"
+version_info = (0,7,0)
 
 def init_needs(app):
     needs_list = NeedsList(app.env.config,app.outdir,app.srcdir)
