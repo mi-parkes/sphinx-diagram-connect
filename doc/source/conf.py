@@ -55,4 +55,4 @@ needs_types = [
     dict(directive="need", title="Need", prefix="N_",color="#FDF5E6", style="rectangle")
 ]
 
-#sphinx_ref_in_plantuml_hyperlinks_verbose=True
+#suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']

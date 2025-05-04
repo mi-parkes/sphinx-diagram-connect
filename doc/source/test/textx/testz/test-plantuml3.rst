@@ -26,6 +26,13 @@ Some other text here
 
     @endmindmap
 
+.. uml:: test.puml
+    :caption: Interactive PlantUML
+    :name: PlantUML Label 3
+
+    
+
+
 .. need:: Some Other Need
     :id: N_00002
     :status: open
