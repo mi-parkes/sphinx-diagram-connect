@@ -1,0 +1,559 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="741px" preserveAspectRatio="none" style="width:779px;height:741px;background:#FFFFFF;" version="1.1" viewBox="0 0 779 741" width="779px" zoomAndPan="magnify">
+  <defs>
+    <style type="text/css">.elem {cursor: pointer;} 
+.elem, .link {opacity: 0.3;}
+.elem.selected, .link.selected {opacity: 1;}
+</style>
+    <script>function addItemToMapOfLists(mapOfLists, name, item) {
+  // mapOfLists = {
+  //   'key1': [item1, item2, ...],
+  //   'key2': [item3, item4, ...],
+  // }
+  if (mapOfLists[name].length &gt; 0) {
+    if (!mapOfLists[name].includes(item)) {
+      mapOfLists[name].push(item);
+    }
+  } else {
+    mapOfLists[name] = [item];
+  }
+}
+
+function main() {
+  let elems = Array.from(document.getElementsByClassName('elem'));
+  let links = Array.from(document.getElementsByClassName('link'));
+
+  let elemsMap = {};
+  let linkedFromElems = {};
+  let linkedToElems = {};
+  let linkedFromLinks = {};
+  let linkedToLinks = {};
+
+  elems.forEach(elem =&gt; {
+    let name = elem.classList[1];
+    elemsMap[name] = elem;
+    linkedFromElems[name] = [];
+    linkedToElems[name] = [];
+    linkedFromLinks[name] = [];
+    linkedToLinks[name] = [];
+  });
+
+  links.forEach(link =&gt; {
+    let fromName = link.classList[1];
+    let toName = link.classList[2];
+
+    if (elemsMap[fromName] &amp;&amp; elemsMap[toName]) {
+      let fromElem = elemsMap[fromName];
+      let toElem = elemsMap[toName];
+
+      addItemToMapOfLists(linkedFromElems, toName, fromElem);
+      addItemToMapOfLists(linkedToElems, fromName, toElem);
+
+      addItemToMapOfLists(linkedFromLinks, toName, link);
+      addItemToMapOfLists(linkedToLinks, fromName, link);
+    }
+  });
+
+  let selectedElems = [];
+  let selectedLinks = [];
+  let selectedElemName = null;
+
+  function clearSelected() {
+    selectedElems.forEach(item =&gt; {
+      item.classList.remove('selected');
+    });
+    selectedElems = [];
+
+    selectedLinks.forEach(item =&gt; {
+      item.classList.remove('selected');
+    });
+    selectedLinks = [];
+  }
+
+  function selectAll() {
+    selectedElemName = null;
+    clearSelected();
+
+    selectedElems = Array.from(elems);
+    selectedElems.forEach(item =&gt; {
+      item.classList.add('selected');
+    });
+
+    selectedLinks = Array.from(links);
+    selectedLinks.forEach(item =&gt; {
+      item.classList.add('selected');
+    });
+  }
+
+  function selectElem(elemName) {
+    if (elemName === selectedElemName) {
+      selectAll();
+    } else {
+      clearSelected();
+      selectedElemName = elemName;
+
+      elemsMap[elemName].classList.add('selected');
+      selectedElems.push(elemsMap[elemName]);
+
+      linkedFromElems[elemName].forEach(linkedElem =&gt; {
+        // Avoid repetitive processing
+        if (selectedElems.includes(linkedElem)) {
+          return;
+        }
+        selectedElems.push(linkedElem);
+        linkedElem.classList.add('selected');
+      });
+      linkedToElems[elemName].forEach(linkedElem =&gt; {
+        // Avoid repetitive processing
+        if (selectedElems.includes(linkedElem)) {
+          return;
+        }
+        selectedElems.push(linkedElem);
+        linkedElem.classList.add('selected');
+      });
+
+      linkedFromLinks[elemName].forEach(linkedLink =&gt; {
+        // Avoid repetitive processing
+        if (selectedLinks.includes(linkedLink)) {
+          return;
+        }
+        selectedLinks.push(linkedLink);
+        linkedLink.classList.add('selected');
+      });
+      linkedToLinks[elemName].forEach(linkedLink =&gt; {
+        // Avoid repetitive processing
+        if (selectedLinks.includes(linkedLink)) {
+          return;
+        }
+        selectedLinks.push(linkedLink);
+        linkedLink.classList.add('selected');
+      });
+    }
+  }
+
+  function selectElemOfLine(elemName) {
+    clearSelected();
+    selectedElemName = elemName;
+
+    elemsMap[elemName].classList.add('selected');
+    selectedElems.push(elemsMap[elemName]);
+
+    selectFromElem(elemName);
+    selectToElem(elemName);
+  }
+
+  function selectFromElem(elemName) {
+    console.log(elemName, "linkedFromLinks", linkedFromLinks[elemName])
+    linkedFromLinks[elemName].forEach(linkedLink =&gt; {
+      // Avoid repetitive processing
+      if (selectedLinks.includes(linkedLink)) {
+        return;
+      }
+      selectedLinks.push(linkedLink);
+      linkedLink.classList.add('selected');
+      console.log(elemName, "from link", linkedLink);
+    });
+
+    console.log(elemName, "linkedFromElems", linkedFromElems[elemName])
+    linkedFromElems[elemName].forEach(linkedElem =&gt; {
+      // break loop reference
+      if (selectedElems.includes(linkedElem)) {
+        return;
+      }
+      selectedElems.push(linkedElem);
+      linkedElem.classList.add('selected');
+      console.log(elemName, "from elem", linkedElem);
+
+      let nextName = linkedElem.classList[1];
+      selectFromElem(nextName);
+    });
+  }
+
+  function selectToElem(elemName) {
+    console.log(elemName, "linkedToLinks", linkedToLinks[elemName]);
+    linkedToLinks[elemName].forEach(linkedLink =&gt; {
+      // Avoid repetitive processing
+      if (selectedLinks.includes(linkedLink)) {
+        return;
+      }
+      selectedLinks.push(linkedLink);
+      linkedLink.classList.add('selected');
+      console.log(elemName, "to link", linkedLink);
+    });
+
+    console.log(elemName, "linkedToElems", linkedToElems[elemName])
+    linkedToElems[elemName].forEach(linkedElem =&gt; {
+      // break loop reference
+      if (selectedElems.includes(linkedElem)) {
+        return;
+      }
+      selectedElems.push(linkedElem);
+      linkedElem.classList.add('selected');
+      console.log(elemName, "to elem", linkedElem);
+
+      let nextName = linkedElem.classList[1];
+      selectToElem(nextName);
+    });
+  }
+
+  Object.keys(elemsMap).forEach(name =&gt; {
+    elemsMap[name].onclick = (event) =&gt; {
+      console.log("onclick: ", event);
+      selectElem(name);
+    };
+    // double click, and then selectElemOfLine
+    elemsMap[name].ondblclick = (event) =&gt; {
+      console.log("ondblclick", event);
+      selectElemOfLine(name);
+    };
+  });
+
+  selectAll();
+
+  document.querySelector('svg').addEventListener('keydown', event =&gt; {
+    console.log('svg keydown: ', event.key);
+    // Press Escape, and then selectAll
+    // https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+    if (event.code === "Escape") {
+      selectAll();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', (event) =&gt; {
+  main();
+});
+</script>
+  </defs>
+  <g>
+    <!--entity user-->
+    <g class="elem user selected" id="elem_user">
+      <a href="../test/test-plantuml1.html#plantuml-label1" target="_top" title=":ref:`plantuml label1`" xlink:actuate="onRequest" xlink:href=":ref:`plantuml label1`" xlink:show="new" xlink:title=":ref:`plantuml label1`" xlink:type="simple">
+        <rect fill="#08427B" height="119.2188" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="205.2266" x="91" y="23.5"/>
+        <image height="48" width="48" x="169.6133" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" y="33.5"/>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="86.7109" x="150.2578" y="96.3516">Customer</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="191.3882" y="113.1201"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.0107" x="101" y="129.417">People</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="148.0107" y="129.417"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.4307" x="152.4609" y="129.417">that</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="180.8916" y="129.417"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34.9863" x="185.3418" y="129.417">need</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="220.3281" y="129.417"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.4482" x="224.7783" y="129.417">products</text>
+      </a>
+    </g>
+    <!--entity admin-->
+    <g class="elem admin selected" id="elem_admin">
+      <rect fill="#08427B" height="151.8125" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="200.6123" x="341" y="7"/>
+      <image height="48" width="48" x="417.3062" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMklEQVR4Xu2YO0oEQRCGN/QCnsDASPCNL9ZnYiAmRiZGgmBitImpgbEX8ASewBMI5h5n5BMGlvqdnuqHO9tg8IH863RXdVVXV/do4eRxVDMi1IYIuRyOb5unnfPmdWvcvG3u/PCyfdrc7V01S0cPz/b/cxEhlev96+ZjfaX5Wl0OgmNrh/ef9vtURIhl8XhyxipbQ/sgInasFESIAeM9q97FZPcy2wkRYkhZeQupZ8eNQQQvpIA1JhUiacf3IoIHJrRG5EDVsnN4EcEDYbdG5GLn8CKCB0qhNSAXzg87jwcRPORUni5Sy6oIHuzkJUgtqSJ4sJOXYKYOvG9siAG5pJ4HInigObMG5DLTTVy6jFIU7BxeRPBSshKl5j+I4KXqVqKlxIF2cXCTvPogQgysXE5FSj28phEhhZRI5K58iwipYJAnGpTgnJy3iJAL911SA0OJDNAuU3pLGt4iQm2IUBsieOB9h5wnVTiEIOaphG/b70gt2ojU9BIhBAaHNiq/tfmOUTgF/M23fdWK32N7IhF+g0FLtg594Ig3IiJYSrYMMRBNz1OkCNOU7jpjIep9kRChhdy1Aw4B6WRtcznQt+FmSajtEAHmZfVb2A/WxqADlEI7yNB0bWgRIFTrh6Lr0i8C2I/nga5rpwilH25LQXdrba3Kga5yKsK/A39E9Q649wDMsvP00vWCIQIM3cRZQk2dCC3UXTvQEHCohm57IkyD11xmaKaGIGS4y4EaEKE2vgFskraCVCcl0AAAAABJRU5ErkJggg==" y="17"/>
+      <text fill="#D73027" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="125.2578" x="378.6772" y="79.8516">Administrator</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="439.0811" y="96.6201"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.0107" x="351" y="112.917">People</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="398.0107" y="112.917"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.4307" x="402.4609" y="112.917">that</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="430.8916" y="112.917"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96.2705" x="435.3418" y="112.917">administrates</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="353.8608" y="129.2139">the</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="376.8364" y="129.2139"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.4482" x="381.2866" y="129.2139">products</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="442.7349" y="129.2139"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20.7539" x="447.1851" y="129.2139">via</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="467.939" y="129.2139"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="472.3892" y="129.2139">the</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="495.3647" y="129.2139"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.9365" x="499.8149" y="129.2139">new</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="380.5586" y="145.5107">v1.1</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="411.1084" y="145.5107"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86.4951" x="415.5586" y="145.5107">components</text>
+    </g>
+    <!--entity spa-->
+    <g class="elem spa selected" id="elem_spa">
+      <rect fill="#438DD5" height="117.7813" rx="2.5" ry="2.5" style="stroke:#D73027;stroke-width:0.5;" width="212.6641" x="87" y="248"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="35.6328" x="175.5156" y="272.8516">SPA</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55.166" x="165.749" y="287.7637">[angular]</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="191.1069" y="303.5889"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.0381" x="97" y="319.8857">The</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="123.0381" y="319.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34.9795" x="127.4883" y="319.8857">main</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="162.4678" y="319.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.4395" x="166.918" y="319.8857">interface</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="229.3574" y="319.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.4307" x="233.8076" y="319.8857">that</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="262.2383" y="319.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="266.6885" y="319.8857">the</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65.9258" x="97.6255" y="336.1826">customer</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="163.5513" y="336.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.6807" x="168.0015" y="336.1826">interacts</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="229.6821" y="336.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.7021" x="234.1323" y="336.1826">with</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="263.8345" y="336.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20.7539" x="268.2847" y="336.1826">via</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="178.0571" y="352.4795">v1.0</text>
+    </g>
+    <!--entity spaAdmin-->
+    <g class="elem spaAdmin selected" id="elem_spaAdmin">
+      <rect fill="#438DD5" height="117.7813" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="212.3633" x="335.5" y="248"/>
+      <text fill="#D73027" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="57.3828" x="392.3887" y="272.8516">Admin</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="449.7715" y="272.8516"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="35.6328" x="455.3418" y="272.8516">SPA</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55.166" x="414.0986" y="287.7637">[angular]</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="439.4565" y="303.5889"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.0381" x="345.6504" y="319.8857">The</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="371.6885" y="319.8857"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.6846" x="376.1387" y="319.8857">administrator</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="470.8232" y="319.8857"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.4395" x="475.2734" y="319.8857">interface</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.4307" x="345.5" y="336.1826">that</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="373.9307" y="336.1826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="378.3809" y="336.1826">the</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="401.3564" y="336.1826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65.9258" x="405.8066" y="336.1826">customer</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="471.7324" y="336.1826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.6807" x="476.1826" y="336.1826">interacts</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.7021" x="380.0352" y="352.4795">with</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="409.7373" y="352.4795"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20.7539" x="414.1875" y="352.4795">via</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="434.9414" y="352.4795"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.9365" x="439.3916" y="352.4795">new</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="468.3281" y="352.4795"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="472.7783" y="352.4795">v1.1</text>
+    </g>
+    <!--entity api-->
+    <g class="elem api selected" id="elem_api">
+      <rect fill="#438DD5" height="101.4844" rx="2.5" ry="2.5" style="stroke:#D73027;stroke-width:0.5;" width="208.3506" x="233.5" y="459.5"/>
+      <text fill="#D73027" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="30.0625" x="322.644" y="484.3516">API</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="34.5059" x="320.4224" y="499.2637">[java]</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="335.4502" y="515.0889"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56.6631" x="247.5161" y="531.3857">Handles</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="304.1792" y="531.3857"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="16.3584" x="308.6294" y="531.3857">all</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="324.9878" y="531.3857"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.0176" x="329.438" y="531.3857">business</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="390.4556" y="531.3857"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32.9287" x="394.9058" y="531.3857">logic</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34.2617" x="243.5" y="547.6826">(incl.</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="277.7617" y="547.6826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.9365" x="282.2119" y="547.6826">new</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="311.1484" y="547.6826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="315.5986" y="547.6826">v1.1</text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="346.1484" y="547.6826"> </text>
+      <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81.252" x="350.5986" y="547.6826">extensions)</text>
+    </g>
+    <!--entity db-->
+    <g class="elem db selected" id="elem_db">
+      <path d="M567,465 C567,455 664.5171,455 664.5171,455 C664.5171,455 762.0342,455 762.0342,465 L762.0342,555.4844 C762.0342,565.4844 664.5171,565.4844 664.5171,565.4844 C664.5171,565.4844 567,565.4844 567,555.4844 L567,465 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:0.5;"/>
+      <path d="M567,465 C567,475 664.5171,475 664.5171,475 C664.5171,475 762.0342,475 762.0342,465 " fill="none" style="stroke:#3C7FC0;stroke-width:0.5;"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="85.1484" x="621.9429" y="493.8516">Database</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="59.7656" x="618.5122" y="508.7637">[Microsoft</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="3.8145" x="678.2778" y="508.7637"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="28.4297" x="682.0923" y="508.7637">SQL]</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="662.292" y="524.5889"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39.1631" x="577" y="540.8857">Holds</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="616.1631" y="540.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.6045" x="620.6133" y="540.8857">product,</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="679.2178" y="540.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37.5771" x="683.668" y="540.8857">order</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="721.2451" y="540.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="725.6953" y="540.8857">and</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49.8135" x="596.8618" y="557.1826">invoice</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="646.6753" y="557.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81.0469" x="651.1255" y="557.1826">information</text>
+    </g>
+    <!--entity archive-->
+    <g class="elem archive selected" id="elem_archive">
+      <rect fill="#438DD5" height="85.1875" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="120.9395" x="7" y="467.5"/>
+      <text fill="#FFA500" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="67.9141" x="33.5127" y="492.3516">Archive</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="36.1523" x="22.9121" y="507.2637">[Audit</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="3.8145" x="59.0645" y="507.2637"> </text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="49.1484" x="62.8789" y="507.2637">logging]</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="65.2446" y="523.0889"> </text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44.6045" x="17" y="539.3857">Stores</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="61.6045" y="539.3857"> </text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8.9072" x="66.0547" y="539.3857">5</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="74.9619" y="539.3857"> </text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.5273" x="79.4121" y="539.3857">years</text>
+    </g>
+    <!--link user to spa-->
+    <g class="link user spa selected" id="link_user_spa">
+      <path d="M193.5,142.62 C193.5,175.12 193.5,207.39 193.5,239.82 " fill="none" id="user-to-spa" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="193.5,247.82,196.5,239.82,190.5,239.82,193.5,247.82" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="32.168" x="198.54" y="201.1387">Uses</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40.248" x="194.5" y="215.1074">[https]</text>
+    </g>
+    <!--link spa to api-->
+    <g class="link spa api selected" id="link_spa_api">
+      <path d="M235.15,366.14 C256.33,395.7 277.1396,424.7576 297.3796,452.9976 " fill="none" id="spa-to-api" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="302.04,459.5,299.818,451.25,294.9412,454.7452,302.04,459.5" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="32.168" x="279.54" y="408.1387">Uses</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40.248" x="275.5" y="422.1074">[https]</text>
+    </g>
+    <!--link api to db-->
+    <g class="link api db selected" id="link_api_db">
+      <path d="M441.86,510 C481.96,510 519.53,510 558.96,510 " fill="none" id="api-to-db" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="566.96,510,558.96,507,558.96,513,566.96,510" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="89.877" x="459.75" y="504.1387">Reads/Writes</text>
+    </g>
+    <!--link admin to spaAdmin-->
+    <g class="link admin spaAdmin selected" id="link_admin_spaAdmin">
+      <path d="M441.5,159.16 C441.5,188.09 441.5,212.66 441.5,239.76 " fill="none" id="admin-to-spaAdmin" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="441.5,247.76,444.5,239.76,438.5,239.76,441.5,247.76" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="32.168" x="446.54" y="201.1387">Uses</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40.248" x="442.5" y="215.1074">[https]</text>
+    </g>
+    <!--link spaAdmin to api-->
+    <g class="link spaAdmin api selected" id="link_spaAdmin_api">
+      <path d="M411.42,366.14 C396.12,395.7 381.408,424.1556 366.788,452.3956 " fill="none" id="spaAdmin-to-api" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="363.11,459.5,369.4521,453.7748,364.1238,451.0164,363.11,459.5" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="32.168" x="401.54" y="408.1387">Uses</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40.248" x="397.5" y="422.1074">[https]</text>
+    </g>
+    <!--reverse link archive to api-->
+    <g class="link archive api selected" id="link_archive_api">
+      <path d="M136.09,510 C167.11,510 197.75,510 233.36,510 " fill="none" id="archive-backto-api" style="stroke:#FFA500;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/>
+      <polygon fill="#FFA500" points="128.09,510,136.09,513,136.09,507,128.09,510" style="stroke:#FFA500;stroke-width:1.0;"/>
+      <text fill="#FFA500" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="44.2852" x="158.8799" y="490.1387">Writes</text>
+      <text fill="#FFA500" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="69.5449" x="146.25" y="504.1074">[messages]</text>
+    </g>
+    <rect fill="none" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="600.4844"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="57.9209" x="561.8604" y="613.4795">Legend</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="619.7813" y="613.4795"> </text>
+    <rect fill="#08427B" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="616.7813"/>
+    <text fill="#073B6F" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="7.7041" x="566.3105" y="629.7764">▯</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.0146" y="629.7764"> </text>
+    <image height="12" width="12" x="578.4648" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAApklEQVR4XmPgcKpmQMfRjcsb/CoWNqCLgzCGwH80gC6Pwjl17RG6+v9T1h47gFPD95+/0dX/33v2DootKBriW1Y2oGvQjesPxKkBhDuW7D8AUxzfunIiujwKRzWyO8ksdXIxjG+XPaNBNqgNuw3IzkAHIL+haNh67MZndEXooGXh3kVwDeiS2MCtx6/BtoA1/P7zF10eA5y69hihAYQNkyY24MMwdQBvKDvWFDAX9QAAAABJRU5ErkJggg==" y="621.0781"/>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.9883" x="599.3652" y="629.7764">person</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="651.8037" y="629.7764"> </text>
+    <rect fill="#438DD5" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="633.0781"/>
+    <text fill="#3C7FC0" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="7.7041" x="566.3105" y="646.0732">▯</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.0146" y="646.0732"> </text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.3359" x="582.915" y="646.0732">container</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="653.7012" y="646.0732"> </text>
+    <rect fill="#F0E68C" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="649.375"/>
+    <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="7.7041" x="566.3105" y="662.3701">▯</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.0146" y="662.3701"> </text>
+    <text fill="#66622E" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="582.915" y="662.3701">v1.0</text>
+    <text fill="#66622E" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="125.6689" x="617.915" y="663.3135">(last text and back color)</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="743.584" y="662.3701"> </text>
+    <rect fill="#F0E68C" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="665.6719"/>
+    <text fill="#F0E68C" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="7.7041" x="566.3105" y="678.667">▯</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.0146" y="678.667"> </text>
+    <text fill="#D73027" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.5498" x="582.915" y="678.667">v1.1</text>
+    <text fill="#D73027" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="80.5859" x="617.915" y="679.6104">(last back color)</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="698.501" y="678.667"> </text>
+    <rect fill="#66622E" height="16.2969" style="stroke:none;stroke-width:1.0;" width="186.1738" x="561.8604" y="681.9688"/>
+    <text fill="#66622E" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="7.7041" x="566.3105" y="694.9639">▯</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.0146" y="694.9639"> </text>
+    <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.0303" x="582.915" y="694.9639">backup</text>
+    <text fill="#FFA500" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="80.5859" x="638.3955" y="695.9072">(last back color)</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="718.9814" y="694.9639"> </text>
+    <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8.4287" x="566.3105" y="711.2607">─</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="574.7393" y="711.2607"> </text>
+    <text fill="#FFA500" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.0303" x="583.6396" y="711.2607">backup</text>
+    <text fill="#FFA500" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44.3262" x="639.1201" y="712.2041">(dashed)</text>
+    <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="683.4463" y="711.2607"> </text>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="600.4844" y2="600.4844"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="616.7813" y2="616.7813"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="633.0781" y2="633.0781"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="649.375" y2="649.375"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="665.6719" y2="665.6719"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="681.9688" y2="681.9688"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="698.2656" y2="698.2656"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="748.0342" y1="714.5625" y2="714.5625"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="561.8604" x2="561.8604" y1="600.4844" y2="714.5625"/>
+    <line style="stroke:none;stroke-width:1.0;" x1="748.0342" x2="748.0342" y1="600.4844" y2="714.5625"/>
+    <!--SRC=[bLDTRzD047pFhzWQ7XmHjGaKLQe8KfH4j5A0a1JreQhIjM_Z79plhBkpI_yzUuxpqP22UBArEtUpCpTxKbZCSWHNPL9xifXwMH5uMrAhTI9rgaf1y65uVZOyNmoDzYWrsO-jra28iQASjB_1B8wgtcatwi3hn5X1TcYKiVtebRXurtrx4RMFe7i1lUGB_uLDCFrP5WTeOr5dnE20df4wG7hwTO3aekB9ZnRd_aaHz664RaLYmfMupJTFoJgZuzAHxK0qB9qtELa-54t957p2hz239X9GM2FArBkeVNS7qQMbvUL3eL3xCbUWC27LUuZWEXYiKS4KCu8PBScIJga7z_SRCXIvrCmm25_fl4Ll_g34NPCSbsZB3vN4kg3f4OB9a9gyC9gzTBKlcBd-slrsQ_kQiIkGAURJGM1YPqg5DUaDtvGp1EfeB35j1WWCQUC7R6BZu57wLJt19WnRkkuXtM1V9nndndqF_dU4ZG5_KOs531DChmFX3wmmVAzG2yMkebAGb8w1pe4ocKmX3jjmkhEMCqRQIQDT-xdODuTKeoGM2Ly-Gey9kX2ywBDChN5cwM7-RL8p6oNSvYKxKEyHy3IihZAITKkzD3P7pupFTTXqnJiRjAp_mcs3KaWV1kUrpa9XpYQohlVmH6Ztmj0i3UUTrwW9-peFtnq5NBJolk1ar_swipRkI7inMvjQYvqH2dTsQoM7j3dTf7ll_L_WQDel4qtMH3lf3G__vVnYl5z79Swlljuk9kDFuo-ZkFqR]-->
+  </g>
+  <style type="text/css">[data-mouse-over-selected="false"] {
+	opacity: 0.2;
+}
+[data-mouse-over-selected="true"] {
+	opacity: 1.0;
+}
+</style>
+  <script type="text/javascript" xlink:href="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"/>
+  <script>(function (){
+	/**
+	 * @param {SVG.G} node
+	 * @param {SVG.G} topG
+	 * @return {{node: Set&lt;SVG.G&gt;, edges:Set&lt;SVG.G&gt;}}
+	 */
+	function getEdgesAndDistance1Nodes(node, topG) {
+		const nodeName = node.attr("id").match(/elem_(.+)/)[1];
+		const selector = "[id^=link_]"
+		const candidates = topG.find(selector)
+		let edges = new Set();
+		let nodes = new Set();
+		for (let link of candidates) {
+			const res = link.attr("id").match(/link_([A-Za-z\d]+)_([A-Za-z\d]+)/);
+			if (res &amp;&amp; res.length==3) {
+				const N1 = res[1];
+				const N2 = res[2];
+				if (N1==nodeName) {
+					const N2selector = `[id=elem_${N2}]`;
+					nodes.add(topG.findOne(N2selector));
+					edges.add(link);
+				} else if (N2==nodeName) {
+					const N1selector = `[id=elem_${N1}]`;
+					nodes.add(topG.findOne(N1selector));
+					edges.add(link);
+				}
+			}
+		}
+		return {
+			"nodes" : nodes,
+			"edges" : edges
+		};
+	}
+
+	/**
+	 * @param {SVG.G} node
+	 * @param {function(SVG.Dom)}
+	 * @return {{node: Set&lt;SVG.G&gt;, edges:Set&lt;SVG.G&gt;}}
+	 */
+	function walk(node, func) {
+		let children = node.children();
+		for (let child of children) {
+			walk(child, func)
+		}
+		func(node);
+	}
+	let s = SVG("svg &gt; g")
+	/**
+	 * @param {SVGElement} domEl
+	 * @return {{SVGElement}}
+	 */
+	function findEnclosingG(domEl) {
+		let curEl = domEl;
+		while (curEl.nodeName != "g") {
+			curEl = curEl.parentElement;
+		}
+		return curEl;
+	}
+	function onMouseOverElem(domEl) {
+		let e = SVG(findEnclosingG(domEl.target));
+		walk(s,
+			e =&gt; { if (SVG(e)!=s)
+				SVG(e).attr('data-mouse-over-selected',"false");
+			});
+		walk(e, e =&gt; SVG(e).attr('data-mouse-over-selected',"true"));
+		let {nodes, edges} = getEdgesAndDistance1Nodes(SVG(e), s);
+		for (let node of nodes) {
+			walk(node, e =&gt; SVG(e).attr('data-mouse-over-selected',"true"));
+		}
+		for (let edge of edges) {
+			walk(edge, e =&gt; SVG(e).attr('data-mouse-over-selected',"true"));
+		}
+	}
+
+	function onMouseOutElem(domEl) {
+		let e = SVG(findEnclosingG(domEl.target));
+		walk(s, e =&gt; e.attr('data-mouse-over-selected',null));
+	}
+	let gs = s.find("g[id^=elem_]");
+	for (let g of gs) {
+		g.on("mouseover", onMouseOverElem);
+		g.on("mouseout", onMouseOutElem);
+	}
+})();
+</script>
+</svg>
