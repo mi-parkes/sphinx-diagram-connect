@@ -88,7 +88,7 @@ def resolve_references(app,docname):
                             if resolved:
                                 modified=True
                             else:
-                                logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred')
+                                logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred',type='sphinx-ref-in-plantuml-hyperlinks-missing-reference')
 
             if modified:
                 logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')

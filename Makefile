@@ -16,27 +16,19 @@ $(VERBOSE).SILENT:
 	echo
 
 doc/.venv:
-	python3 -m venv doc/.venv
-	source doc/.venv/bin/activate
-	pip install -r doc/requirements.txt
+	poetry install
 
 install: doc/.venv
-	source doc/.venv/bin/activate
 	rm -rf build dist doc/build
-	python -m build  --sdist --wheel
-	pip uninstall sphinx-ref-in-plantuml-hyperlinks -y
-	pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
+	poetry install
 
 prep-release: doc/.venv
-	source doc/.venv/bin/activate
-	python -m pip install --upgrade twine
 	rm -rf build dist doc/build
-	python -m build  --sdist
+	poetry install
 	tar -tf dist/*
 
-upload-package:
-	source doc/.venv/bin/activate
-	python -m twine upload  dist/* --verbose
+#upload-package:
+#	poetry publish
 
 installx:
 	pip uninstall sphinx-ref-in-plantuml-hyperlinks -y

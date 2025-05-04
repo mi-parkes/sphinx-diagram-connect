@@ -31,11 +31,8 @@ Alternatively (Linux)
     git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
     cd sphinx-ref-in-plantuml-hyperlinks
 
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r doc/requirements.txt
-
-    python3 -m build --wheel
+    poetry install
+    poetry build
     pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
 
 ## Activation

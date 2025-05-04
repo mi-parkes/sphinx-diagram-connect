@@ -1,0 +1,34 @@
+{
+  "name": "sphinx-ref-in-plantuml-hyperlinks-dc",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+    "-v","${localWorkspaceFolder}:/workspace",
+    "--network=host",
+    "-p=11434:11434"
+  ],
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "poetry install;/usr/bin/bash",
+  "mounts": [
+    "type=bind,readonly,source=/etc/localtime,target=/etc/localtime"
+  ],
+  "containerEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+    "GITHUB_USER": "${localEnv:GITHUB_USER}",
+    "LC_ALL": "en_US.UTF-8",
+    "LANG": "en_US.UTF-8",
+    "LANGUAGE": "en_US.UTF-8"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "jebbs.plantuml@2.18.1",
+        "ritwickdey.liveserver"
+      ]
+    }
+  }
+}
