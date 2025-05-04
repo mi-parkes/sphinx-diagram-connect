@@ -35,8 +35,11 @@ installx:
 	pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
 
 html:
-	source doc/.venv/bin/activate
-	$(MAKE) -C doc clean html
+	poetry run task doc
+
+htmlx:
+	poetry run task doc
+	cp -r doc/build/html/* docs
 
 WEBSERVERPORT=8080
 

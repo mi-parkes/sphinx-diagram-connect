@@ -47,4 +47,5 @@ In your conf.py configuration file, add `sphinx_ref_in_plantuml_hyperlinks` to y
 
 ## List Labels:
 
-    python3 -m sphinx.ext.intersphinx build/html/objects.inv
+   poetry run task labels
+
