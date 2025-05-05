@@ -25,10 +25,11 @@ install: doc/.venv
 prep-release: doc/.venv
 	rm -rf build dist doc/build
 	poetry install
-	tar -tf dist/*
+	poetry build
+	tar -tf dist/*.tar.gz
 
-#upload-package:
-#	poetry publish
+upload-package:
+	poetry publish
 
 installx:
 	pip uninstall sphinx-ref-in-plantuml-hyperlinks -y
@@ -51,3 +52,16 @@ webserver:
 show:
 	open http://localhost:$(WEBSERVERPORT)
 
+test-package:
+	$(eval WDIR=/tmp/test)
+	$(eval BRANCH=main)
+	mkdir -p $(WDIR)
+	rm -rf $(WDIR)/*
+	cd $(WDIR)
+	git clone -b $(BRANCH) --single-branch \
+			https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
+	cd sphinx-ref-in-plantuml-hyperlinks
+#	poetry install --only test,docs
+	poetry install
+	poetry build
+	poetry run task doc
