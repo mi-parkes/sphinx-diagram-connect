@@ -1,16 +1,18 @@
 [project]
+name = "sphinx-ref-in-plantuml-hyperlinks"
 license = {file = "LICENSE"}
+version = "0.6.1"
+readme = "README.md"
+authors = [{name = "Michael Parkes",email = "mparkes@post.cz"}]
+description = "sphinx-ref-in-plantuml-hyperlinks is a Sphinx extension to resolve std:ref-s defined in plantuml files"
+repository = "https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks"
+documentation = "https://mi-parkes.github.io/sphinx-ref-in-plantuml-hyperlinks/"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "sphinx-ref-in-plantuml-hyperlinks"
-version = "0.6.0"
-readme = "README.md"
-authors = ["Michael Parkes <mparkes@post.cz>"]
-description = "sphinx-ref-in-plantuml-hyperlinks is a Sphinx extension to resolve std:ref-s defined in plantuml files"
 
 exclude = [
     ".eggs",
