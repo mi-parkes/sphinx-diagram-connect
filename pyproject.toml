@@ -1,7 +1,7 @@
 [project]
 name = "sphinx-ref-in-plantuml-hyperlinks"
 license = {file = "LICENSE"}
-version = "0.7.0"
+version = "0.7.1"
 readme = "README.md"
 authors = [{name = "Michael Parkes",email = "mparkes@post.cz"}]
 description = "sphinx-ref-in-plantuml-hyperlinks is a Sphinx extension to resolve std:ref-s defined in plantuml files"
@@ -27,20 +27,17 @@ exclude = [
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-plantuml="0.3.0"
-six="1.16.0"
-debugpy = "*"
+sphinx = "^6.1.3"
+sphinx-needs = "^2.0.0"
+lxml = "^5.4.0"
 
 [tool.poetry.group.dev.dependencies]
 taskipy             = ">=1.11.0"
 black               = ">=24.1.0"
 
 [tool.poetry.group.sphinx.dependencies]
-sphinx = "^6.1.3"
 sphinx-book-theme = "*"
-sphinx-needs = "^2.0.0"
 sphinxcontrib-plantuml = "0.30"
-lxml = "^5.4.0"
 
 [tool.taskipy.tasks]
 help        = { cmd = "task --list", help="Show this help" }

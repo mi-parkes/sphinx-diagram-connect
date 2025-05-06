@@ -10,7 +10,9 @@ help:
 
 helpx:
 	echo "$(MAKE) prep-release    # Prepare release data"
-	echo "$(MAKE) upload-package  # Uplaod package to PYPI"
+	echo "$(MAKE) upload-package  # Upload package to PYPI"
+	echo "$(MAKE) test-building-package # Fetched from github
+	echo "$(MAKE) test-using-package # Using local build or PYPI
 
 $(VERBOSE).SILENT:
 	echo
@@ -52,7 +54,7 @@ webserver:
 show:
 	open http://localhost:$(WEBSERVERPORT)
 
-test-package:
+test-building-package:
 	$(eval WDIR=/tmp/test)
 	$(eval BRANCH=main)
 	mkdir -p $(WDIR)
@@ -65,3 +67,28 @@ test-package:
 	poetry install
 	poetry build
 	poetry run task doc
+
+test-using-package:
+	$(eval ODIR=/tmp/$@)
+	rm -rf $(ODIR)/
+	mkdir -p $(ODIR)
+	cd $(ODIR)
+	poetry init \
+			-n \
+			--name $@ \
+			--description "$@" \
+			--author john.doe \
+			--python "^3.10" \
+			-l MIT
+
+	$(if $(VERBOSE),ls -l.)
+	$(if $(VERBOSE),cat pyproject.toml,)
+
+	poetry add \
+		$(if $(LOCAL_MODE),$(CURDIR)/dist/sphinx_ref_in_plantuml_hyperlinks-*-py3-none-any.whl,sphinx-ref-in-plantuml-hyperlinks="*") \
+		sphinx-book-theme="*" \
+		sphinxcontrib-plantuml="0.30"
+
+	cp -r $(CURDIR)/doc .
+	$(if $(VERBOSE),poetry show,)
+	poetry run  bash -c "cd doc && sphinx-build -M html source build"
