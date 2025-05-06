@@ -10,7 +10,8 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx_needs',
-    'sphinx_ref_in_plantuml_hyperlinks'
+    'sphinx_ref_in_plantuml_hyperlinks',
+    'sphinxcontrib.drawio'
 ]
 
 exclude_patterns = []
