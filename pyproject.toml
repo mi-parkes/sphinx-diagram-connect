@@ -13,11 +13,6 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "sphinx-ref-in-plantuml-hyperlinks"
-version = "0.7.2"
-authors = ["Michael Parkes <mparkes@post.cz>"]
-description = "sphinx-ref-in-plantuml-hyperlinks is a Sphinx extension to resolve std:ref-s defined in plantuml files"
-
 
 exclude = [
     ".eggs",
