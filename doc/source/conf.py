@@ -59,3 +59,4 @@ needs_types = [
 #suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']
 
 drawio_disable_verbose_electron = True
+#drawio_no_sandbox=True
