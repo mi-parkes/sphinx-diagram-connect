@@ -1,6 +1,6 @@
 project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
 author  = 'MP'
-version = '1.0'
+version = '1.2'
 
 import os, sys
 
