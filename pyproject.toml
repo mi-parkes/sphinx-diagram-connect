@@ -1,7 +1,7 @@
 [project]
 name = "sphinx-ref-in-plantuml-hyperlinks"
 license = {file = "LICENSE"}
-version = "0.7.2"
+version = "0.7.3"
 readme = "README.md"
 authors = [{name = "Michael Parkes",email = "mparkes@post.cz"}]
 description = "sphinx-ref-in-plantuml-hyperlinks is a Sphinx extension to resolve std:ref-s defined in plantuml files"
