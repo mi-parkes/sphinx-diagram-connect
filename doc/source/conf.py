@@ -1,4 +1,3 @@
-
 project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
 author  = 'MP'
 version = '1.0'
@@ -41,7 +40,7 @@ if env_plantuml != None:
     plantuml = env_plantuml
 else:
     if sys.platform.startswith("linux"):
-        plantuml = 'java -jar /usr/share/plantuml/plantuml.jar'
+        plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
     elif sys.platform == "darwin":
         plantuml = 'java -jar /usr/local/plantuml/plantuml.jar'
 plantuml_output_format = 'svg'
@@ -58,5 +57,5 @@ needs_types = [
 
 #suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']
 
-drawio_disable_verbose_electron = True
-#drawio_no_sandbox=True
+drawio_headless=True
+
