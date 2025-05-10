@@ -1,7 +1,6 @@
-
 project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
 author  = 'MP'
-version = '1.0'
+version = '1.2'
 
 import os, sys
 
@@ -10,7 +9,8 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx_needs',
-    'sphinx_ref_in_plantuml_hyperlinks'
+    'sphinx_ref_in_plantuml_hyperlinks',
+    'sphinxcontrib.drawio'
 ]
 
 exclude_patterns = []
@@ -40,7 +40,7 @@ if env_plantuml != None:
     plantuml = env_plantuml
 else:
     if sys.platform.startswith("linux"):
-        plantuml = 'java -jar /usr/share/plantuml/plantuml.jar'
+        plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
     elif sys.platform == "darwin":
         plantuml = 'java -jar /usr/local/plantuml/plantuml.jar'
 plantuml_output_format = 'svg'
@@ -56,3 +56,6 @@ needs_types = [
 ]
 
 #suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']
+
+drawio_headless=True
+

@@ -1,6 +1,6 @@
-# Enhanced integration between Sphinx documentation and PlantUML diagrams
+# Enhanced integration between Sphinx documentation, PlantUML, and DrawIO diagrams
 
-`sphinx_ref_in_plantuml_hyperlinks` is a [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension that automatically resolves references (links) created using the `std:ref:` syntax within [PlantUML](https://plantuml.com) diagrams. This allows you to link elements in your PlantUML diagrams to corresponding sections or elements in your Sphinx documentation, enhancing navigation and information flow.
+`sphinx_ref_in_plantuml_hyperlinks` is a [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension that automatically resolves references (links) created using the `std:ref:` syntax within [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. This allows you to link elements in your  diagrams to corresponding sections or elements in your Sphinx documentation, enhancing navigation and information flow.
 
 ![](https://mi-parkes.github.io/sphinx-ref-in-plantuml-hyperlinks/_images/refInPlantuml.png)
 
@@ -33,6 +33,7 @@ Alternatively (Linux)
 
     poetry install
     poetry build
+
     pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
 
 ## Activation
