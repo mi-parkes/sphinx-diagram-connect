@@ -6,47 +6,54 @@
 
 ## Example of Use
 
-    .. uml::
-        :caption: PlantUML Caption with **bold** and *italic*
-        :name: PlantUML Label2
-    
-        @startmindmap mindmap2
-    
-        *[#Orange] Example of clickable references
-        **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Reference1 ]]
-        **[#lightblue] [[ ":ref:`N_00001`" Internal Page Reference2 on Sphinx-Needs ]]
+```rst
+.. uml::
+    :caption: PlantUML Caption with **bold** and *italic*
+    :name: PlantUML Label2
 
-        @endmindmap
+    @startmindmap mindmap2
 
+    *[#Orange] Example of clickable references
+    **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Reference1 ]]
+    **[#lightblue] [[ ":ref:`N_00001`" Internal Page Reference2 on Sphinx-Needs ]]
+
+    @endmindmap
+```
 ## Installation
 
 You can install [sphinx-ref-in-plantuml-hyperlinks](https://pypi.org/project/sphinx-ref-in-plantuml-hyperlinks/) with pip
 
-```
+```bash
 pip install sphinx-ref-in-plantuml-hyperlinks
 ```
 
 Alternatively (Linux)
 
-    git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
-    cd sphinx-ref-in-plantuml-hyperlinks
+```bash
+git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
+cd sphinx-ref-in-plantuml-hyperlinks
 
-    poetry install
-    poetry build
+poetry install
+poetry build
 
-    pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
+poetry add -G sphinx dist/sphinx_ref_in_plantuml_hyperlinks-*-py3-none-any.whl
+```
 
 ## Activation
 
 In your conf.py configuration file, add `sphinx_ref_in_plantuml_hyperlinks` to your extensions list:
 
-    extensions = [
-      ...
-      'sphinx_ref_in_plantuml_hyperlinks'
-      ...
-    ]
+```python
+extensions = [
+    ...
+    'sphinx_ref_in_plantuml_hyperlinks'
+    ...
+]
+```
 
 ## List Labels:
 
-   poetry run task labels
+```bash
+poetry run task labels
+```
 
