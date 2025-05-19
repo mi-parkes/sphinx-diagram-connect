@@ -1,5 +1,4 @@
 FROM ubuntu:24.04
-ARG ARCHITECTURE=arm64
 ARG PLANTUML_VERSION=1.2024.6
 ARG DRAWIO_VERSION=26.2.15
 ARG POETRY_VERSION=2.1.1
@@ -17,14 +16,10 @@ RUN DEBIAN_FRONTEND=noninteractive  apt install -y \
     libssl-dev \
     git \
     curl \
-    wget \
     make \
     graphviz \
     locales \
     locales-all \
-    make \
-    nano \
-    jq \
     openjdk-17-jdk \
     python${PYTHON_VERSION} \
     python${PYTHON_VERSION}-venv \
@@ -41,19 +36,14 @@ RUN DEBIAN_FRONTEND=noninteractive  apt install -y \
 
 RUN apt install -y pipx 
 
-# Additional Fonts
-# RUN apt-get install -y fonts-liberation \
-#   fonts-arphic-ukai fonts-arphic-uming \
-#   fonts-noto fonts-noto-cjk \
-#   fonts-ipafont-mincho fonts-ipafont-gothic \
-#   fonts-unfonts-core
-
 RUN mkdir -p $(dirname "${PLANTUML_PATH}")
 
 RUN curl -o ${PLANTUML_PATH} -L \
     https://github.com/plantuml/plantuml/releases/download/v${PLANTUML_VERSION}/plantuml-mit-${PLANTUML_VERSION}.jar
 
-RUN curl -o /tmp/drawio.deb -L https://github.com/jgraph/drawio-desktop/releases/download/v$DRAWIO_VERSION/drawio-$ARCHITECTURE-$DRAWIO_VERSION.deb \
+RUN TARGETARCH=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
+    curl -o /tmp/drawio.deb -L \
+        https://github.com/jgraph/drawio-desktop/releases/download/v$DRAWIO_VERSION/drawio-$TARGETARCH-$DRAWIO_VERSION.deb \
     && dpkg -i /tmp/drawio.deb \
     && rm /tmp/drawio.deb
 
