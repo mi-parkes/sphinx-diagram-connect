@@ -1,10 +1,20 @@
-# Enhanced integration between Sphinx documentation, PlantUML, and DrawIO diagrams
+# Enhance Your Sphinx Documentation with Dynamic Diagram Links
 
-`sphinx_ref_in_plantuml_hyperlinks` is a [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension that automatically resolves references (links) created using the `std:ref:` syntax within [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. This allows you to link elements in your  diagrams to corresponding sections or elements in your Sphinx documentation, enhancing navigation and information flow.
+---
+
+## Unlock Seamless Navigation Between Diagrams and Documentation
+
+`sphinx_ref_in_plantuml_hyperlinks` is a powerful [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension designed to create intelligent, clickable links within your [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. By automatically resolving `std:ref:` syntax, this extension allows you to effortlessly connect elements in your diagrams directly to relevant sections or components within your Sphinx documentation. This means enhanced navigation, improved information flow, and a more interactive experience for your readers.
+
+---
+
+### See It in Action: Dynamic References in PlantUML
+
+Imagine clicking on a diagram element and being taken directly to its detailed explanation in your documentation. This is precisely what `sphinx_ref_in_plantuml_hyperlinks` enables.
 
 ![](https://mi-parkes.github.io/sphinx-ref-in-plantuml-hyperlinks/_images/refInPlantuml.png)
 
-## Example of Use
+This example demonstrates how `std:ref:` syntax within your PlantUML code becomes a live hyperlink in your rendered documentation:
 
 ```rst
 .. uml::
@@ -21,13 +31,13 @@
 ```
 ## Installation
 
-You can install [sphinx-ref-in-plantuml-hyperlinks](https://pypi.org/project/sphinx-ref-in-plantuml-hyperlinks/) with pip
+You can easily install [sphinx-ref-in-plantuml-hyperlinks](https://pypi.org/project/sphinx-ref-in-plantuml-hyperlinks/) using pip:
 
 ```bash
 pip install sphinx-ref-in-plantuml-hyperlinks
 ```
 
-Alternatively (Linux)
+Alternatively (for Linux users with Poetry):
 
 ```bash
 git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
@@ -41,19 +51,19 @@ poetry add -G sphinx dist/sphinx_ref_in_plantuml_hyperlinks-*-py3-none-any.whl
 
 ## Activation
 
-In your conf.py configuration file, add `sphinx_ref_in_plantuml_hyperlinks` to your extensions list:
+Once installed, simply add `sphinx_ref_in_plantuml_hyperlinks` to your extensions list in your conf.py file:
 
 ```python
 extensions = [
-    ...
+    ...,
     'sphinx_ref_in_plantuml_hyperlinks'
-    ...
 ]
 ```
 
-## List Labels:
+## Listing Available Labels:
+
+To see all referenceable labels in your project, use:
 
 ```bash
 poetry run task labels
 ```
-
