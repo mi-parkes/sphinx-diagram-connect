@@ -8,6 +8,7 @@ Demo using sphinx :ref: in PlantUML hyperlinks
    test/test-plantuml1.rst
    test/textx/test-plantuml2.rst
    test/textx/testz/test-plantuml3.rst
+   test/test-plantuml4.rst
 
 Indices and tables
 ==================
