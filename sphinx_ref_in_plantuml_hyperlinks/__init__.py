@@ -52,7 +52,7 @@ def resolve_references(app,docname):
         sphinx_ref_in_plantuml_hyperlinks_verbose=getattr(app.config,"sphinx_ref_in_plantuml_hyperlinks_verbose",False)
         needs_build_json=getattr(app.config,"needs_build_json",False)
         needs_list=init_needs(app) if needs_build_json else None
-        pattern = r"(:ref:`([^`]+)`)"
+        pattern = r"(:(ref|doc):`([^`]+)`)"
         href = ""
 
         for filename in glob.glob(os.path.join(app.builder.outdir,app.builder.imagedir)+"/*.svg",recursive=True):
@@ -73,7 +73,7 @@ def resolve_references(app,docname):
                         match = re.search(pattern,element.attrib[href])
                         if match:
                             resolved=False
-                            complete,old_href=match.groups()
+                            complete,type,old_href=match.groups()
                             new_href=resolve_ref(app,old_href)
                             if new_href:
                                 element.attrib[href]=new_href

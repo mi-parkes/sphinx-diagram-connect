@@ -39,6 +39,7 @@ black   = ">=24.1.0"
 sphinx-book-theme = "*"
 sphinxcontrib-plantuml = "0.30"
 sphinxcontrib-drawio = "^0.0.17"
+pillow = "*"
 
 [tool.taskipy.tasks]
 help        = { cmd = "task --list", help="Show this help" }

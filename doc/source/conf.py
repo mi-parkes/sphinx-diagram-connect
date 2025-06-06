@@ -82,3 +82,4 @@ needs_types = [
 
 #suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']
 
+#sphinx_ref_in_plantuml_hyperlinks_verbose=True

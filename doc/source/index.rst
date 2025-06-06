@@ -1,18 +1,13 @@
-Demo using sphinx :ref: in PlantUML hyperlinks
-==============================================
+Demo using sphinx :doc: and :ref: in PlantUML hyperlinks
+=========================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-   test/test-plantuml1.rst
-   test/textx/test-plantuml2.rst
-   test/textx/testz/test-plantuml3.rst
-   test/test-plantuml4.rst
+   c4/index
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   test/test-plantuml1
+   test/textx/test-plantuml2
+   test/textx/testz/test-plantuml3
+   test/test-plantuml4
