@@ -4,7 +4,7 @@
 
 ## Unlock Seamless Navigation Between Diagrams and Documentation
 
-`sphinx_ref_in_plantuml_hyperlinks` is a powerful [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension designed to create intelligent, clickable links within your [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. By automatically resolving `std:ref:` syntax, this extension allows you to effortlessly connect elements in your diagrams directly to relevant sections or components within your Sphinx documentation. This means enhanced navigation, improved information flow, and a more interactive experience for your readers.
+`sphinx_ref_in_plantuml_hyperlinks` is a powerful [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension designed to create intelligent, clickable links within your [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. By automatically resolving `std:doc:` and `std:ref:` syntax, this extension allows you to effortlessly connect elements in your diagrams directly to relevant sections or components within your Sphinx documentation. This means enhanced navigation, improved information flow, and a more interactive experience for your readers.
 
 ---
 
@@ -14,7 +14,7 @@ Imagine clicking on a diagram element and being taken directly to its detailed e
 
 ![](https://mi-parkes.github.io/sphinx-ref-in-plantuml-hyperlinks/_images/refInPlantuml.png)
 
-This example demonstrates how `std:ref:` syntax within your PlantUML code becomes a live hyperlink in your rendered documentation:
+This example demonstrates how `std:doc:` and `std:ref:` syntax within your PlantUML code becomes a live hyperlink in your rendered documentation:
 
 ```rst
 .. uml::
@@ -24,8 +24,9 @@ This example demonstrates how `std:ref:` syntax within your PlantUML code become
     @startmindmap mindmap2
 
     *[#Orange] Example of clickable references
-    **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Reference1 ]]
-    **[#lightblue] [[ ":ref:`N_00001`" Internal Page Reference2 on Sphinx-Needs ]]
+    **[#lightgreen] [[ ":ref:`Heading 2`" Internal Page Arbitrary Reference1 ]]
+    **[#lightblue] [[ ":ref:`N_00002`" Internal Page Arbitrary Reference2 on sphinx-needs ]]
+    **[#lightgrey] [[ ":doc:`Test PlantUML 3`" Internal Page Reference3 ]]
 
     @endmindmap
 ```

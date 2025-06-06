@@ -1,5 +1,5 @@
-Demo using sphinx :ref: in PlantUML hyperlinks
-==============================================
+Demo using sphinx :doc: and :ref: in PlantUML hyperlinks
+=========================================================
 
 .. toctree::
    :maxdepth: 1
