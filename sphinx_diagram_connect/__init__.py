@@ -49,7 +49,7 @@ def resolve_ref(app,target):
 
 def resolve_references(app,docname):
     if app.builder.format=='html':
-        sphinx_ref_in_plantuml_hyperlinks_verbose=getattr(app.config,"sphinx_ref_in_plantuml_hyperlinks_verbose",False)
+        sphinx_diagram_connect_verbose=getattr(app.config,"sphinx_diagram_connect_verbose",False)
         needs_build_json=getattr(app.config,"needs_build_json",False)
         needs_list=init_needs(app) if needs_build_json else None
         pattern = r"(:(ref|doc):`([^`]+)`)"
@@ -77,7 +77,7 @@ def resolve_references(app,docname):
                             new_href=resolve_ref(app,old_href)
                             if new_href:
                                 element.attrib[href]=new_href
-                                if sphinx_ref_in_plantuml_hyperlinks_verbose:
+                                if sphinx_diagram_connect_verbose:
                                     logger.info("href resolution: '%s' -> '%s'" % (old_href,new_href),color='purple')
                                 resolved=True
                             elif needs_list:
@@ -88,7 +88,8 @@ def resolve_references(app,docname):
                             if resolved:
                                 modified=True
                             else:
-                                logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred',type='sphinx-ref-in-plantuml-hyperlinks-missing-reference')
+                                logger.warning("Failed to resolve reference:'%s' in file:'%s'" % (old_href,filename[len(os.getcwd())+1:]),color='darkred',
+                                    type='sphinx-diagram-connect-missing-reference')
 
             if modified:
                 logger.info("Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd())+1:],color='darkblue')
@@ -102,7 +103,7 @@ def resolve_references(app,docname):
 
 def setup(app):
     app.connect('build-finished',resolve_references)
-    app.add_config_value('sphinx_ref_in_plantuml_hyperlinks_verbose',False,"html")
+    app.add_config_value('sphinx_diagram_connect_verbose',False,"html")
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,

@@ -1,10 +1,18 @@
-project = 'Demo using sphinx :ref: in PlantUML hyperlinks'
+project = 'sphinx-diagram-connect'
 author  = 'MP'
 version = '1.2'
 
 import os, sys
 import platform
 import shutil
+
+from sphinx.application import Sphinx # Import Sphinx for type hinting if desired
+from sphinx.util.console import bold, colorize
+from sphinx.util import logging
+from sphinx.errors import ExtensionError
+
+import sphinx
+logger = sphinx.util.logging.getLogger(__name__)
 
 def checkIfDrawIOAvailable():
     drawio_in_path = shutil.which("drawio")
@@ -34,7 +42,8 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.githubpages',
     'sphinx_needs',
-    'sphinx_ref_in_plantuml_hyperlinks'
+    'sphinx_diagram_connect',
+    'myst_parser',
 ]
 
 if checkIfDrawIOAvailable():
@@ -48,7 +57,7 @@ html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
     "path_to_docs": "doc/source",
-    "repository_url": "https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks",
+    "repository_url": "https://github.com/mi-parkes/sphinx-diagram-connect",
     "repository_branch": "main",
     "show_navbar_depth": 2,
     "show_toc_level": 1,  
@@ -80,6 +89,23 @@ needs_types = [
     dict(directive="need", title="Need", prefix="N_",color="#FDF5E6", style="rectangle")
 ]
 
-#suppress_warnings = ['sphinx-ref-in-plantuml-hyperlinks-missing-reference']
+#suppress_warnings = ['sphinx-diagram-connect-missing-reference']
 
-#sphinx_ref_in_plantuml_hyperlinks_verbose=True
+#sphinx_diagram_connect_verbose=True
+
+def copy_readme_md(app):
+    project_root = os.path.abspath(os.path.join(app.srcdir, "..", ".."))
+    ifilename = os.path.join(project_root, "README.md")
+    ofilename = os.path.join(app.srcdir, "README.md")
+    if os.path.exists(ifilename):
+        try:
+            shutil.copy2(ifilename, ofilename)
+            logger.info(f"Copied '{ifilename}' to '{ofilename}'")
+        except Exception as e:
+            logger.error("Failed to copy README.md from '{ifilename}' to '{ofilename}': {e}")
+            pass
+    else:
+        logger.error(f"Source file '{ifilename}' not found.")
+
+def setup(app):
+    app.connect('builder-inited', copy_readme_md)
