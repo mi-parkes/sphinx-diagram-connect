@@ -28,17 +28,17 @@ This example demonstrates how `std:doc:` and `std:ref:` syntax within your Plant
 ```
 ## Installation
 
-You can easily install [sphinx-ref-in-plantuml-hyperlinks](https://pypi.org/project/sphinx-ref-in-plantuml-hyperlinks/) using pip:
+You can easily install [sphinx-diagram-connect](https://pypi.org/project/sphinx-diagram-connect/) using pip:
 
 ```bash
-pip install sphinx-ref-in-plantuml-hyperlinks
+pip install sphinx-diagram-connect
 ```
 
 Alternatively (for Linux users with Poetry):
 
 ```bash
-git clone https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
-cd sphinx-ref-in-plantuml-hyperlinks
+git clone https://github.com/mi-parkes/sphinx-diagram-connect.git
+cd sphinx-diagram-connect
 
 poetry install
 poetry build

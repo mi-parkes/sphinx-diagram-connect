@@ -34,7 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive  apt install -y \
     libsecret-1-0 \
     --fix-broken --assume-yes
 
-RUN apt install -y pipx 
+RUN apt install -y pipx rsync
 
 RUN mkdir -p $(dirname "${PLANTUML_PATH}")
 

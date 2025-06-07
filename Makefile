@@ -83,6 +83,7 @@ test-using-package:
 	rm -rf $(ODIR)/
 	mkdir -p $(ODIR)
 	cd $(ODIR)
+	cp -v $(CURDIR)/README.md $(ODIR)
 	poetry init \
 			-n \
 			--name $@ \
@@ -97,9 +98,12 @@ test-using-package:
 	poetry add \
 		$(if $(LOCAL_MODE),$(CURDIR)/dist/sphinx_diagram_connect-*-py3-none-any.whl,sphinx-diagram-connect="*") \
 		sphinx-book-theme="*" \
-		sphinxcontrib-plantuml="0.30"
+		sphinxcontrib-plantuml="0.30" \
+		sphinxcontrib-drawio="^0.0.17" \
+		pillow="*" \
+		myst-parser="*"
 
-	cp -r $(CURDIR)/doc .
+	rsync -av --exclude 'build/' "$(CURDIR)/doc" .
 	$(if $(VERBOSE),poetry show,)
 	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build"
 
