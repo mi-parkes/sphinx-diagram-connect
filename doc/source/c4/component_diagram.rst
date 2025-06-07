@@ -8,6 +8,8 @@ Web Application Component Diagram
    @startuml
    !include <C4/C4_Component>
 
+   !pragma svginteractive true
+
    LAYOUT_WITH_LEGEND()
 
    Container_Boundary(web_application, "Web Application") {

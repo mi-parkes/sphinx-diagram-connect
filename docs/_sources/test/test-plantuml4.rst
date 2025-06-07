@@ -1,5 +1,5 @@
-Test PlantUML 4
-###############
+Test PlantUML 4 (Graphviz)
+##########################
 
 :ref:`Heading 1`
 

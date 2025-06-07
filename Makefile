@@ -10,11 +10,11 @@ ifeq ($(ALPINE), yes)
 	echo -e "\n\tpoetry install --without dev"
 	echo
 endif
-	echo "$(MAKE) install         # Rebuild and reinstall sphinx-ref-in-plantuml-hyperlinks"
-	echo "$(MAKE) installx        # Reinstall sphinx-ref-in-plantuml-hyperlinks in active virtual environment"
-	echo "$(MAKE) html            # Build sphinx-ref-in-plantuml-hyperlinks documentation"
-	echo "$(MAKE) webserver       # Run webserver hosting sphinx-ref-in-plantuml-hyperlinks documentation in docker container"
-	echo "$(MAKE) show            # View the documentation for sphinx-ref-in-plantuml-hyperlinks, which is hosted on a server running nginx, in a web browser"
+	echo "$(MAKE) install         # Rebuild and reinstall sphinx-diagram-connect"
+	echo "$(MAKE) installx        # Reinstall sphinx-diagram-connect in active virtual environment"
+	echo "$(MAKE) html            # Build sphinx-diagram-connect documentation"
+	echo "$(MAKE) webserver       # Run webserver hosting sphinx-diagram-connect documentation in docker container"
+	echo "$(MAKE) show            # View the documentation for sphinx-diagram-connect, which is hosted on a server running nginx, in a web browser"
 
 helpx:
 	echo "$(MAKE) prep-release    # Prepare release data"
@@ -42,8 +42,8 @@ upload-package:
 	poetry publish
 
 installx:
-	pip uninstall sphinx-ref-in-plantuml-hyperlinks -y
-	pip install dist/sphinx_ref_in_plantuml_hyperlinks*.whl
+	pip uninstall sphinx-diagram-connect -y
+	pip install dist/sphinx_diagram_connect*.whl
 
 html:
 	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build"
@@ -57,9 +57,9 @@ doc-clean:
 WEBSERVERPORT=8080
 
 webserver:
-	docker ps | awk '$$NF=="sphinx-ref-in-plantuml-hyperlinks"{print "docker stop "$$1}' | $(SHELL)
+	docker ps | awk '$$NF=="sphinx-diagram-connect"{print "docker stop "$$1}' | $(SHELL)
 	sleep 1
-	docker run -it --rm -d -p $(WEBSERVERPORT):80 --name sphinx-ref-in-plantuml-hyperlinks -v $$PWD/doc/build/html:/usr/share/nginx/html nginx
+	docker run -it --rm -d -p $(WEBSERVERPORT):80 --name sphinx-diagram-connect -v $$PWD/doc/build/html:/usr/share/nginx/html nginx
 
 show:
 	open http://localhost:$(WEBSERVERPORT)
@@ -71,8 +71,8 @@ test-building-package:
 	rm -rf $(WDIR)/*
 	cd $(WDIR)
 	git clone -b $(BRANCH) --single-branch \
-			https://github.com/mi-parkes/sphinx-ref-in-plantuml-hyperlinks.git
-	cd sphinx-ref-in-plantuml-hyperlinks
+			https://github.com/mi-parkes/sphinx-diagram-connect.git
+	cd sphinx-diagram-connect
 #	poetry install --only test,docs
 	poetry install
 	poetry build
@@ -95,7 +95,7 @@ test-using-package:
 	$(if $(VERBOSE),cat pyproject.toml,)
 
 	poetry add \
-		$(if $(LOCAL_MODE),$(CURDIR)/dist/sphinx_ref_in_plantuml_hyperlinks-*-py3-none-any.whl,sphinx-ref-in-plantuml-hyperlinks="*") \
+		$(if $(LOCAL_MODE),$(CURDIR)/dist/sphinx_diagram_connect-*-py3-none-any.whl,sphinx-diagram-connect="*") \
 		sphinx-book-theme="*" \
 		sphinxcontrib-plantuml="0.30"
 
