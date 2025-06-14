@@ -2,7 +2,7 @@ project = 'sphinx-diagram-connect'
 author  = 'MP'
 version = '1.2'
 
-import os, sys
+import os, re, sys
 import platform
 import shutil
 
@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_needs',
     'sphinx_diagram_connect',
-    'myst_parser',
+    'myst_parser'
 ]
 
 if checkIfDrawIOAvailable():
@@ -107,5 +107,36 @@ def copy_readme_md(app):
     else:
         logger.error(f"Source file '{ifilename}' not found.")
 
+if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
+    extensions.extend(
+        ['sphinxcontrib.apidoc', 'sphinx.ext.autodoc']
+    )
+    apidoc_module_dir = '../../sphinx_diagram_connect'
+    apidoc_output_dir = 'reference'
+    apidoc_excluded_paths = ['tests']
+    apidoc_separate_modules = False
+    apidoc_extra_args = ["--no-toc"]
+
+    if "APIDOC_DD" in tags.tags:
+        apidoc_extra_args.append("-P")
+        autodoc_default_options = {
+            "members": True,
+            "undoc-members": True,
+            "private-members": True
+        }
+else:
+    toc_filter_exclude = ['reference/sphinx_diagram_connect.rst']
+
+def filter_index(app, docname, source):
+    if docname == "index":
+        result = source[0]
+        for item in toc_filter_exclude:
+            pattern_string = r"^[ \t]*" + re.escape(item) + r"\s*$"
+            pattern = re.compile(pattern_string,flags=re.MULTILINE)
+            result=re.sub(pattern,"",result)
+        source[0] = result
+
 def setup(app):
-    app.connect('builder-inited', copy_readme_md)
+    app.connect('builder-inited',copy_readme_md)
+    if 'toc_filter_exclude' in globals() and toc_filter_exclude:
+        app.connect("source-read", filter_index)
