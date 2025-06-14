@@ -53,6 +53,12 @@ installx:
 html:
 	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build"
 
+html-api:
+	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build -t APIDOC"
+
+html-api-dd:
+	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build -t APIDOC_DD"
+
 htmlx:html
 	cp -r doc/build/html/* docs
 
