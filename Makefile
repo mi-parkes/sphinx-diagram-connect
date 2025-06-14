@@ -1,4 +1,9 @@
 .ONESHELL:
+SHELL           =/bin/bash
+MAKEFLAGS       += $(if $(VERBOSE),,--no-print-directory)
+MINMAKEVERSION  =3.82
+
+$(if $(findstring $(MINMAKEVERSION),$(firstword $(sort $(MINMAKEVERSION) $(MAKE_VERSION)))),,$(error The Makefile requires minimal GNU make version:$(MINMAKEVERSION) and you are using:$(MAKE_VERSION)))
 
 ALPINE := $(shell if [ -f /etc/alpine-release ]; then echo yes; else echo no; fi)
 
@@ -53,12 +58,16 @@ htmlx:html
 
 doc-clean:
 	rm -rf doc/build
+	rm -rfv doc/source/reference
 
 WEBSERVERPORT=8080
 
 webserver:
 	docker ps | awk '$$NF=="sphinx-diagram-connect"{print "docker stop "$$1}' | $(SHELL)
 	sleep 1
+	$(MAKE) show -n
+	echo or
+	echo $(MAKE) show
 	docker run -it --rm -d -p $(WEBSERVERPORT):80 --name sphinx-diagram-connect -v $$PWD/doc/build/html:/usr/share/nginx/html nginx
 
 show:
@@ -109,4 +118,3 @@ test-using-package:
 
 clean-dc:
 	docker images | awk '$$1=="<none>"{print "docker rmi "$$3}' | $(SHELL)
-

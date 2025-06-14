@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_needs',
     'sphinx_diagram_connect',
-    'myst_parser',
+    'myst_parser'
 ]
 
 if checkIfDrawIOAvailable():
@@ -109,3 +109,21 @@ def copy_readme_md(app):
 
 def setup(app):
     app.connect('builder-inited', copy_readme_md)
+
+if any(os.getenv(var) is not None for var in ["APIDOC", "APIDOC_DD"]):
+    extensions.extend(
+        ['sphinxcontrib.apidoc', 'sphinx.ext.autodoc']
+    )
+    apidoc_module_dir = '../../sphinx_diagram_connect'
+    apidoc_output_dir = 'reference'
+    apidoc_excluded_paths = ['tests']
+    apidoc_separate_modules = False
+    apidoc_extra_args = ["--no-toc"]
+
+    if os.getenv("APIDOC_DD", None) is not None:
+        apidoc_extra_args.append("-P")
+        autodoc_default_options = {
+            "members": True,
+            "undoc-members": True,
+            "private-members": True
+        }
