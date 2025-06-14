@@ -20,13 +20,12 @@ from sphinx_needs.needsfile import NeedsList
 # Get the Sphinx logger for informative messages
 logger = sphinx.util.logging.getLogger(__name__)
 
-__version__ = "0.7.0"
-version_info = (0, 7, 0)
+__version__ = "1.0.0"
+version_info = (1, 0, 0)
 
 # Define the public API of the package. Only names in __all__ will be imported
 # when a user does 'from sphinx_diagram_connect import *'.
 __all__ = ["setup", "DiagramConnect"]
-
 
 class DiagramConnect:
     """
