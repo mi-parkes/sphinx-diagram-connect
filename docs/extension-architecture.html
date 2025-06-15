@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>System Context Diagram &#8212; sphinx-diagram-connect  documentation</title>
+    <title>Extension Architecture &#8212; sphinx-diagram-connect  documentation</title>
   
   
   
@@ -18,50 +18,50 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/modern.css?v=803738c0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/jquery.js?v=5d32c60e"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
-    <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
-    <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'c4/system_context';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Container Diagram" href="container_diagram.html" />
-    <link rel="prev" title="C4-PlantUML Example" href="index.html" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+    <script src="_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+    <script src="_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+    <script src="_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+    <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'extension-architecture';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sphinx_diagram_connect package" href="reference/sphinx_diagram_connect.html" />
+    <link rel="prev" title="Test DrawIO" href="test/test-drawio1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -93,7 +93,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -142,7 +142,7 @@
     
   
 
-<a class="navbar-brand logo" href="../index.html">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -168,33 +168,33 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../index.html">
+                <a class="reference internal" href="index.html">
                     sphinx-diagram-connect
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">QuickStart</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">C4-PlantUML Example</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">System Context Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container_diagram.html">Container Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_diagram.html">Web Application Component Diagram</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">QuickStart</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="c4/index.html">C4-PlantUML Example</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="c4/system_context.html">System Context Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c4/container_diagram.html">Container Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c4/component_diagram.html">Web Application Component Diagram</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-plantuml1.html">Test PlantUML 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/textx/test-plantuml2.html">Test PlantUML 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-plantuml4.html">Test PlantUML 4 (Graphviz)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-drawio1.html">Test DrawIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-plantuml1.html">Test PlantUML 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/textx/test-plantuml2.html">Test PlantUML 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-plantuml4.html">Test PlantUML 4 (Graphviz)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-drawio1.html">Test DrawIO</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Architecture</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../extension-architecture.html">Extension Architecture</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extension Architecture</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Documentation:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">sphinx_diagram_connect package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/sphinx_diagram_connect.html">sphinx_diagram_connect package</a></li>
 </ul>
 
     </div>
@@ -266,7 +266,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/blob/main/doc/source/c4/system_context.rst?plain=1" target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/blob/main/doc/source/extension-architecture.rst?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/edit/main/doc/source/c4/system_context.rst" target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/edit/main/doc/source/extension-architecture.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +300,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/issues/new?title=Issue%20on%20page%20%2Fc4/system_context.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/issues/new?title=Issue%20on%20page%20%2Fextension-architecture.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +330,7 @@
       
       
       
-      <li><a href="../_sources/c4/system_context.rst" target="_blank"
+      <li><a href="_sources/extension-architecture.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>System Context Diagram</h1>
+    <h1>Extension Architecture</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -426,11 +426,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="system-context-diagram">
-<h1>System Context Diagram<a class="headerlink" href="#system-context-diagram" title="Link to this heading">#</a></h1>
+  <section id="extension-architecture">
+<h1>Extension Architecture<a class="headerlink" href="#extension-architecture" title="Link to this heading">#</a></h1>
+<p>The diagram below illustrates the key components and their interactions within the
+sphinx-diagram-connect extension. This overview helps in understanding how the extension
+integrates with the Sphinx build process to resolve references in SVG diagrams.</p>
 <p class="plantuml">
-<object data="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.svg" type="image/svg+xml" style="width:80%">
-<a href="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.png"><img src="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.png" alt="E-commerce System Context Diagram" style="width: 80.0%"/></a>
+<object data="_images/plantuml-ca21582e40593b0cb2fda5f5fc9396c8d1fee67a.svg" type="image/svg+xml" style="width:895px;height:282px;background:#FFFFFF;">
+<img src="_images/plantuml-ca21582e40593b0cb2fda5f5fc9396c8d1fee67a.png" alt="&#64;startuml
+
+title Sphinx-Diagram-Connect Component Diagram
+
+scale 0.6
+
+skinparam defaultText {
+  FontColor #000000
+}
+
+skinparam component {
+  BackgroundColor #ADD8E6
+  BorderColor #336699
+  FontColor #000000
+}
+
+skinparam package {
+  BackgroundColor #FFFFE0
+  BorderColor #CCAA66
+  FontColor #000000
+}
+
+skinparam database {
+  BackgroundColor #90EE90
+  BorderColor #006600
+  FontColor #000000
+}
+
+skinparam folder {
+  BackgroundColor #B0E0E6
+  BorderColor #4682B4
+  FontColor #000000
+}
+
+skinparam file {
+  BackgroundColor #F5F5F5
+  BorderColor #696969
+  FontColor #000000
+}
+
+package &quot;Sphinx Documentation Build&quot; #FFFFE0 {
+  [Sphinx Application] as SphinxApp #ADD8E6
+  [Sphinx Builder (HTML)] as SphinxBuilder #ADD8E6
+  [conf.py] as Config #F5F5F5
+}
+
+package &quot;Sphinx-Diagram-Connect Extension&quot; #FFFFE0 {
+  [DiagramConnect Class] as DCClass #ADD8E6
+  [resolve_references Method] as ResolveRefs #ADD8E6
+  [NeedsList Class (from sphinx-needs)] as NeedsList #ADD8E6
+}
+
+database &quot;Sphinx Output Directory&quot; #90EE90 {
+  folder &quot;SVG Files&quot; as SVGs #B0E0E6
+  file &quot;needs.json&quot; as NeedsJSON #F5F5F5
+}
+
+SphinxApp -right-&gt; Config : loads configuration
+Config --&gt; DCClass : config values (`verbose`, `needs_build_json`)
+
+SphinxApp -right-&gt; DCClass : instantiates, registers event
+
+SphinxBuilder .down.&gt; SVGs : generates SVG content
+SphinxBuilder .right.&gt; NeedsJSON : generates needs.json (if needs enabled)
+
+SphinxApp .down.&gt; ResolveRefs : `build-finished` event trigger
+
+ResolveRefs --&gt; SVGs : reads/writes SVG content
+ResolveRefs ..&gt; NeedsJSON : reads needs.json (via `_init_needs`)
+
+DCClass ..&gt; NeedsList : utilizes
+
+ResolveRefs --&gt; SphinxBuilder : logs warnings/info
+
+&#64;enduml
+"/>
 
 </object></p>
 </section>
@@ -447,20 +525,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="test/test-drawio1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">C4-PlantUML Example</p>
+        <p class="prev-next-title">Test DrawIO</p>
       </div>
     </a>
     <a class="right-next"
-       href="container_diagram.html"
+       href="reference/sphinx_diagram_connect.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Container Diagram</p>
+        <p class="prev-next-title">sphinx_diagram_connect package</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,8 +585,8 @@ By MP
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

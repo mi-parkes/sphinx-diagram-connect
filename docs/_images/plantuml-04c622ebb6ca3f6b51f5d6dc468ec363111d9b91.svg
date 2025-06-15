@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="190px" preserveAspectRatio="none" style="width:696px;height:190px;background:#FFFFFF;" version="1.1" viewBox="0 0 696 190" width="696px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="MINDMAP" height="190px" preserveAspectRatio="none" style="width:696px;height:190px;background:#FFFFFF;" version="1.1" viewBox="0 0 696 190" width="696px" zoomAndPan="magnify">
   <defs/>
   <g>
     <rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="243.5898" x="10" y="76.2969"/>
@@ -8,17 +8,17 @@
     <a href="../test/test-plantuml1.html#plantuml-label1" target="_top" title=":ref:`plantuml label1`" xlink:actuate="onRequest" xlink:href=":ref:`plantuml label1`" xlink:show="new" xlink:title=":ref:`plantuml label1`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="244.3916" x="313.5898" y="42.9951">Internal Page Arbitrary Reference1</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,38.1484 293.5898,38.1484 L303.5898,38.1484 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,38.1484 293.5898,38.1484 L303.5898,38.1484" fill="none" style="stroke:#181818;stroke-width:1;"/>
     <rect fill="#ADD8E6" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="381.3203" x="303.5898" y="76.2969"/>
     <a href="../test/textx/test-plantuml2.html#N_00001" target="_top" title=":ref:`N_00001`" xlink:actuate="onRequest" xlink:href=":ref:`N_00001`" xlink:show="new" xlink:title=":ref:`N_00001`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="356.8701" x="313.5898" y="99.292">Internal Page Arbitrary Reference2 on sphinx-need</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,94.4453 293.5898,94.4453 L303.5898,94.4453 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,94.4453 293.5898,94.4453 L303.5898,94.4453" fill="none" style="stroke:#181818;stroke-width:1;"/>
     <rect fill="#FF0000" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="310.917" x="303.5898" y="132.5938"/>
     <a href=":ref:`N_00003`" target="_top" title=":ref:`N_00003`" xlink:actuate="onRequest" xlink:href=":ref:`N_00003`" xlink:show="new" xlink:title=":ref:`N_00003`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="286.4668" x="313.5898" y="155.5889">Internal Page Arbitrary Invalid Reference</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,150.7422 293.5898,150.7422 L303.5898,150.7422 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
-    <!--SRC=[ZP7VQy8m4CVVyrSSxaK5fQqYhazkwi3EJl7NYvIPjcSDIwybJOh-zujiuc0mTY_XyhtxV7ENKQMvqhcWDESbV9yUO-tzmq9noZ22wPddfKGeZf18aNpms2OAZwYG4gnOszPAaPrqfX0fWlqU6hxL_KCfEMcJIv0yHkaU6Z0ZZOguX2NF49vKBBJYwWAh6yw5ABeJOsdm9_3jtR7nBv071K5LdWITEuIOthWAqz_4tX_46TLSYlHElfBO2EsclhR5sF8wvpQSGusg4jRNxNgEr-yEcckk8J0Id04uZxxRztj3s6x6S9LRh1dEDb0LHbbeAYgjH6oqxM-nWDSSLeQqoD67HOaKJ5vl5p2bMgY2SYJDWbruBnZqEyz2mngLVGdiGZR18pTIsuwaI0LbldL_wGpPt7wjiNFwWCJ6XUMgYzNMdm00]-->
+    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,150.7422 293.5898,150.7422 L303.5898,150.7422" fill="none" style="stroke:#181818;stroke-width:1;"/>
+    <!--SRC=[ZP7VQy8m4CVVyrSSsuiAIbjrapwvgGCxEyLVBr9csfurBBsMD2dwto-oYOF1ME08b-_Tvt9tmqfpfND1QSvB-Buznbgx-xdYb644anFFIubG722H8ldWiNKK7b0X9LYnbesL8ZlgJ25I1BiTtFbMz_UbvAHDBa7o6AMxluCfQLJ49InuXl2aOg4LLsTONd4kHD6D64k3Fu5lxuuz_m9vK11KvL7GgKs8wPMhCFrDxFv1d5BDfKXlv0k93T5EwcjQZ2qkVMx26TIeAc7hkXtFyVgTRcDb209hZWlEmEy_-buFDkiHNEGcQuJJDLI5KHQQYaeh4Hjjyviiu3M7fI4jSlHXNY85uzVh0qoe5ggW74cpO1lU0XvwxMUXOONA_WIs8HlZWHkfRKPIf88otrP_QG_OpAxMs3vzG6AZmdBLsMghJm00]-->
   </g>
 </svg>

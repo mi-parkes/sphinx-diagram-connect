@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:704px;height:247px;background:#FFFFFF;" version="1.1" viewBox="0 0 704 247" width="704px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="MINDMAP" height="247px" preserveAspectRatio="none" style="width:704px;height:247px;background:#FFFFFF;" version="1.1" viewBox="0 0 704 247" width="704px" zoomAndPan="magnify">
   <defs/>
   <g>
     <rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="243.5898" x="10" y="104.4453"/>
@@ -8,22 +8,22 @@
     <a href="https://www.sphinx-doc.org/en/master/" target="_top" title="https://www.sphinx-doc.org/en/master/" xlink:actuate="onRequest" xlink:href="https://www.sphinx-doc.org/en/master/" xlink:show="new" xlink:title="https://www.sphinx-doc.org/en/master/" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="173.1885" x="313.5898" y="42.9951">External Page Reference</text>
     </a>
-    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,38.1484 293.5898,38.1484 L303.5898,38.1484 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,38.1484 293.5898,38.1484 L303.5898,38.1484" fill="none" style="stroke:#181818;stroke-width:1;"/>
     <rect fill="#90EE90" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="268.8418" x="303.5898" y="76.2969"/>
     <a href="../test/textx/test-plantuml2.html#heading-2" target="_top" title=":ref:`Heading 2`" xlink:actuate="onRequest" xlink:href=":ref:`Heading 2`" xlink:show="new" xlink:title=":ref:`Heading 2`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="244.3916" x="313.5898" y="99.292">Internal Page Arbitrary Reference1</text>
     </a>
-    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,94.4453 293.5898,94.4453 L303.5898,94.4453 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,94.4453 293.5898,94.4453 L303.5898,94.4453" fill="none" style="stroke:#181818;stroke-width:1;"/>
     <rect fill="#ADD8E6" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="388.6143" x="303.5898" y="132.5938"/>
     <a href="../test/textx/testz/test-plantuml3.html#N_00002" target="_top" title=":ref:`N_00002`" xlink:actuate="onRequest" xlink:href=":ref:`N_00002`" xlink:show="new" xlink:title=":ref:`N_00002`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="364.1641" x="313.5898" y="155.5889">Internal Page Arbitrary Reference2 on sphinx-needs</text>
     </a>
-    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,150.7422 293.5898,150.7422 L303.5898,150.7422 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,150.7422 293.5898,150.7422 L303.5898,150.7422" fill="none" style="stroke:#181818;stroke-width:1;"/>
     <rect fill="#D3D3D3" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="202.417" x="303.5898" y="188.8906"/>
     <a href="../test/textx/testz/test-plantuml3.html#test-plantuml-3" target="_top" title=":doc:`Test PlantUML 3`" xlink:actuate="onRequest" xlink:href=":doc:`Test PlantUML 3`" xlink:show="new" xlink:title=":doc:`Test PlantUML 3`" xlink:type="simple">
       <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="177.9668" x="313.5898" y="211.8857">Internal Page Reference3</text>
     </a>
-    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,207.0391 293.5898,207.0391 L303.5898,207.0391 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
-    <!--SRC=[ZP9BJy904CVl-oacUa4JMWg4u9vKq0XQ9VAu42BRTYWRsscpkmNvzWuHtnxSosJdyVlFpEwvTSguN5EIgn8EDX3YT7xyO1Ibk82h5vMN6KAnWZZJyREA-69mXGOfHYjEEJVJwTgb1f4MC9_3shdIIj_VRhUUBTUQNkf94Nk5INqaFrVMeV4Pp8PK1YEL8Zo-4s6n-8jv95bJBczG9PfIQ2wFO41V0HScqiuei_j41TzOKLRXLzJzKuFFlq1DA0WEan1YOdyskJk0UKovdA1rCCeKkMbu1wrV0X_OrXuZpf6t_hPv8JxADcYiPjN0QpQQRQzJ6oi7mog3HWSQPp9eorONffCUxCCdeXOE9c2Bol024ssTqL7bkFv43DL6mMD5JkSeuQ546lPltnrmHHjj2igHd1ZEmi-4Jhj-gHsCqN0dC0j57rUgoXnNnCN-2IIhNzUxuew_ISLZIK0IlOAvPiUnyIi0]-->
+    <path d="M253.5898,122.5938 L263.5898,122.5938 C278.5898,122.5938 278.5898,207.0391 293.5898,207.0391 L303.5898,207.0391" fill="none" style="stroke:#181818;stroke-width:1;"/>
+    <!--SRC=[ZP9BRy8m3CVl-HJMTc58K2Xxe9pO1jF6O21U5uH6Q4s9rhfLaiBuzZCQ0_OuB59a9RP_Vzj9mpfbNA8fJ5G6UriLeZWzxnb54SwWzQwIB4P8bn34EdXJ2puONA912j2A8iV6Ebgvo23I3APJM3cNMUbvcyscRBELflTIc0Rbr4GUafSewz1u36P3AeQ-YX06NqIOpVvYdadMbFD7LA6c2Fpv6JpHAU3MBBGpocoFgEetrYBEyHJrybhXzI-G3od1lXD23EtF8hTxCBSfvoEq3lgn8ZVkTg3sI-20hUqmee4yzS_92t58MwEncbMhPR_YNvLhXM5EqEPTgKAbBgzkf7y9uz4zxDmNej1z6e5DSyC33BLrHYzon_aNegtM2WOvEPsWX5w6r6u-Vrr0YzRQf9GWET6UT8y1rvUbE-rWY8OhWKbND76fyjXnHf3kda2o-aEfBZhyJN9kImAIk4-PQxRi6tu0]-->
   </g>
 </svg>

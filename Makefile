@@ -20,6 +20,8 @@ endif
 	echo "$(MAKE) html            # Build sphinx-diagram-connect documentation"
 	echo "$(MAKE) webserver       # Run webserver hosting sphinx-diagram-connect documentation in docker container"
 	echo "$(MAKE) show            # View the documentation for sphinx-diagram-connect, which is hosted on a server running nginx, in a web browser"
+	echo "$(MAKE) html-api"
+	echo "$(MAKE) html-api-dd"
 
 helpx:
 	echo "$(MAKE) prep-release    # Prepare release data"

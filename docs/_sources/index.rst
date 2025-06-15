@@ -12,3 +12,15 @@ sphinx-diagram-connect
    test/textx/testz/test-plantuml3
    test/test-plantuml4
    test/test-drawio1.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Architecture
+
+   extension-architecture.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API Documentation:
+
+   reference/sphinx_diagram_connect.rst

@@ -15,6 +15,12 @@ sphinx-diagram-connect
 
 .. toctree::
    :maxdepth: 1
+   :caption: Architecture
+
+   extension-architecture.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: API Documentation:
 
    reference/sphinx_diagram_connect.rst

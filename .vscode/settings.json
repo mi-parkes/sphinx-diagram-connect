@@ -4,6 +4,7 @@
     "plantuml.exportOutDir": "plantuml-export",
     "plantuml.exportFormat": "png",
     "plantuml.exportSubFolder": false,
-    "plantuml.jar":"${env:PLANTUML_PATH}",    
+    "aplantuml.jar":"${env:PLANTUML_PATH}",
+    "plantuml.jar":"/usr/share/plantuml/plantuml.jar",
     "liveServer.settings.root": "doc/build/html",
 }
