@@ -1,0 +1,75 @@
+@startuml
+
+title Sphinx-Diagram-Connect Component Diagram
+
+scale 0.6
+
+skinparam defaultText {
+  FontColor #000000
+}
+
+skinparam component {
+  BackgroundColor #ADD8E6
+  BorderColor #336699
+  FontColor #000000
+}
+
+skinparam package {
+  BackgroundColor #FFFFE0
+  BorderColor #CCAA66
+  FontColor #000000
+}
+
+skinparam database {
+  BackgroundColor #90EE90
+  BorderColor #006600
+  FontColor #000000
+}
+
+skinparam folder {
+  BackgroundColor #B0E0E6
+  BorderColor #4682B4
+  FontColor #000000
+}
+
+skinparam file {
+  BackgroundColor #F5F5F5
+  BorderColor #696969
+  FontColor #000000
+}
+
+package "Sphinx Documentation Build" #FFFFE0 {
+  [Sphinx Application] as SphinxApp #ADD8E6
+  [Sphinx Builder (HTML)] as SphinxBuilder #ADD8E6
+  [conf.py] as Config #F5F5F5
+}
+
+package "Sphinx-Diagram-Connect Extension" #FFFFE0 {
+  [DiagramConnect Class] as DCClass #ADD8E6
+  [resolve_references Method] as ResolveRefs #ADD8E6
+  [NeedsList Class (from sphinx-needs)] as NeedsList #ADD8E6
+}
+
+database "Sphinx Output Directory" #90EE90 {
+  folder "SVG Files" as SVGs #B0E0E6
+  file "needs.json" as NeedsJSON #F5F5F5
+}
+
+SphinxApp -right-> Config : loads configuration
+Config --> DCClass : config values (`verbose`, `needs_build_json`)
+
+SphinxApp -right-> DCClass : instantiates, registers event
+
+SphinxBuilder .down.> SVGs : generates SVG content
+SphinxBuilder .right.> NeedsJSON : generates needs.json (if needs enabled)
+
+SphinxApp .down.> ResolveRefs : `build-finished` event trigger
+
+ResolveRefs --> SVGs : reads/writes SVG content
+ResolveRefs ..> NeedsJSON : reads needs.json (via `_init_needs`)
+
+DCClass ..> NeedsList : utilizes
+
+ResolveRefs --> SphinxBuilder : logs warnings/info
+
+@enduml

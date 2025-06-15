@@ -1,0 +1,29 @@
+/* Reset any previous border/padding/margin on the ul itself
+   that might interfere with our custom separator */
+ul.nav.bd-sidenav {
+    border-bottom: none !important; /* Ensure no default border remains */
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100%; /* Make it span the container */
+}
+
+ul.nav.bd-sidenav::after {
+    content: "";
+    display: block;
+    width: 90%; /* Ensure this matches your design intent */
+    border-top: 2px solid #ddd;
+    /*margin: 20px auto;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/*
+ul.nav.bd-sidenav:not(:first-of-type)::after {
+    margin-top: 10px;
+}
+*/
+/* Hide the horizontal bar after the very last ul.nav.bd-sidenav on the page */
+ul.nav.bd-sidenav:last-of-type::after {
+    display: none; /* Hide the pseudo-element */
+}

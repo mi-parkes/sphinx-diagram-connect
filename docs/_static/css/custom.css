@@ -1,0 +1,20 @@
+p {
+    font-size: 1.3em;
+}
+
+html {
+    --pst-sidebar-secondary:0
+}
+object[type="image/svg+xml"] {
+    /*width: 80% !important;*/
+    /*height: 80% !important;*/
+    display: block !important;
+    margin: 0 auto !important;
+    max-height: 600px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+.prev-next-area {
+    display: none;
+}

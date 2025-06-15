@@ -1,5 +1,5 @@
 {
-  "name": "sphinx-ref-in-plantuml-hyperlinks-dc",
+  "name": "sphinx-diagram-connect-dc",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."

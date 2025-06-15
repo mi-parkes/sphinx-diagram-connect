@@ -1,5 +1,5 @@
-C4-PlantUML Example
-###################
+C4-PlantUML
+###########
 
 The C4-PlantUML examples are configured for SVG interactive mode.
 This is achieved by including the following pragma within the PlantUML 
