@@ -57,7 +57,9 @@ html-api:
 	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build -t APIDOC"
 
 html-api-dd:
-	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build -t APIDOC_DD"
+	$(eval OFILE=/tmp/$@.txt)
+	poetry run $(SHELL) -c \
+		"cd doc && sphinx-build -M html source build -t APIDOC_DD $(if $(VERBOSE),-vvv,)" | tee $(OFILE)
 
 htmlx:html
 	cp -r doc/build/html/* docs

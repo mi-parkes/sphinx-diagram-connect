@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.venvPath": ".venv",
+    "plantuml.exportOutDir": "plantuml-export",
+    "plantuml.exportFormat": "png",
+    "plantuml.exportSubFolder": false,
+    "plantuml.jar":"${env:PLANTUML_PATH}",    
+    "liveServer.settings.root": "doc/build/html",
+}
