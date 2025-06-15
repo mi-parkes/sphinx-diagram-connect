@@ -14,3 +14,7 @@ object[type="image/svg+xml"] {
     width: auto !important;
     object-fit: contain !important;
 }
+
+.prev-next-area {
+    display: none;
+}
