@@ -3,13 +3,13 @@ System Context Diagram
 
 .. plantuml::
    :alt: E-commerce System Context Diagram
-   :width: 80%
+   :align: center
 
    @startuml
    !include <C4/C4_Context>
 
    !pragma svginteractive true
-
+   
    AddElementTag(clickable, $bgColor="lightgray", $fontColor="darkred", $borderColor="darkred", $shadowing="true", $shape="RoundedBoxShape()", $legendText="clickable")
 
    'LAYOUT_WITH_LEGEND()

@@ -3,7 +3,7 @@ Web Application Component Diagram
 
 .. plantuml::
    :alt: Web Application Component Diagram
-   :width: 80%
+   :align: center
 
    @startuml
    !include <C4/C4_Component>

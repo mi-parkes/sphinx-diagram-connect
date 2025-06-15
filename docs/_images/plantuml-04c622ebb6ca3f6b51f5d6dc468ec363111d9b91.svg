@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="MINDMAP" height="190px" preserveAspectRatio="none" style="width:696px;height:190px;background:#FFFFFF;" version="1.1" viewBox="0 0 696 190" width="696px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="190px" preserveAspectRatio="none" style="width:680px;height:190px;background:#FFFFFF;" version="1.1" viewBox="0 0 680 190" width="680px" zoomAndPan="magnify">
   <defs/>
   <g>
-    <rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="243.5898" x="10" y="76.2969"/>
-    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.5898" x="20" y="99.292">Example of clickable references</text>
-    <rect fill="#90EE90" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="268.8418" x="303.5898" y="20"/>
+    <rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="237" x="10" y="76.2969"/>
+    <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="20" y="99.292">Example of clickable references</text>
+    <rect fill="#90EE90" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="259" x="297" y="20"/>
     <a href="../test/test-plantuml1.html#plantuml-label1" target="_top" title=":ref:`plantuml label1`" xlink:actuate="onRequest" xlink:href=":ref:`plantuml label1`" xlink:show="new" xlink:title=":ref:`plantuml label1`" xlink:type="simple">
-      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="244.3916" x="313.5898" y="42.9951">Internal Page Arbitrary Reference1</text>
+      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="235" x="307" y="42.9951">Internal Page Arbitrary Reference1</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,38.1484 293.5898,38.1484 L303.5898,38.1484" fill="none" style="stroke:#181818;stroke-width:1;"/>
-    <rect fill="#ADD8E6" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="381.3203" x="303.5898" y="76.2969"/>
+    <path d="M247,94.4453 L257,94.4453 C272,94.4453 272,38.1484 287,38.1484 L297,38.1484 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <rect fill="#ADD8E6" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="371" x="297" y="76.2969"/>
     <a href="../test/textx/test-plantuml2.html#N_00001" target="_top" title=":ref:`N_00001`" xlink:actuate="onRequest" xlink:href=":ref:`N_00001`" xlink:show="new" xlink:title=":ref:`N_00001`" xlink:type="simple">
-      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="356.8701" x="313.5898" y="99.292">Internal Page Arbitrary Reference2 on sphinx-need</text>
+      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="347" x="307" y="99.292">Internal Page Arbitrary Reference2 on sphinx-need</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,94.4453 293.5898,94.4453 L303.5898,94.4453" fill="none" style="stroke:#181818;stroke-width:1;"/>
-    <rect fill="#FF0000" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="310.917" x="303.5898" y="132.5938"/>
+    <path d="M247,94.4453 L257,94.4453 C272,94.4453 272,94.4453 287,94.4453 L297,94.4453 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <rect fill="#FF0000" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="296" x="297" y="132.5938"/>
     <a href=":ref:`N_00003`" target="_top" title=":ref:`N_00003`" xlink:actuate="onRequest" xlink:href=":ref:`N_00003`" xlink:show="new" xlink:title=":ref:`N_00003`" xlink:type="simple">
-      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="286.4668" x="313.5898" y="155.5889">Internal Page Arbitrary Invalid Reference</text>
+      <text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="272" x="307" y="155.5889">Internal Page Arbitrary Invalid Reference</text>
     </a>
-    <path d="M253.5898,94.4453 L263.5898,94.4453 C278.5898,94.4453 278.5898,150.7422 293.5898,150.7422 L303.5898,150.7422" fill="none" style="stroke:#181818;stroke-width:1;"/>
-    <!--SRC=[ZP7VQy8m4CVVyrSSsuiAIbjrapwvgGCxEyLVBr9csfurBBsMD2dwto-oYOF1ME08b-_Tvt9tmqfpfND1QSvB-Buznbgx-xdYb644anFFIubG722H8ldWiNKK7b0X9LYnbesL8ZlgJ25I1BiTtFbMz_UbvAHDBa7o6AMxluCfQLJ49InuXl2aOg4LLsTONd4kHD6D64k3Fu5lxuuz_m9vK11KvL7GgKs8wPMhCFrDxFv1d5BDfKXlv0k93T5EwcjQZ2qkVMx26TIeAc7hkXtFyVgTRcDb209hZWlEmEy_-buFDkiHNEGcQuJJDLI5KHQQYaeh4Hjjyviiu3M7fI4jSlHXNY85uzVh0qoe5ggW74cpO1lU0XvwxMUXOONA_WIs8HlZWHkfRKPIf88otrP_QG_OpAxMs3vzG6AZmdBLsMghJm00]-->
+    <path d="M247,94.4453 L257,94.4453 C272,94.4453 272,150.7422 287,150.7422 L297,150.7422 " fill="none" style="stroke:#181818;stroke-width:1.0;"/>
+    <!--SRC=[ZP71Qi9048Rl-nI3lQYWc5J5vcIh5hIcYbOl4kec6UFIpIHCDa7VlYkjM2YKpcMP_MU-VsTsM1Z99bKKfpA7xzCLehcxMx2a10EOd6IQQuJi095MqOSCRS9uG4QAi11DMwjLSZG98r80kntKFAjx-rnBCcMgGSiGjRElmPGCCaaDIvaWF7Ae34i-m-gASo08RiHGb_WJ-FhUiV4la0iPGP4V5PrQX1XVkOpnR-Bz7yGfLLAh-4Q-aCGGxQQ-jYN4yZBdnfz3XLmew-kqtOxRRVVgwvB0bsTm-z1vy9oUrnl0vcq45xaXwlxq3OgiP0kDLM5OXQMn_GqnavM4LKb6fUZ18aUQZL-k5p2XId56AP8Hiwr_A-XtMq_Am1hPlWIslXZZGPRQs8ueYnKbddL_RWt4t7vjQUVq04cCCilbizNMdm00]-->
   </g>
 </svg>

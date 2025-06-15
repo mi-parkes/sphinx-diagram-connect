@@ -3,7 +3,7 @@ Container Diagram
 
 .. plantuml::
    :alt: E-commerce Container Diagram
-   :width: 80%
+   :align: center
 
    @startuml
    !include <C4/C4_Context>

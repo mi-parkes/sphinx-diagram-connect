@@ -55,6 +55,9 @@ language = 'en'
 
 html_theme = 'sphinx_book_theme'
 
+html_static_path    = ['_static']
+html_css_files      = ["css/custom.css"]
+
 html_theme_options = {
     "path_to_docs": "doc/source",
     "repository_url": "https://github.com/mi-parkes/sphinx-diagram-connect",
@@ -112,8 +115,8 @@ if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
         ['sphinxcontrib.apidoc', 'sphinx.ext.autodoc']
     )
     apidoc_module_dir = '../../sphinx_diagram_connect'
-    apidoc_output_dir = 'reference'
     apidoc_excluded_paths = ['tests']
+    apidoc_output_dir = 'reference'
     apidoc_separate_modules = False
     apidoc_extra_args = ["--no-toc"]
 
