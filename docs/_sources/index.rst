@@ -3,7 +3,7 @@ sphinx-diagram-connect
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
+   :caption: Getting Started
 
    QuickStart <README.md>
 
@@ -20,12 +20,7 @@ sphinx-diagram-connect
 
 .. toctree::
    :maxdepth: 1
-   :caption: Architecture
+   :caption: Technical Details
 
    extension-architecture.rst
-
-.. toctree::
-   :maxdepth: 1
-   :caption: API Documentation
-
-   reference/sphinx_diagram_connect.rst
+   API Reference <reference/sphinx_diagram_connect.rst>
