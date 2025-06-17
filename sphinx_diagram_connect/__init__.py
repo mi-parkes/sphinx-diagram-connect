@@ -27,6 +27,7 @@ version_info = (1, 0, 0)
 # when a user does 'from sphinx_diagram_connect import *'.
 __all__ = ["setup", "DiagramConnect"]
 
+
 class DiagramConnect:
     """
     A class to handle the resolution of Sphinx references within SVG files
@@ -41,11 +42,12 @@ class DiagramConnect:
         :param app: The Sphinx application object.
         :type app: sphinx.application.Sphinx
         """
-        self.app = app # Store the app object for later use by methods that don't receive it directly
-        self.sphinx_diagram_connect_verbose = getattr(app.config, "sphinx_diagram_connect_verbose", False)
+        self.app = app  # Store the app object for later use by methods that don't receive it directly
+        self.sphinx_diagram_connect_verbose = getattr(
+            app.config, "sphinx_diagram_connect_verbose", False
+        )
         self.needs_build_json = getattr(app.config, "needs_build_json", False)
         self.needs_list = None
-
 
     def _init_needs(self):
         """
@@ -62,7 +64,9 @@ class DiagramConnect:
         :rtype: dict or None
         """
         # Use self.app as the app object is stored during initialization
-        needs_list_obj = NeedsList(self.app.env.config, self.app.outdir, self.app.srcdir)
+        needs_list_obj = NeedsList(
+            self.app.env.config, self.app.outdir, self.app.srcdir
+        )
         needs_list_obj.load_json(os.path.join(self.app.builder.outdir, "needs.json"))
         if needs_list_obj and needs_list_obj.needs_list:
             if "versions" in needs_list_obj.needs_list:
@@ -72,7 +76,6 @@ class DiagramConnect:
                     if "needs" in needs_list_obj.needs_list["versions"][version]:
                         return needs_list_obj.needs_list["versions"][version]["needs"]
         return None
-
 
     def _resolve_ref(self, target):
         """
@@ -105,14 +108,15 @@ class DiagramConnect:
                 raise NoUri(target, typ) from exc
             # Resolve the cross-reference
             # Use self.app as the app object is stored during initialization
-            newnode = domain.resolve_xref(self.app.env, refdoc, self.app.builder, typ, target.lower(), node, None)
+            newnode = domain.resolve_xref(
+                self.app.env, refdoc, self.app.builder, typ, target.lower(), node, None
+            )
             if newnode:
                 return newnode.attributes["refuri"]
             else:
                 return None
         except NoUri:
             return None
-
 
     def resolve_references(self, app_from_event, exception):
         """
@@ -140,7 +144,7 @@ class DiagramConnect:
             # Access config values and needs list using the app object from the event
             # or the already stored self.sphinx_diagram_connect_verbose and self.needs_build_json
             if self.needs_build_json and self.needs_list is None:
-                self.needs_list = self._init_needs() # _init_needs uses self.app
+                self.needs_list = self._init_needs()  # _init_needs uses self.app
 
             # Regex pattern to find Sphinx references in the format :ref:`target` or :doc:`target`
             pattern = r"(:(ref|doc):`([^`]+)`)"
@@ -148,7 +152,10 @@ class DiagramConnect:
 
             # Iterate over all SVG files in the image directory
             # Use app.builder.outdir and app.builder.imagedir from the event's app object
-            for filename in glob.glob(os.path.join(app.builder.outdir, app.builder.imagedir) + "/*.svg", recursive=True):
+            for filename in glob.glob(
+                os.path.join(app.builder.outdir, app.builder.imagedir) + "/*.svg",
+                recursive=True,
+            ):
                 # Read the SVG file content as binary
                 with open(filename, "rb") as file:
                     svg_content = file.read()
@@ -167,8 +174,8 @@ class DiagramConnect:
                         for key in keys:
                             if key.endswith("href"):
                                 href = key
-                                break # Found the href attribute, break from inner loop
-                        else: # If no href attribute found, continue to next element
+                                break  # Found the href attribute, break from inner loop
+                        else:  # If no href attribute found, continue to next element
                             continue
 
                         # Check if the href attribute's value matches the Sphinx reference pattern
@@ -179,18 +186,28 @@ class DiagramConnect:
                             complete, type, old_href = match.groups()
 
                             # Attempt to resolve using the internal _resolve_ref method
-                            new_href = self._resolve_ref(old_href) # _resolve_ref uses self.app
+                            new_href = self._resolve_ref(
+                                old_href
+                            )  # _resolve_ref uses self.app
                             if new_href:
                                 element.attrib[href] = new_href
-                                if self.sphinx_diagram_connect_verbose: # Using stored config value
-                                    logger.info("href resolution: '%s' -> '%s'" % (old_href, new_href), color="purple")
+                                if (
+                                    self.sphinx_diagram_connect_verbose
+                                ):  # Using stored config value
+                                    logger.info(
+                                        "href resolution: '%s' -> '%s'"
+                                        % (old_href, new_href),
+                                        color="purple",
+                                    )
                                 resolved = True
-                            elif self.needs_list: # Using stored needs_list
+                            elif self.needs_list:  # Using stored needs_list
                                 # If Sphinx resolver fails, try to resolve using sphinx-needs data
                                 if old_href in self.needs_list:
                                     # Construct the path to the needs document.
                                     # TODO: This relative path needs to be robustly handled based on build paths.
-                                    element.attrib[href] = f"../{self.needs_list[old_href]['docname']}.html#{old_href}"
+                                    element.attrib[href] = (
+                                        f"../{self.needs_list[old_href]['docname']}.html#{old_href}"
+                                    )
                                     resolved = True
                             if resolved:
                                 modified = True
@@ -205,17 +222,26 @@ class DiagramConnect:
 
                 if modified:
                     logger.info(
-                        "Updating SVG file with resolved references:'%s'" % filename[len(os.getcwd()) + 1 :],
+                        "Updating SVG file with resolved references:'%s'"
+                        % filename[len(os.getcwd()) + 1 :],
                         color="darkblue",
                     )
                     try:
                         # Write the modified SVG content back to the file
                         with open(filename, "wb") as file:
                             # Use pretty_print for readability and include XML declaration for valid SVG
-                            file.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding="UTF-8"))
+                            file.write(
+                                etree.tostring(
+                                    root,
+                                    pretty_print=True,
+                                    xml_declaration=True,
+                                    encoding="UTF-8",
+                                )
+                            )
                     except Exception as exc:
                         logger.error(
-                            "Failed to write file:'%s' - %s" % (filename[len(os.getcwd()) + 1 :], exc)
+                            "Failed to write file:'%s' - %s"
+                            % (filename[len(os.getcwd()) + 1 :], exc)
                         )
         return
 

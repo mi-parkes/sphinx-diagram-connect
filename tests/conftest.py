@@ -4,8 +4,9 @@ import os
 
 from sphinx_diagram_connect import DiagramConnect, setup, __version__
 
+
 @pytest.fixture
-def mock_sphinx_app(): # Renamed from mock_app to mock_sphinx_app
+def mock_sphinx_app():  # Renamed from mock_app to mock_sphinx_app
     """
     Provides a mock Sphinx application object for testing.
     """
@@ -26,11 +27,16 @@ def mock_sphinx_app(): # Renamed from mock_app to mock_sphinx_app
         if target_val == "my-ref":
             return MagicMock(attributes={"refuri": "/_static/resolved_my-ref.html"})
         elif target_val == "another-doc":
-            return MagicMock(attributes={"refuri": "/_static/resolved_another-doc.html"})
+            return MagicMock(
+                attributes={"refuri": "/_static/resolved_another-doc.html"}
+            )
         return None
 
-    app.env.domains["std"].resolve_xref = MagicMock(side_effect=_resolve_xref_side_effect)
+    app.env.domains["std"].resolve_xref = MagicMock(
+        side_effect=_resolve_xref_side_effect
+    )
     return app
+
 
 @pytest.fixture
 def temp_sphinx_project(tmp_path):
@@ -56,7 +62,9 @@ def temp_sphinx_project(tmp_path):
       </a>
     </svg>
     """
-    (project_root / "_build" / "html" / "_images" / "diagram.svg").write_text(dummy_svg_content)
+    (project_root / "_build" / "html" / "_images" / "diagram.svg").write_text(
+        dummy_svg_content
+    )
 
     # Create a dummy needs.json file (if testing needs integration)
     needs_json_content = """
@@ -76,6 +84,7 @@ def temp_sphinx_project(tmp_path):
 
     return project_root
 
+
 # Fixture for an instance of DiagramConnect
 @pytest.fixture
 def diagram_connect_instance(mock_sphinx_app):
@@ -93,4 +102,3 @@ def mock_logger():
     """
     with patch("sphinx_diagram_connect.logger") as mock:
         yield mock
-
