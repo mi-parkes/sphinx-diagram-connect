@@ -18,11 +18,13 @@ Some other text here
     :name: PlantUML Label2
 
     @startmindmap mindmap2
+    scale 0.3
+    skinparam defaultFontSize 56
 
     *[#Orange] Example of clickable references
-    **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Arbitrary Reference1 ]]
-    **[#lightblue] [[ ":ref:`N_00001`" Internal Page Arbitrary Reference2 on sphinx-need ]]
-    **[#red] [[ ":ref:`N_00003`" Internal Page Arbitrary Invalid Reference ]]
+    **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Arbitrary Reference ]]
+    **[#lightblue] [[ ":ref:`N_00001`" sphinx-needs Reference ]]
+    **[#Tomato] [[ ":ref:`N_00003`" Internal Page Arbitrary Invalid Reference ]]
 
     @endmindmap
 

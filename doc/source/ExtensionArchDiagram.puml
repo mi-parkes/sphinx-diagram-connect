@@ -1,9 +1,10 @@
 @startuml
 
-title Sphinx-Diagram-Connect Component Diagram
+title <SIZE:40>Sphinx-Diagram-Connect Component Diagram</SIZe>
 
-scale 0.6
+scale 0.5
 
+skinparam defaultFontSize 30
 skinparam defaultText {
   FontColor #000000
 }
@@ -56,17 +57,17 @@ database "Sphinx Output Directory" #90EE90 {
 }
 
 SphinxApp -right-> Config : loads configuration
-Config --> DCClass : config values (`verbose`, `needs_build_json`)
+Config --> DCClass : config values\n(`verbose`)
 
-SphinxApp -right-> DCClass : instantiates, registers event
+SphinxApp -right-> DCClass : instantiates,\nregisters event
 
-SphinxBuilder .down.> SVGs : generates SVG content
-SphinxBuilder .right.> NeedsJSON : generates needs.json (if needs enabled)
+SphinxBuilder .down.> SVGs : generates\nSVG content
+SphinxBuilder .right.> NeedsJSON : generates\nneeds.json\n(if needs enabled)
 
-SphinxApp .down.> ResolveRefs : `build-finished` event trigger
+SphinxApp .down.> ResolveRefs : `build-finished`\nevent trigger
 
 ResolveRefs --> SVGs : reads/writes SVG content
-ResolveRefs ..> NeedsJSON : reads needs.json (via `_init_needs`)
+ResolveRefs ..> NeedsJSON : reads needs.json\n(via `_init_needs`)
 
 DCClass ..> NeedsList : utilizes
 
