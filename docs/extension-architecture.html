@@ -433,13 +433,14 @@ document.write(`
 sphinx-diagram-connect extension. This overview helps in understanding how the extension
 integrates with the Sphinx build process to resolve references in SVG diagrams.</p>
 <p class="plantuml">
-<object data="_images/plantuml-ca21582e40593b0cb2fda5f5fc9396c8d1fee67a.svg" type="image/svg+xml" style="width:863px;height:282px;background:#FFFFFF;">
-<img src="_images/plantuml-ca21582e40593b0cb2fda5f5fc9396c8d1fee67a.png" alt="&#64;startuml
+<object data="_images/plantuml-aa23dccde1c25c19cb262ecf20b765b5cd4544e7.svg" type="image/svg+xml" style="width:913px;height:371px;background:#FFFFFF;">
+<img src="_images/plantuml-aa23dccde1c25c19cb262ecf20b765b5cd4544e7.png" alt="&#64;startuml
 
-title Sphinx-Diagram-Connect Component Diagram
+title &lt;SIZE:40&gt;Sphinx-Diagram-Connect Component Diagram&lt;/SIZe&gt;
 
-scale 0.6
+scale 0.5
 
+skinparam defaultFontSize 30
 skinparam defaultText {
   FontColor #000000
 }
@@ -492,17 +493,17 @@ database &quot;Sphinx Output Directory&quot; #90EE90 {
 }
 
 SphinxApp -right-&gt; Config : loads configuration
-Config --&gt; DCClass : config values (`verbose`, `needs_build_json`)
+Config --&gt; DCClass : config values\n(`verbose`)
 
-SphinxApp -right-&gt; DCClass : instantiates, registers event
+SphinxApp -right-&gt; DCClass : instantiates,\nregisters event
 
-SphinxBuilder .down.&gt; SVGs : generates SVG content
-SphinxBuilder .right.&gt; NeedsJSON : generates needs.json (if needs enabled)
+SphinxBuilder .down.&gt; SVGs : generates\nSVG content
+SphinxBuilder .right.&gt; NeedsJSON : generates\nneeds.json\n(if needs enabled)
 
-SphinxApp .down.&gt; ResolveRefs : `build-finished` event trigger
+SphinxApp .down.&gt; ResolveRefs : `build-finished`\nevent trigger
 
 ResolveRefs --&gt; SVGs : reads/writes SVG content
-ResolveRefs ..&gt; NeedsJSON : reads needs.json (via `_init_needs`)
+ResolveRefs ..&gt; NeedsJSON : reads needs.json\n(via `_init_needs`)
 
 DCClass ..&gt; NeedsList : utilizes
 
