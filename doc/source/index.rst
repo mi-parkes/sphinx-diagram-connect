@@ -9,14 +9,9 @@ sphinx-diagram-connect
 
 .. toctree::
    :maxdepth: 1
-   :caption: Usage Examples
+   :caption: Usage
 
-   c4/index
-   test/test-plantuml1
-   test/textx/test-plantuml2
-   test/textx/testz/test-plantuml3
-   test/test-plantuml4
-   test/test-drawio1.rst
+   usage-examples.rst
 
 .. toctree::
    :maxdepth: 1

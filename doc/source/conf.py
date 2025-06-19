@@ -65,7 +65,7 @@ html_theme_options = {
     "path_to_docs": "doc/source",
     "repository_url": "https://github.com/mi-parkes/sphinx-diagram-connect",
     "repository_branch": "main",
-    "show_navbar_depth": 2,
+    "show_navbar_depth": 1,
     "show_toc_level": 1,
     "use_repository_button": True,
     "use_source_button": True,
