@@ -25,3 +25,4 @@ sphinx-diagram-connect
    sphinx-architecture.rst
    extension-architecture.rst
    API Reference <reference/sphinx_diagram_connect.rst>
+   Tests Reference <reference/tests.rst>

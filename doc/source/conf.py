@@ -121,11 +121,12 @@ def copy_readme_md(app):
 
 if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
     extensions.extend(["sphinxcontrib.apidoc", "sphinx.ext.autodoc"])
-    apidoc_module_dir = "../../sphinx_diagram_connect"
-    apidoc_excluded_paths = ["tests"]
+    #apidoc_module_dir = "../../sphinx_diagram_connect"
+    apidoc_module_dir = "../../"
+    #apidoc_excluded_paths = ["tests"]
     apidoc_output_dir = "reference"
     apidoc_separate_modules = False
-    apidoc_extra_args = ["--no-toc"]
+    apidoc_extra_args = ["--no-toc","--force"]
 
     if "APIDOC_DD" in tags.tags:
         apidoc_extra_args.append("-P")
