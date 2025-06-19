@@ -61,6 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/tests';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="tests.conftest module" href="tests.conftest.html" />
     <link rel="prev" title="sphinx_diagram_connect package" href="sphinx_diagram_connect.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,7 +197,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extension-architecture.html">Extension Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx_diagram_connect.html">API Reference</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tests Reference</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tests Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.conftest.html">tests.conftest module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html">tests.test_sphinx_diagram_connect module</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -427,32 +432,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests.conftest">tests.conftest module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.diagram_connect_instance"><code class="docutils literal notranslate"><span class="pre">diagram_connect_instance()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.mock_logger"><code class="docutils literal notranslate"><span class="pre">mock_logger()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.mock_sphinx_app"><code class="docutils literal notranslate"><span class="pre">mock_sphinx_app()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.temp_sphinx_project"><code class="docutils literal notranslate"><span class="pre">temp_sphinx_project()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests.test_sphinx_diagram_connect">tests.test_sphinx_diagram_connect module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_no_needs_json"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_no_needs_json()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_failure"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_failure()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_unresolved"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_unresolved()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_verbose_logging"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_verbose_logging()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_with_needs_json_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_with_needs_json_success()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestSetupFunction"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestSetupFunction.test_setup_registers_extension"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction.test_setup_registers_extension()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests">Module contents</a></li>
 </ul>
             </nav>
@@ -469,114 +448,36 @@ document.write(`
 <h1>tests package<a class="headerlink" href="#tests-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-tests.conftest">
-<span id="tests-conftest-module"></span><h2>tests.conftest module<a class="headerlink" href="#module-tests.conftest" title="Link to this heading">#</a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.conftest.diagram_connect_instance">
-<span class="sig-prename descclassname"><span class="pre">tests.conftest.</span></span><span class="sig-name descname"><span class="pre">diagram_connect_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_sphinx_app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.conftest.diagram_connect_instance" title="Link to this definition">#</a></dt>
-<dd><p>Provides an initialized DiagramConnect instance for tests.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.conftest.mock_logger">
-<span class="sig-prename descclassname"><span class="pre">tests.conftest.</span></span><span class="sig-name descname"><span class="pre">mock_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.conftest.mock_logger" title="Link to this definition">#</a></dt>
-<dd><p>Mocks the Sphinx logger to capture log messages.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.conftest.mock_sphinx_app">
-<span class="sig-prename descclassname"><span class="pre">tests.conftest.</span></span><span class="sig-name descname"><span class="pre">mock_sphinx_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.conftest.mock_sphinx_app" title="Link to this definition">#</a></dt>
-<dd><p>Provides a mock Sphinx application object for testing.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.conftest.temp_sphinx_project">
-<span class="sig-prename descclassname"><span class="pre">tests.conftest.</span></span><span class="sig-name descname"><span class="pre">temp_sphinx_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmp_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.conftest.temp_sphinx_project" title="Link to this definition">#</a></dt>
-<dd><p>Creates a temporary Sphinx project structure for integration tests.
-Returns the path to the project root.</p>
-</dd></dl>
-
-</section>
-<section id="module-tests.test_sphinx_diagram_connect">
-<span id="tests-test-sphinx-diagram-connect-module"></span><h2>tests.test_sphinx_diagram_connect module<a class="headerlink" href="#module-tests.test_sphinx_diagram_connect" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_sphinx_diagram_connect.</span></span><span class="sig-name descname"><span class="pre">TestDiagramConnect</span></span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Tests for the DiagramConnect class.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init">
-<span class="sig-name descname"><span class="pre">test_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_sphinx_app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init" title="Link to this definition">#</a></dt>
-<dd><p>Tests the initialization of the DiagramConnect class.
-Ensures that app, verbose setting, and needs_build_json setting are correctly stored.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_no_needs_json">
-<span class="sig-name descname"><span class="pre">test_init_needs_no_needs_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_join</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_needs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_no_needs_json" title="Link to this definition">#</a></dt>
-<dd><p>Tests _init_needs when needs.json is empty or invalid.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_success">
-<span class="sig-name descname"><span class="pre">test_init_needs_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_join</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_needs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_success" title="Link to this definition">#</a></dt>
-<dd><p>Tests _init_needs when needs.json is valid and contains data.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_failure">
-<span class="sig-name descname"><span class="pre">test_resolve_ref_failure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_failure" title="Link to this definition">#</a></dt>
-<dd><p>Tests _resolve_ref with a target that Sphinx cannot resolve.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_success">
-<span class="sig-name descname"><span class="pre">test_resolve_ref_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_success" title="Link to this definition">#</a></dt>
-<dd><p>Tests _resolve_ref with a target that Sphinx can resolve.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_success">
-<span class="sig-name descname"><span class="pre">test_resolve_references_html_format_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_xml_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_tostring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_fromstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_open_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_glob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_success" title="Link to this definition">#</a></dt>
-<dd><p>Tests resolve_references with a mock SVG containing a resolvable Sphinx reference.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_unresolved">
-<span class="sig-name descname"><span class="pre">test_resolve_references_html_format_unresolved</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_xml_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_tostring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_fromstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_open_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_glob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagram_connect_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_unresolved" title="Link to this definition">#</a></dt>
-<dd><p>Tests resolve_references with a mock SVG containing an unresolvable Sphinx reference.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_verbose_logging">
-<span class="sig-name descname"><span class="pre">test_resolve_references_verbose_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_xml_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_tostring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_fromstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_open_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_glob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_sphinx_app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_verbose_logging" title="Link to this definition">#</a></dt>
-<dd><p>Tests that verbose logging is enabled when sphinx_diagram_connect_verbose is True.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_with_needs_json_success">
-<span class="sig-name descname"><span class="pre">test_resolve_references_with_needs_json_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_xml_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_join</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_needs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_tostring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_fromstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_open_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_glob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_sphinx_app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_with_needs_json_success" title="Link to this definition">#</a></dt>
-<dd><p>Tests resolve_references with a mock SVG and needs_build_json enabled,
-resolving a needs reference.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestSetupFunction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_sphinx_diagram_connect.</span></span><span class="sig-name descname"><span class="pre">TestSetupFunction</span></span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestSetupFunction" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Tests for the setup function.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="tests.test_sphinx_diagram_connect.TestSetupFunction.test_setup_registers_extension">
-<span class="sig-name descname"><span class="pre">test_setup_registers_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_sphinx_app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_sphinx_diagram_connect.TestSetupFunction.test_setup_registers_extension" title="Link to this definition">#</a></dt>
-<dd><p>Tests that the setup function correctly registers the extension,
-connects the build-finished event, and adds the config value.</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tests.conftest.html">tests.conftest module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.conftest.html#tests.conftest.diagram_connect_instance"><code class="docutils literal notranslate"><span class="pre">diagram_connect_instance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.conftest.html#tests.conftest.mock_logger"><code class="docutils literal notranslate"><span class="pre">mock_logger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.conftest.html#tests.conftest.mock_sphinx_app"><code class="docutils literal notranslate"><span class="pre">mock_sphinx_app()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.conftest.html#tests.conftest.temp_sphinx_project"><code class="docutils literal notranslate"><span class="pre">temp_sphinx_project()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html">tests.test_sphinx_diagram_connect module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_no_needs_json"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_no_needs_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_success()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_failure"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_failure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_success()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_success()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_unresolved"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_unresolved()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_verbose_logging"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_verbose_logging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_with_needs_json_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_with_needs_json_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestSetupFunction"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tests.test_sphinx_diagram_connect.html#tests.test_sphinx_diagram_connect.TestSetupFunction.test_setup_registers_extension"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction.test_setup_registers_extension()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 <section id="module-tests">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests" title="Link to this heading">#</a></h2>
@@ -603,6 +504,15 @@ connects the build-finished event, and adds the config value.</p>
         <p class="prev-next-title">sphinx_diagram_connect package</p>
       </div>
     </a>
+    <a class="right-next"
+       href="tests.conftest.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">tests.conftest module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -620,32 +530,6 @@ connects the build-finished event, and adds the config value.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests.conftest">tests.conftest module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.diagram_connect_instance"><code class="docutils literal notranslate"><span class="pre">diagram_connect_instance()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.mock_logger"><code class="docutils literal notranslate"><span class="pre">mock_logger()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.mock_sphinx_app"><code class="docutils literal notranslate"><span class="pre">mock_sphinx_app()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.conftest.temp_sphinx_project"><code class="docutils literal notranslate"><span class="pre">temp_sphinx_project()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests.test_sphinx_diagram_connect">tests.test_sphinx_diagram_connect module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_no_needs_json"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_no_needs_json()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_init_needs_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_init_needs_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_failure"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_failure()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_ref_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_ref_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_success()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_html_format_unresolved"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_html_format_unresolved()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_verbose_logging"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_verbose_logging()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestDiagramConnect.test_resolve_references_with_needs_json_success"><code class="docutils literal notranslate"><span class="pre">TestDiagramConnect.test_resolve_references_with_needs_json_success()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestSetupFunction"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests.test_sphinx_diagram_connect.TestSetupFunction.test_setup_registers_extension"><code class="docutils literal notranslate"><span class="pre">TestSetupFunction.test_setup_registers_extension()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-tests">Module contents</a></li>
 </ul>
   </nav></div>

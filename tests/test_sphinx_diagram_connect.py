@@ -3,25 +3,28 @@ import pytest
 import re
 from unittest.mock import MagicMock, patch, mock_open
 from lxml import etree
-import types  # Import types for checking method types if needed, though removed for now
 
 # Import the DiagramConnect class and setup function from your package
-# Assuming the file is named __init__.py inside a package directory
-# For testing, we might need to adjust the import path if running tests
-# from a different directory. For simplicity, we'll assume it's in the
-# same directory or correctly installed for import.
 from sphinx_diagram_connect import DiagramConnect, setup, __version__
 
 
 class TestSetupFunction:
     """
-    Tests for the setup function.
+    Tests for the `setup` function of the `sphinx_diagram_connect` extension.
+
+    Ensures that the extension is correctly registered with the Sphinx application,
+    including connecting to the 'build-finished' event and adding configuration values.
     """
 
-    def test_setup_registers_extension(self, mock_sphinx_app):
+    def test_setup_registers_extension(self, mock_sphinx_app: MagicMock):
         """
         Tests that the setup function correctly registers the extension,
         connects the build-finished event, and adds the config value.
+
+        Parameters
+        ----------
+        mock_sphinx_app : MagicMock
+            A mock Sphinx application object provided by the `mock_sphinx_app` fixture.
         """
         mock_sphinx_app.connect = MagicMock()
         mock_sphinx_app.add_config_value = MagicMock()
@@ -53,13 +56,24 @@ class TestSetupFunction:
 
 class TestDiagramConnect:
     """
-    Tests for the DiagramConnect class.
+    Tests for the `DiagramConnect` class.
+
+    This class covers the initialization of `DiagramConnect` and its core
+    functionality, including resolving references in SVG files and handling
+    Sphinx-Needs integration.
     """
 
-    def test_init(self, mock_sphinx_app):
+    def test_init(self, mock_sphinx_app: MagicMock):
         """
-        Tests the initialization of the DiagramConnect class.
-        Ensures that app, verbose setting, and needs_build_json setting are correctly stored.
+        Tests the initialization of the `DiagramConnect` class.
+
+        Ensures that `app`, `verbose` setting, and `needs_build_json` setting
+        are correctly stored.
+
+        Parameters
+        ----------
+        mock_sphinx_app : MagicMock
+            A mock Sphinx application object.
         """
         instance = DiagramConnect(mock_sphinx_app)
         assert instance.app == mock_sphinx_app
@@ -80,10 +94,22 @@ class TestDiagramConnect:
     @patch("sphinx_diagram_connect.NeedsList")
     @patch("os.path.join", return_value="/mock/outdir/needs.json")
     def test_init_needs_success(
-        self, mock_join, mock_needs_list, diagram_connect_instance
+        self,
+        mock_join: MagicMock,
+        mock_needs_list: MagicMock,
+        diagram_connect_instance: DiagramConnect,
     ):
         """
-        Tests _init_needs when needs.json is valid and contains data.
+        Tests `_init_needs` when `needs.json` is valid and contains data.
+
+        Parameters
+        ----------
+        mock_join : MagicMock
+            Mock for `os.path.join`.
+        mock_needs_list : MagicMock
+            Mock for the `NeedsList` class.
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
         """
         # Configure mock_needs_list to return valid data
         mock_needs_list_instance = mock_needs_list.return_value
@@ -116,10 +142,22 @@ class TestDiagramConnect:
     @patch("sphinx_diagram_connect.NeedsList")
     @patch("os.path.join", return_value="/mock/outdir/needs.json")
     def test_init_needs_no_needs_json(
-        self, mock_join, mock_needs_list, diagram_connect_instance
+        self,
+        mock_join: MagicMock,
+        mock_needs_list: MagicMock,
+        diagram_connect_instance: DiagramConnect,
     ):
         """
-        Tests _init_needs when needs.json is empty or invalid.
+        Tests `_init_needs` when `needs.json` is empty or invalid.
+
+        Parameters
+        ----------
+        mock_join : MagicMock
+            Mock for `os.path.join`.
+        mock_needs_list : MagicMock
+            Mock for the `NeedsList` class.
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
         """
         mock_needs_list_instance = mock_needs_list.return_value
         mock_needs_list_instance.needs_list = {}  # Simulate empty or invalid needs_list
@@ -130,10 +168,14 @@ class TestDiagramConnect:
             "/mock/outdir/needs.json"
         )
 
-    # @pytest.mark.skip("This test is broken")
-    def test_resolve_ref_success(self, diagram_connect_instance):
+    def test_resolve_ref_success(self, diagram_connect_instance: DiagramConnect):
         """
-        Tests _resolve_ref with a target that Sphinx can resolve.
+        Tests `_resolve_ref` with a target that Sphinx can resolve.
+
+        Parameters
+        ----------
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
         """
         resolved_uri = diagram_connect_instance._resolve_ref("my-ref")
         # Updated: Assert against the new mock path format
@@ -142,9 +184,14 @@ class TestDiagramConnect:
             "std"
         ].resolve_xref.assert_called_once()
 
-    def test_resolve_ref_failure(self, diagram_connect_instance):
+    def test_resolve_ref_failure(self, diagram_connect_instance: DiagramConnect):
         """
-        Tests _resolve_ref with a target that Sphinx cannot resolve.
+        Tests `_resolve_ref` with a target that Sphinx cannot resolve.
+
+        Parameters
+        ----------
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
         """
         resolved_uri = diagram_connect_instance._resolve_ref("non-existent-ref")
         assert resolved_uri is None
@@ -156,21 +203,40 @@ class TestDiagramConnect:
     @patch("builtins.open", new_callable=mock_open)
     @patch("lxml.etree.fromstring")
     @patch("lxml.etree.tostring")
-    @patch("lxml.etree.XMLParser")  # Patch XMLParser
-    @patch("os.getcwd", return_value="/mock/outdir")  # Added patch for os.getcwd()
+    @patch("lxml.etree.XMLParser")
+    @patch("os.getcwd", return_value="/mock/outdir")
     def test_resolve_references_html_format_success(
         self,
-        mock_getcwd,
-        mock_xml_parser,
-        mock_tostring,
-        mock_fromstring,
-        mock_open_file,
-        mock_glob,
-        diagram_connect_instance,
-        mock_logger,
+        mock_getcwd: MagicMock,
+        mock_xml_parser: MagicMock,
+        mock_tostring: MagicMock,
+        mock_fromstring: MagicMock,
+        mock_open_file: MagicMock,
+        mock_glob: MagicMock,
+        diagram_connect_instance: DiagramConnect,
+        mock_logger: MagicMock,
     ):
         """
-        Tests resolve_references with a mock SVG containing a resolvable Sphinx reference.
+        Tests `resolve_references` with a mock SVG containing a resolvable Sphinx reference.
+
+        Parameters
+        ----------
+        mock_getcwd : MagicMock
+            Mock for `os.getcwd`.
+        mock_xml_parser : MagicMock
+            Mock for `lxml.etree.XMLParser`.
+        mock_tostring : MagicMock
+            Mock for `lxml.etree.tostring`.
+        mock_fromstring : MagicMock
+            Mock for `lxml.etree.fromstring`.
+        mock_open_file : MagicMock
+            Mock for `builtins.open`.
+        mock_glob : MagicMock
+            Mock for `glob.glob`.
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
+        mock_logger : MagicMock
+            Mock for the Sphinx logger.
         """
         mock_glob.return_value = ["/mock/outdir/html/_images/diagram.svg"]
         mock_svg_content = b'<svg><a xlink:href=":ref:`my-ref`">Link</a></svg>'
@@ -222,30 +288,45 @@ class TestDiagramConnect:
             "Updating SVG file with resolved references:'html/_images/diagram.svg'",
             color="darkblue",
         )
-        # Removed the assertion for 'href resolution' as it's only called when verbose is True
-        # mock_logger.info.assert_any_call(
-        #     "href resolution: '%s' -> '%s'" % ("my-ref", "/_static/resolved_my-ref.html"), color="purple"
-        # ) # This would be called if verbose is True, need to test that
 
     @patch("sphinx_diagram_connect.glob.glob")
     @patch("builtins.open", new_callable=mock_open)
     @patch("lxml.etree.fromstring")
     @patch("lxml.etree.tostring")
-    @patch("lxml.etree.XMLParser")  # Patch XMLParser
-    @patch("os.getcwd", return_value="/mock/outdir")  # Added patch for os.getcwd()
+    @patch("lxml.etree.XMLParser")
+    @patch("os.getcwd", return_value="/mock/outdir")
     def test_resolve_references_html_format_unresolved(
         self,
-        mock_getcwd,
-        mock_xml_parser,
-        mock_tostring,
-        mock_fromstring,
-        mock_open_file,
-        mock_glob,
-        diagram_connect_instance,
-        mock_logger,
+        mock_getcwd: MagicMock,
+        mock_xml_parser: MagicMock,
+        mock_tostring: MagicMock,
+        mock_fromstring: MagicMock,
+        mock_open_file: MagicMock,
+        mock_glob: MagicMock,
+        diagram_connect_instance: DiagramConnect,
+        mock_logger: MagicMock,
     ):
         """
-        Tests resolve_references with a mock SVG containing an unresolvable Sphinx reference.
+        Tests `resolve_references` with a mock SVG containing an unresolvable Sphinx reference.
+
+        Parameters
+        ----------
+        mock_getcwd : MagicMock
+            Mock for `os.getcwd`.
+        mock_xml_parser : MagicMock
+            Mock for `lxml.etree.XMLParser`.
+        mock_tostring : MagicMock
+            Mock for `lxml.etree.tostring`.
+        mock_fromstring : MagicMock
+            Mock for `lxml.etree.fromstring`.
+        mock_open_file : MagicMock
+            Mock for `builtins.open`.
+        mock_glob : MagicMock
+            Mock for `glob.glob`.
+        diagram_connect_instance : DiagramConnect
+            An initialized `DiagramConnect` instance.
+        mock_logger : MagicMock
+            Mock for the Sphinx logger.
         """
         mock_glob.return_value = ["/mock/outdir/html/_images/diagram.svg"]
         mock_svg_content = (
@@ -298,29 +379,50 @@ class TestDiagramConnect:
     @patch("lxml.etree.tostring")
     @patch("sphinx_diagram_connect.NeedsList")
     @patch("os.path.join", return_value="/mock/outdir/needs.json")
-    @patch("lxml.etree.XMLParser")  # Patch XMLParser
-    @patch("os.getcwd", return_value="/mock/outdir")  # Added patch for os.getcwd()
+    @patch("lxml.etree.XMLParser")
+    @patch("os.getcwd", return_value="/mock/outdir")
     def test_resolve_references_with_needs_json_success(
         self,
-        mock_getcwd,
-        mock_xml_parser,
-        mock_join,
-        mock_needs_list,
-        mock_tostring,
-        mock_fromstring,
-        mock_open_file,
-        mock_glob,
-        mock_sphinx_app,
-        mock_logger,
-    ):  # Using mock_sphinx_app
+        mock_getcwd: MagicMock,
+        mock_xml_parser: MagicMock,
+        mock_join: MagicMock,
+        mock_needs_list: MagicMock,
+        mock_tostring: MagicMock,
+        mock_fromstring: MagicMock,
+        mock_open_file: MagicMock,
+        mock_glob: MagicMock,
+        mock_sphinx_app: MagicMock,
+        mock_logger: MagicMock,
+    ):
         """
-        Tests resolve_references with a mock SVG and needs_build_json enabled,
+        Tests `resolve_references` with a mock SVG and `needs_build_json` enabled,
         resolving a needs reference.
+
+        Parameters
+        ----------
+        mock_getcwd : MagicMock
+            Mock for `os.getcwd`.
+        mock_xml_parser : MagicMock
+            Mock for `lxml.etree.XMLParser`.
+        mock_join : MagicMock
+            Mock for `os.path.join`.
+        mock_needs_list : MagicMock
+            Mock for the `NeedsList` class.
+        mock_tostring : MagicMock
+            Mock for `lxml.etree.tostring`.
+        mock_fromstring : MagicMock
+            Mock for `lxml.etree.fromstring`.
+        mock_open_file : MagicMock
+            Mock for `builtins.open`.
+        mock_glob : MagicMock
+            Mock for `glob.glob`.
+        mock_sphinx_app : MagicMock
+            A mock Sphinx application object.
+        mock_logger : MagicMock
+            Mock for the Sphinx logger.
         """
-        mock_sphinx_app.config.needs_build_json = True  # Using mock_sphinx_app
-        diagram_connect_instance = DiagramConnect(
-            mock_sphinx_app
-        )  # Re-init with updated config
+        mock_sphinx_app.config.needs_build_json = True
+        diagram_connect_instance = DiagramConnect(mock_sphinx_app)
 
         # Mock needs_list data
         mock_needs_list_instance = mock_needs_list.return_value
@@ -356,9 +458,7 @@ class TestDiagramConnect:
             b'<svg><a xlink:href="../specifications.html#MY_NEED_001">Link</a></svg>'
         )
 
-        diagram_connect_instance.resolve_references(
-            mock_sphinx_app, None
-        )  # Using mock_sphinx_app
+        diagram_connect_instance.resolve_references(mock_sphinx_app, None)
 
         mock_needs_list.assert_called_once()  # _init_needs should be called
         # Assert that XMLParser was called correctly
@@ -377,37 +477,48 @@ class TestDiagramConnect:
             "Updating SVG file with resolved references:'html/_images/diagram.svg'",
             color="darkblue",
         )
-        # Removed the assertion for 'href resolution' as it's only called when verbose is True
-        # mock_logger.info.assert_any_call(
-        #     "href resolution: '%s' -> '%s'" % ("MY_NEED_001", "../specifications.html#MY_NEED_001"), color="purple"
-        # ) # This would be called if verbose is True, need to test that
 
     @patch("sphinx_diagram_connect.glob.glob")
     @patch("builtins.open", new_callable=mock_open)
     @patch("lxml.etree.fromstring")
     @patch("lxml.etree.tostring")
-    @patch("lxml.etree.XMLParser")  # Patch XMLParser
-    @patch("os.getcwd", return_value="/mock/outdir")  # Added patch for os.getcwd()
+    @patch("lxml.etree.XMLParser")
+    @patch("os.getcwd", return_value="/mock/outdir")
     def test_resolve_references_verbose_logging(
         self,
-        mock_getcwd,
-        mock_xml_parser,
-        mock_tostring,
-        mock_fromstring,
-        mock_open_file,
-        mock_glob,
-        mock_sphinx_app,
-        mock_logger,
-    ):  # Using mock_sphinx_app
+        mock_getcwd: MagicMock,
+        mock_xml_parser: MagicMock,
+        mock_tostring: MagicMock,
+        mock_fromstring: MagicMock,
+        mock_open_file: MagicMock,
+        mock_glob: MagicMock,
+        mock_sphinx_app: MagicMock,
+        mock_logger: MagicMock,
+    ):
         """
-        Tests that verbose logging is enabled when sphinx_diagram_connect_verbose is True.
+        Tests that verbose logging is enabled when `sphinx_diagram_connect_verbose` is True.
+
+        Parameters
+        ----------
+        mock_getcwd : MagicMock
+            Mock for `os.getcwd`.
+        mock_xml_parser : MagicMock
+            Mock for `lxml.etree.XMLParser`.
+        mock_tostring : MagicMock
+            Mock for `lxml.etree.tostring`.
+        mock_fromstring : MagicMock
+            Mock for `lxml.etree.fromstring`.
+        mock_open_file : MagicMock
+            Mock for `builtins.open`.
+        mock_glob : MagicMock
+            Mock for `glob.glob`.
+        mock_sphinx_app : MagicMock
+            A mock Sphinx application object.
+        mock_logger : MagicMock
+            Mock for the Sphinx logger.
         """
-        mock_sphinx_app.config.sphinx_diagram_connect_verbose = (
-            True  # Using mock_sphinx_app
-        )
-        diagram_connect_instance = DiagramConnect(
-            mock_sphinx_app
-        )  # Re-init with updated config
+        mock_sphinx_app.config.sphinx_diagram_connect_verbose = True
+        diagram_connect_instance = DiagramConnect(mock_sphinx_app)
 
         mock_glob.return_value = ["/mock/outdir/html/_images/diagram.svg"]
         mock_svg_content = b'<svg><a xlink:href=":ref:`my-ref`">Link</a></svg>'
@@ -428,9 +539,7 @@ class TestDiagramConnect:
             b'<svg><a xlink:href="/_static/resolved_my-ref.html">Link</a></svg>'
         )
 
-        diagram_connect_instance.resolve_references(
-            mock_sphinx_app, None
-        )  # Using mock_sphinx_app
+        diagram_connect_instance.resolve_references(mock_sphinx_app, None)
 
         mock_logger.info.assert_any_call(
             "href resolution: '%s' -> '%s'"

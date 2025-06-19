@@ -4,11 +4,24 @@ import os
 
 from sphinx_diagram_connect import DiagramConnect, setup, __version__
 
+"""
+Test fixtures and utilities for sphinx_diagram_connect.
+
+This module provides pytest fixtures to mock Sphinx application
+objects and create temporary project structures for testing
+the sphinx_diagram_connect extension.
+"""
 
 @pytest.fixture
 def mock_sphinx_app():  # Renamed from mock_app to mock_sphinx_app
     """
     Provides a mock Sphinx application object for testing.
+
+    Returns
+    -------
+    MagicMock
+        A mock Sphinx application instance with configured
+        `config`, `builder`, and `env` attributes.
     """
     app = MagicMock()
     app.config = MagicMock()
@@ -42,7 +55,16 @@ def mock_sphinx_app():  # Renamed from mock_app to mock_sphinx_app
 def temp_sphinx_project(tmp_path):
     """
     Creates a temporary Sphinx project structure for integration tests.
-    Returns the path to the project root.
+
+    Parameters
+    ----------
+    tmp_path : Path
+        pytest fixture for a temporary directory.
+
+    Returns
+    -------
+    Path
+        The path to the root of the temporary Sphinx project.
     """
     project_root = tmp_path / "test_project"
     (project_root / "_static").mkdir(parents=True)
