@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Test PlantUML 4 (Graphviz) &#8212; sphinx-diagram-connect  documentation</title>
+    <title>Sphinx Architecture &#8212; sphinx-diagram-connect  documentation</title>
   
   
   
@@ -18,51 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=05e65d37" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/modern.css?v=803738c0" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=05e65d37" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/jquery.js?v=5d32c60e"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
-    <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
-    <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'test/test-plantuml4';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Test DrawIO" href="test-drawio1.html" />
-    <link rel="prev" title="Test PlantUML 3" href="textx/testz/test-plantuml3.html" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+    <script src="_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+    <script src="_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+    <script src="_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+    <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sphinx-architecture';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extension Architecture" href="extension-architecture.html" />
+    <link rel="prev" title="Test DrawIO" href="test/test-drawio1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -94,7 +94,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -143,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="../index.html">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -169,34 +169,34 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../index.html">
+                <a class="reference internal" href="index.html">
                     sphinx-diagram-connect
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">QuickStart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">QuickStart</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage Examples</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../c4/index.html">C4-PlantUML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../c4/system_context.html">System Context Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c4/container_diagram.html">Container Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c4/component_diagram.html">Web Application Component Diagram</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="c4/index.html">C4-PlantUML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="c4/system_context.html">System Context Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c4/container_diagram.html">Container Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c4/component_diagram.html">Web Application Component Diagram</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="test-plantuml1.html">Test PlantUML 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="textx/test-plantuml2.html">Test PlantUML 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Test PlantUML 4 (Graphviz)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test-drawio1.html">Test DrawIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-plantuml1.html">Test PlantUML 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/textx/test-plantuml2.html">Test PlantUML 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-plantuml4.html">Test PlantUML 4 (Graphviz)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/test-drawio1.html">Test DrawIO</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extension-architecture.html">Extension Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">API Reference</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sphinx Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension-architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/sphinx_diagram_connect.html">API Reference</a></li>
 </ul>
 
     </div>
@@ -268,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/blob/main/doc/source/test/test-plantuml4.rst?plain=1" target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/blob/main/doc/source/sphinx-architecture.rst?plain=1" target="_blank"
    class="btn btn-sm btn-source-file-button dropdown-item"
    title="Show source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/edit/main/doc/source/test/test-plantuml4.rst" target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/edit/main/doc/source/sphinx-architecture.rst" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/issues/new?title=Issue%20on%20page%20%2Ftest/test-plantuml4.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/issues/new?title=Issue%20on%20page%20%2Fsphinx-architecture.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +332,7 @@
       
       
       
-      <li><a href="../_sources/test/test-plantuml4.rst" target="_blank"
+      <li><a href="_sources/sphinx-architecture.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -414,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Test PlantUML 4 (Graphviz)</h1>
+    <h1>Sphinx Architecture</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -428,42 +428,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="test-plantuml-4-graphviz">
-<h1>Test PlantUML 4 (Graphviz)<a class="headerlink" href="#test-plantuml-4-graphviz" title="Link to this heading">#</a></h1>
-<p><a class="reference internal" href="textx/test-plantuml2.html#heading-1"><span class="std std-ref">Heading 1</span></a></p>
-<figure class="align-default" id="plantuml-label4">
+  <section id="sphinx-architecture">
+<h1>Sphinx Architecture<a class="headerlink" href="#sphinx-architecture" title="Link to this heading">#</a></h1>
+<p>This diagram illustrates the core components and their relationships within a typical Sphinx
+documentation project.</p>
 <p class="plantuml">
-<object data="../_images/plantuml-c0a281146062168522734782d4d25419b407f00f.svg" type="image/svg+xml" style="">
-<img src="../_images/plantuml-c0a281146062168522734782d4d25419b407f00f.png" alt="&#64;startuml digraph
-digraph G {
-    rankdir = RL;
-    labelloc = &quot;t&quot;;
-    fontsize = &quot;28pt&quot;;
-    nodesep=1.0
-    node [
-        fontsize = &quot;22&quot;
-        fixedsize=true
-        width=2.6
-        height=1.3
-        shape=&quot;box&quot;
-        shape=&quot;oval&quot;
-        style=&quot;filled&quot;
-        target=&quot;_top&quot;
-    ];
-    edge [ fontname=Helvetica, fontsize=25, minlen=2 ];
-
-    node1 [ label=&quot;Node1&quot; tooltip=&quot;Node tooltip&quot; URL=&quot;:ref:`Heading 2`&quot;]
-    node2 [ label=&quot;Node2&quot; tooltip=&quot;Node tooltip&quot; URL=&quot;:ref:`N_00002`&quot;]
-
-    node1 -&gt; node2 [ label=&quot;test&quot; ]
-}
-&#64;enduml"/>
+<object data="_images/plantuml-ad6871e2d786371f61d53163d3cae0137441f20f.svg" type="image/svg+xml" style="width:890px;height:302px;background:#FFFFFF;">
+<img src="_images/plantuml-ad6871e2d786371f61d53163d3cae0137441f20f.png" alt="Sphinx Architecture Diagram"/>
 
 </object></p>
-<figcaption>
-<p><span class="caption-text">Graphviz Example</span><a class="headerlink" href="#plantuml-label4" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<ul class="simple">
+<li><p><strong>Sphinx</strong>: The central application that orchestrates the documentation build process.</p></li>
+<li><p><strong>Sphinx-Builder</strong>: Responsible for rendering the documentation into various output formats, such as HTML, EPUB, or LaTeX. A Sphinx project can utilize one or more builders.</p></li>
+<li><p><strong>Sphinx-Extension</strong>: Custom Python modules that extend Sphinx’s functionality, allowing users to define new roles, directives, or add custom processing steps.</p></li>
+<li><p><strong>conf.py</strong>: The primary configuration file for a Sphinx project, where settings like project metadata, extensions to load, and theme selection are defined.</p></li>
+<li><p><strong>Sphinx-Theme</strong>: A collection of HTML templates, stylesheets, and other static files that define the visual appearance of the generated documentation. A Sphinx project typically uses one active theme.</p></li>
+<li><p><strong>Sphinx-Theme Customization</strong>: Allows for modifications and overrides to the active Sphinx theme, providing a way to tailor the look and feel without altering the original theme files directly.</p></li>
+<li><p><strong>Documentation Sources</strong>: The raw source files (e.g., reStructuredText <cite>.rst</cite> or Markdown <cite>.md</cite> files) that contain the actual content of the documentation. Sphinx processes these files to generate the final output.</p></li>
+</ul>
+<p>The arrows in the diagram indicate the relationships and data flow between these components:</p>
+<ul class="simple">
+<li><p>Extensions implement roles and directives that Sphinx uses during processing.</p></li>
+<li><p>Builders are used by Sphinx to render the documentation into specific formats.</p></li>
+<li><p>Sphinx utilizes a theme to style the output.</p></li>
+<li><p>The <cite>conf.py</cite> file configures Sphinx and specifies the active theme and any theme customizations.</p></li>
+<li><p>Sphinx processes the documentation source files.</p></li>
+<li><p>The <cite>conf.py</cite> file can also reference specific source files, such as <cite>index.rst</cite>, which is often the starting point for the documentation.</p></li>
+</ul>
 </section>
 
 
@@ -478,20 +469,20 @@ digraph G {
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="textx/testz/test-plantuml3.html"
+       href="test/test-drawio1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Test PlantUML 3</p>
+        <p class="prev-next-title">Test DrawIO</p>
       </div>
     </a>
     <a class="right-next"
-       href="test-drawio1.html"
+       href="extension-architecture.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Test DrawIO</p>
+        <p class="prev-next-title">Extension Architecture</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -538,8 +529,8 @@ By MP
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

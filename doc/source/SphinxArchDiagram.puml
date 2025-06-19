@@ -1,0 +1,47 @@
+@startuml Sphinx-Architecture
+
+!include <C4/C4_Container>
+!pragma svginteractive true
+
+scale 0.8
+
+skinparam nodesep 90
+
+!$description_shown = true
+hide stereotype
+
+AddElementTag("sphinxtag", \
+    $bgColor="Orange", \
+    $fontColor="black",\
+    $borderColor="white",\
+    $shadowing="true",\
+    $legendText="")
+
+AddElementTag("sphinxtag2", \
+    $bgColor="LightGreen", \
+    $fontColor="black",\
+    $borderColor="white",\
+    $shadowing="true",\
+    $legendText="")
+
+System(Sphinx ,"Sphinx",$tags="sphinxtag")
+System(Builder,"Sphinx-Builder",$tags="sphinxtag2")
+System(Extension,"Sphinx-Extension",$tags="sphinxtag2")
+System(Conf,"conf.py",$tags="sphinxtag2")
+Container(Theme,"Sphinx-Theme",$tags="sphinxtag2")
+Container(ThemeCustomization,"Sphinx-Theme Customization",$tags="sphinxtag2")
+System(Sources,"Documentation Sources",$tags="sphinxtag2")
+
+
+Extension   "*" <-right-  Sphinx:   "Implements:\nrole(s)\ndirective(s)"
+Builder     "1..*" <-left- Sphinx:   "Renders:\nhtml/epub/ ...:"
+Theme       "1..*" <-down-  Sphinx: "Collection of:\nhtml templates\nstylesheet(s)\n..."
+Conf        <-up-    Sphinx: Configures
+Conf        -up-> "1"   Theme: Active Theme
+ThemeCustomization  <-down-  Sphinx: "Collection of:\nhtml templates\nstylesheet(s)\n..."
+Conf        -up-> "1"   ThemeCustomization: Active Theme Customization
+Sources  "1..*"   <-up-    Sphinx: Processes sources (*rst,*.md,...)
+Conf        ->   Sources: index.rst, ...
+
+'SHOW_LEGEND()
+@enduml

@@ -22,5 +22,6 @@ sphinx-diagram-connect
    :maxdepth: 1
    :caption: Technical Details
 
+   sphinx-architecture.rst
    extension-architecture.rst
    API Reference <reference/sphinx_diagram_connect.rst>

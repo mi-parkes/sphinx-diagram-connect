@@ -21,7 +21,7 @@ Some other text here
     scale 0.3
     skinparam defaultFontSize 56
 
-    *[#Orange] Example of clickable references
+    *[#Orange] Clickable references
     **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Arbitrary Reference ]]
     **[#lightblue] [[ ":ref:`N_00001`" sphinx-needs Reference ]]
     **[#Tomato] [[ ":ref:`N_00003`" Internal Page Arbitrary Invalid Reference ]]
