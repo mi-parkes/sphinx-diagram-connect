@@ -1,6 +1,16 @@
 p {
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
+
+html[data-theme=light] {
+    --pst-color-table-row-hover-bg: #b3b3afc0;
+}
+
+/*
+html[data-theme=dark] {
+    --pst-color-table-row-hover-bg: #528fe4;
+}
+*/
 
 html {
     --pst-sidebar-secondary:0
