@@ -125,6 +125,7 @@ if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
     apidoc_module_dir = "../../"
     #apidoc_excluded_paths = ["tests"]
     apidoc_output_dir = "reference"
+    apidoc_module_first = True
     apidoc_separate_modules = True
     #apidoc_extra_args = ["--no-toc","--force"]
     apidoc_extra_args = ["--force"]

@@ -1,6 +1,20 @@
 tests package
 =============
 
+.. automodule:: tests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   tests.integration
+   tests.unit
+
 Submodules
 ----------
 
@@ -8,12 +22,3 @@ Submodules
    :maxdepth: 4
 
    tests.conftest
-   tests.test_sphinx_diagram_connect
-
-Module contents
----------------
-
-.. automodule:: tests
-   :members:
-   :undoc-members:
-   :show-inheritance:
