@@ -1,9 +1,3 @@
-import pytest
-from unittest.mock import MagicMock, Mock, patch
-import os
-
-from sphinx_diagram_connect import DiagramConnect, setup, __version__
-
 """
 Test fixtures and utilities for sphinx_diagram_connect.
 
@@ -11,6 +5,11 @@ This module provides pytest fixtures to mock Sphinx application
 objects and create temporary project structures for testing
 the sphinx_diagram_connect extension.
 """
+import pytest
+from unittest.mock import MagicMock, Mock, patch
+import os
+
+from sphinx_diagram_connect import DiagramConnect, setup, __version__
 
 @pytest.fixture
 def mock_sphinx_app():  # Renamed from mock_app to mock_sphinx_app
