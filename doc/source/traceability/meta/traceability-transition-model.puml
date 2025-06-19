@@ -7,8 +7,8 @@ digraph G {
     labelloc = "t";
     fontsize = "28pt";
     'size="10,6";
-    'size="8,6"; 
-    nodesep=1.0
+    size="8,6";
+    nodesep=1.0;
     'ranksep=1.0
     node [
         fontsize = "22"

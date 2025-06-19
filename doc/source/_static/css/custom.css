@@ -2,15 +2,26 @@ p {
     font-size: 1.2em;
 }
 
+/*http://localhost:8080/_static/styles/pydata-sphinx-theme.css*/
+    /*--pst-color-table-row-hover-bg: #eaea70c0;*/
+    /*--pst-color-table-row-hover-bg: #31eb46bf;*/
+
 html[data-theme=light] {
-    --pst-color-table-row-hover-bg: #b3b3afc0;
+    --pst-color-table-row-hover-bg:#b5b4a8ff;
+    --pst-color-background: #beb9b9;
+    --pst-color-surface: rgb(231, 221, 180);
+
+    dl[class]:not(.option-list, .field-list, .footnote, .glossary, .simple) dd > dl.simple > dt {
+        background-color:rgb(156, 191, 229);
+    }
 }
 
-/*
+/*dl[class]:not(.option-list,.field-list,.footnote,.glossary,.simple) dt.field-even, dl[class]:not(.option-list,.field-list,.footnote,.glossary,.simple) dt.field-odd*/
+
 html[data-theme=dark] {
     --pst-color-table-row-hover-bg: #528fe4;
+    --pst-color-table-row-hover-bg: #eb9010;
 }
-*/
 
 html {
     --pst-sidebar-secondary:0
