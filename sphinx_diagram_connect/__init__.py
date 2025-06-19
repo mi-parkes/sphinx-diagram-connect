@@ -1,3 +1,4 @@
+# sphinx_diagram_connect/__init__.py
 """
 A Sphinx extension for connecting references within SVG diagrams.
 

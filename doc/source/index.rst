@@ -18,6 +18,13 @@ sphinx-diagram-connect
    :caption: Technical Details
 
    sphinx-architecture.rst
-   extension-architecture.rst
+   extension_architecture.rst
    API Reference <reference/sphinx_diagram_connect.rst>
    Tests Reference <reference/tests.rst>
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Traceability
+
+   traceability/meta/index.rst
+   traceability/index.rst

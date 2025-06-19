@@ -57,6 +57,7 @@
     <script src="_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
     <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'search';</script>
+    <script src="_static/js/explorer_button.js?v=5d26fb50"></script>
   <script src="_static/searchtools.js"></script>
   <script src="_static/language_data.js"></script>
   <script src="searchindex.js"></script>
@@ -199,7 +200,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="sphinx-architecture.html">Sphinx Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extension-architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_architecture.html">Extension Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/sphinx_diagram_connect.html">API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -212,6 +213,25 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/tests.conftest.html">tests.conftest module</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="traceability/meta/index.html">Meta Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="traceability/meta/ftr.html">ftr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/meta/usc.html">usc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/meta/req.html">req</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/meta/spc.html">spc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/meta/tsc.html">tsc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="traceability/index.html">Sphinx-Needs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="traceability/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/use_cases.html">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/specifications.html">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traceability/tests.html">Tests</a></li>
 </ul>
 </details></li>
 </ul>
@@ -335,6 +355,14 @@ document.write(`
 document.write(`
   <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button id="explorer-button" class="btn btn-sm navbar-btn explorer-button explorer-button__button" title="Sphinx Needs Data Explorer" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-e" style="color: #5C5A61;"></i>
   </button>
 `);
 </script>

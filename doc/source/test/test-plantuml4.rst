@@ -26,7 +26,7 @@ Test PlantUML 4 (Graphviz)
         edge [ fontname=Helvetica, fontsize=25, minlen=2 ];
 
         node1 [ label="Node1" tooltip="Node tooltip" URL=":ref:`Heading 2`"]
-        node2 [ label="Node2" tooltip="Node tooltip" URL=":ref:`N_00002`"]
+        node2 [ label="Node2" tooltip="Node tooltip" URL=":ref:`spc_demo_00001`"]
 
         node1 -> node2 [ label="test" ]
     }

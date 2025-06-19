@@ -59,6 +59,7 @@
     <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
     <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'test/test-plantuml1';</script>
+    <script src="../_static/js/explorer_button.js?v=5d26fb50"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Test PlantUML 2" href="textx/test-plantuml2.html" />
@@ -198,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extension-architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extension_architecture.html">Extension Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -211,6 +212,25 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../reference/tests.conftest.html">tests.conftest module</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../traceability/meta/index.html">Meta Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/ftr.html">ftr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/usc.html">usc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/req.html">req</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/spc.html">spc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/tsc.html">tsc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../traceability/index.html">Sphinx-Needs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/use_cases.html">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/specifications.html">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/tests.html">Tests</a></li>
 </ul>
 </details></li>
 </ul>
@@ -420,6 +440,14 @@ document.write(`
 `);
 </script>
 
+<script>
+document.write(`
+  <button id="explorer-button" class="btn btn-sm navbar-btn explorer-button explorer-button__button" title="Sphinx Needs Data Explorer" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-e" style="color: #5C5A61;"></i>
+  </button>
+`);
+</script>
+
 </div></div>
       
     </div>
@@ -449,14 +477,14 @@ document.write(`
 <p><a class="reference internal" href="textx/test-plantuml2.html#heading-1"><span class="std std-ref">Heading 1</span></a></p>
 <figure class="align-default" id="plantuml-label1">
 <p class="plantuml">
-<object data="../_images/plantuml-f4cc4bb43ecf5c943c5d763bed82051209537d8f.svg" type="image/svg+xml" style="width:492px;height:132px;background:#FFFFFF;">
-<img src="../_images/plantuml-f4cc4bb43ecf5c943c5d763bed82051209537d8f.png" alt="&#64;startmindmap mindmap1
+<object data="../_images/plantuml-04a1b66c12a3758c2d62072e0efd927426b8bdcc.svg" type="image/svg+xml" style="width:492px;height:132px;background:#FFFFFF;">
+<img src="../_images/plantuml-04a1b66c12a3758c2d62072e0efd927426b8bdcc.png" alt="&#64;startmindmap mindmap1
 scale 0.3
 skinparam defaultFontSize 56
 *[#Orange] Clickable references
 **[#yellow] [[ https://www.sphinx-doc.org/en/master/ External Page Reference ]]
 **[#lightgreen] [[ &quot;:ref:`Heading 2`&quot; Internal Page Arbitrary Reference ]]
-**[#lightblue] [[ &quot;:ref:`N_00002`&quot; sphinx-needs Reference ]]
+**[#lightblue] [[ &quot;:ref:`spc_demo_00001`&quot; sphinx-needs Reference ]]
 **[#lightgrey] [[ &quot;:doc:`Test PlantUML 3`&quot; Internal Page Reference ]]
 
 &#64;endmindmap"/>

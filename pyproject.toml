@@ -43,6 +43,7 @@ sphinxcontrib-drawio = "^0.0.17"
 pillow = "*"
 myst-parser = "*"
 sphinxcontrib-apidoc = "*"
+sphinx-needs-data-explorer = "^0.9.6"
 
 [tool.taskipy.tasks]
 help        = { cmd = "task --list", help="Show this help" }

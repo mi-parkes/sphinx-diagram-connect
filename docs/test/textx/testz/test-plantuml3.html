@@ -59,6 +59,7 @@
     <script src="../../../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
     <script src="../../../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'test/textx/testz/test-plantuml3';</script>
+    <script src="../../../_static/js/explorer_button.js?v=5d26fb50"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Test PlantUML 4 (Graphviz)" href="../../test-plantuml4.html" />
@@ -198,7 +199,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../sphinx-architecture.html">Sphinx Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../extension-architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extension_architecture.html">Extension Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference/sphinx_diagram_connect.html">API Reference</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -211,6 +212,25 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../reference/tests.conftest.html">tests.conftest module</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../traceability/meta/index.html">Meta Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/meta/ftr.html">ftr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/meta/usc.html">usc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/meta/req.html">req</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/meta/spc.html">spc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/meta/tsc.html">tsc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../traceability/index.html">Sphinx-Needs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/use_cases.html">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/specifications.html">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../traceability/tests.html">Tests</a></li>
 </ul>
 </details></li>
 </ul>
@@ -419,6 +439,14 @@ document.write(`
   </button>
 `);
 </script>
+
+<script>
+document.write(`
+  <button id="explorer-button" class="btn btn-sm navbar-btn explorer-button explorer-button__button" title="Sphinx Needs Data Explorer" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-e" style="color: #5C5A61;"></i>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -467,14 +495,14 @@ document.write(`
 <p>Some other text here</p>
 <figure class="align-default" id="plantuml-label2">
 <p class="plantuml">
-<object data="../../../_images/plantuml-3f9021d9dbf22b72a9470c2d2cb3639763b8c929.svg" type="image/svg+xml" style="width:554px;height:101px;background:#FFFFFF;">
-<img src="../../../_images/plantuml-3f9021d9dbf22b72a9470c2d2cb3639763b8c929.png" alt="&#64;startmindmap mindmap2
+<object data="../../../_images/plantuml-86a60edba7e480a068c485a3aaa43b87a5c667da.svg" type="image/svg+xml" style="width:554px;height:101px;background:#FFFFFF;">
+<img src="../../../_images/plantuml-86a60edba7e480a068c485a3aaa43b87a5c667da.png" alt="&#64;startmindmap mindmap2
 scale 0.3
 skinparam defaultFontSize 56
 
 *[#Orange] Clickable references
 **[#lightgreen] [[ &quot;:ref:`plantuml label1`&quot; Internal Page Arbitrary Reference ]]
-**[#lightblue] [[ &quot;:ref:`N_00001`&quot; sphinx-needs Reference ]]
+**[#lightblue] [[ &quot;:ref:`spc_demo_00001`&quot; sphinx-needs Reference ]]
 **[#Tomato] [[ &quot;:ref:`N_00003`&quot; Internal Page Arbitrary Invalid Reference ]]
 
 &#64;endmindmap"/>
@@ -484,27 +512,6 @@ skinparam defaultFontSize 56
 <p><span class="caption-text">PlantUML Caption with <strong>bold</strong> and <em>italic</em></span><a class="headerlink" href="#plantuml-label2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="need_container docutils container" id="SNCB-f857abf6">
-<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_need table" id="N_00002">
-<tbody>
-<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
-<div class="line"><span><span class="needs_type_name"><span class="needs_data">Need</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Some Other Need</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#N_00002" title="N_00002">N_00002</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
-</div>
-</td>
-</tr>
-<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
-<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
-</span></span></div>
-<div class="line"><span></span></div>
-</div>
-</td>
-</tr>
-<tr class="need content row-odd"><td class="need content" colspan="1"><p>Some Other Need description</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </section>
 </section>
 

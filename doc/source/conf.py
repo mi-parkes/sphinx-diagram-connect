@@ -47,6 +47,7 @@ extensions = [
     "sphinx_needs",
     "sphinx_diagram_connect",
     "myst_parser",
+    'sphinx_needs_data_explorer'
 ]
 
 if checkIfDrawIOAvailable():
@@ -86,6 +87,7 @@ else:
 plantuml_output_format = "svg"
 
 # SPHINX-NEEDS SETTINGS
+"""
 needs_id_required = False
 needs_id_regex = "^[A-Z0-9_-]*"
 
@@ -96,6 +98,101 @@ needs_types = [
         directive="need", title="Need", prefix="N_", color="#FDF5E6", style="rectangle"
     )
 ]
+"""
+
+needs_id_required = True
+needs_id_regex = "^[a-z]{3,3}_demo_[0-9]{5,5}"
+needs_build_json = True
+
+needs_default_layout = 'clean' # clean | complete | focus
+
+needs_table_style = "table"
+
+needs_types = [
+    {"directive": "ftr", "title": "Feature", "prefix": "F_",                "color": "LightGreen",  "style": "node"},
+    {"directive": "usc", "title": "Use Case", "prefix":"UC_",               "color": "#BFD8D2",     "style":"node"},
+    {"directive": "req", "title": "Requirement", "prefix": "R_",            "color": "Coral",       "style": "node"},
+    {"directive": "spc", "title": "Specification", "prefix": "S_",          "color": "#FFFF99",     "style": "node"},
+    {"directive": "tsc", "title": "Test Case", "prefix": "T_",              "color": "#87CEFA",     "style": "node"}
+]
+
+needs_extra_options = [
+   "type_ext",
+   "reasoning",
+   "test",
+   "acceptance"
+]
+
+needs_extra_links = [
+   {
+      "option": "refinement",
+      "incoming": "refined by",
+      "outgoing": "refines",
+   },
+   {
+      "option": "satisfy",
+      "incoming": "satisfied by",
+      "outgoing": "satisfies",
+   },
+   {
+      "option": "verify",
+      "incoming": "verified by",
+      "outgoing": "verifies",
+   },
+   {
+      "option": "verify_req",
+      "incoming": "verified by req",
+      "outgoing": "verifies req",
+   },
+   {
+      "option": "verify_spc",
+      "incoming": "verified by spec",
+      "outgoing": "verifies spec",
+   },
+   {
+      "option": "validation",
+      "incoming": "validated by",
+      "outgoing": "validates",
+   },
+   {
+      "option": "specify",
+      "incoming": "validated by",
+      "outgoing": "validates",
+   },
+   {
+      "option": "realization",
+      "incoming": "realized by",
+      "outgoing": "realizes",
+   },
+   {
+      "option": "elaboration",
+      "incoming": "elaborates",
+      "outgoing": "is elaborated by",
+   },
+]
+
+needs_flow_configs = {
+   'my_config': """
+       !include <archimate/Archimate>
+       skinparam linetype polyline
+       skinparam pathHoverColor green
+   """,
+   'ortho_config': """
+       skinparam linetype ortho
+   """,
+   'polyline_config': """
+       skinparam linetype polyline
+   """,
+   'another_config': """
+       skinparam class {
+           BackgroundColor PaleGreen
+           ArrowColor SeaGreen
+           BorderColor SpringGreen
+       }
+   """
+}
+
+###########
 
 # suppress_warnings = ['sphinx-diagram-connect-missing-reference']
 

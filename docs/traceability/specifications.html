@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Specifications &#8212; sphinx-diagram-connect  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=05e65d37" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+    <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+    <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
+    <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
+    <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'traceability/specifications';</script>
+    <script src="../_static/js/explorer_button.js?v=5d26fb50"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tests" href="tests.html" />
+    <link rel="prev" title="Requirements" href="requirements.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sphinx-diagram-connect  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    sphinx-diagram-connect
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">QuickStart</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../usage-examples.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../c4/index.html">C4-PlantUML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../c4/system_context.html">System Context Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../c4/container_diagram.html">Container Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../c4/component_diagram.html">Web Application Component Diagram</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-plantuml1.html">Test PlantUML 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/textx/test-plantuml2.html">Test PlantUML 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-plantuml4.html">Test PlantUML 4 (Graphviz)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-drawio1.html">Test DrawIO</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extension_architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">API Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html">tests.integration.test_diagram_connect_integration module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.unit.html">tests.unit package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_diagram_connect_unit.html">tests.unit.test_diagram_connect_unit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_setup_function_unit.html">tests.unit.test_setup_function_unit module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/tests.conftest.html">tests.conftest module</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="meta/index.html">Meta Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta/ftr.html">ftr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta/usc.html">usc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta/req.html">req</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta/spc.html">spc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta/tsc.html">tsc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Sphinx-Needs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_cases.html">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Tests</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/blob/main/doc/source/traceability/specifications.rst?plain=1" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/edit/main/doc/source/traceability/specifications.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mi-parkes/sphinx-diagram-connect/issues/new?title=Issue%20on%20page%20%2Ftraceability/specifications.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/traceability/specifications.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button id="explorer-button" class="btn btn-sm navbar-btn explorer-button explorer-button__button" title="Sphinx Needs Data Explorer" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-e" style="color: #5C5A61;"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Specifications</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="specifications">
+<h1>Specifications<a class="headerlink" href="#specifications" title="Link to this heading">#</a></h1>
+<div class="needstable_wrapper docutils container" id="needtable-traceability/specifications-0">
+<div class="pst-scrollable-table-container"><table class="NEEDS_TABLE table" id="needtable-traceability/specifications-0-table_node">
+<colgroup>
+<col style="width: 14.3%" />
+<col style="width: 42.9%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Title</p></th>
+<th class="head"><p>Status</p></th>
+<th class="head"><p>Refinement</p></th>
+<th class="head"><p>Satisfy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="need row-even"><td class="needs_id"><p><a class="reference internal" href="#spc_demo_00001">spc_demo_00001</a></p></td>
+<td class="needs_title"><p>SVG Reference Resolution Mechanism</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_refinement"><p><a class="reference internal" href="#spc_demo_00002">spc_demo_00002</a><em>; </em><a class="reference internal" href="#spc_demo_00003">spc_demo_00003</a></p></td>
+<td class="needs_satisfy"><p><a class="reference internal" href="requirements.html#req_demo_00001">req_demo_00001</a></p></td>
+</tr>
+<tr class="need row-odd"><td class="needs_id"><p><a class="reference internal" href="#spc_demo_00002">spc_demo_00002</a></p></td>
+<td class="needs_title"><p>Standard Sphinx Reference Resolution</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_refinement"><p></p></td>
+<td class="needs_satisfy"><p><a class="reference internal" href="requirements.html#req_demo_00002">req_demo_00002</a></p></td>
+</tr>
+<tr class="need row-even"><td class="needs_id"><p><a class="reference internal" href="#spc_demo_00003">spc_demo_00003</a></p></td>
+<td class="needs_title"><p>Sphinx-Needs Reference Resolution</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_refinement"><p></p></td>
+<td class="needs_satisfy"><p><a class="reference internal" href="requirements.html#req_demo_00003">req_demo_00003</a></p></td>
+</tr>
+<tr class="need row-odd"><td class="needs_id"><p><a class="reference internal" href="#spc_demo_00004">spc_demo_00004</a></p></td>
+<td class="needs_title"><p>Error Handling for Unresolved References</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_refinement"><p></p></td>
+<td class="needs_satisfy"><p><a class="reference internal" href="requirements.html#req_demo_00004">req_demo_00004</a></p></td>
+</tr>
+<tr class="need row-even"><td class="needs_id"><p><a class="reference internal" href="#spc_demo_00005">spc_demo_00005</a></p></td>
+<td class="needs_title"><p>Verbose Logging Configuration</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_refinement"><p></p></td>
+<td class="needs_satisfy"><p><a class="reference internal" href="requirements.html#req_demo_00010">req_demo_00010</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figure class="align-center" id="needflow-traceability/specifications-0">
+<p class="plantuml">
+<object data="../_images/plantuml-afa5f0cfb183ff5431e0e10732b2aeb142011fa3.svg" type="image/svg+xml" style="width:698px;height:292px;background:#FFFFFF;">
+<a href="../_images/plantuml-afa5f0cfb183ff5431e0e10732b2aeb142011fa3.png"><img src="../_images/plantuml-afa5f0cfb183ff5431e0e10732b2aeb142011fa3.png" alt="&#64;startuml
+
+' Nodes definition 
+
+node &quot;&lt;size:12&gt;Specification&lt;/size&gt;\n**SVG Reference**\n**Resolution**\n**Mechanism**\n&lt;size:10&gt;spc_demo_00001&lt;/size&gt;&quot; as spc_demo_00001 [[../traceability/specifications.html#spc_demo_00001]] #FFFF99
+node &quot;&lt;size:12&gt;Specification&lt;/size&gt;\n**Standard Sphinx**\n**Reference**\n**Resolution**\n&lt;size:10&gt;spc_demo_00002&lt;/size&gt;&quot; as spc_demo_00002 [[../traceability/specifications.html#spc_demo_00002]] #FFFF99
+node &quot;&lt;size:12&gt;Specification&lt;/size&gt;\n**Sphinx-Needs**\n**Reference**\n**Resolution**\n&lt;size:10&gt;spc_demo_00003&lt;/size&gt;&quot; as spc_demo_00003 [[../traceability/specifications.html#spc_demo_00003]] #FFFF99
+node &quot;&lt;size:12&gt;Specification&lt;/size&gt;\n**Error Handling**\n**for Unresolved**\n**References**\n&lt;size:10&gt;spc_demo_00004&lt;/size&gt;&quot; as spc_demo_00004 [[../traceability/specifications.html#spc_demo_00004]] #FFFF99
+node &quot;&lt;size:12&gt;Specification&lt;/size&gt;\n**Verbose Logging**\n**Configuration**\n&lt;size:10&gt;spc_demo_00005&lt;/size&gt;&quot; as spc_demo_00005 [[../traceability/specifications.html#spc_demo_00005]] #FFFF99
+
+' Connection definition 
+
+spc_demo_00001 --&gt; spc_demo_00002
+spc_demo_00001 --&gt; spc_demo_00003
+
+&#64;enduml" style="width: 697.0px; height: 291.0px"/></a>
+
+</object></p>
+</figure>
+<div class="need_container docutils container" id="SNCB-35f352aa">
+<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_spc table" id="spc_demo_00001">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Specification</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">SVG Reference Resolution Mechanism</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#spc_demo_00001" title="spc_demo_00001">spc_demo_00001</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span><div class="line">refines: <span class="refinement"><span><a class="reference internal" href="#spc_demo_00002" title="spc_demo_00001">spc_demo_00002</a>, <a class="reference internal" href="#spc_demo_00003" title="spc_demo_00001">spc_demo_00003</a></span></span></div>
+<div class="line">satisfies: <span class="satisfy"><span><a class="reference internal" href="requirements.html#req_demo_00001" title="spc_demo_00001">req_demo_00001</a></span></span></div>
+</span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>The <cite>DiagramConnect</cite> class shall implement a method, <cite>resolve_references</cite>,
+which is triggered upon the <cite>build-finished</cite> Sphinx event. This method shall
+iterate through all <cite>.svg</cite> files located in the <cite>app.builder.outdir</cite> and
+<cite>app.builder.imagedir</cite>. It shall identify and modify <cite>xlink:href</cite> attributes
+that contain Sphinx cross-reference patterns (e.g., <cite>:ref:`target</cite>,
+<cite>:doc:`target</cite>) or Sphinx-Needs reference patterns (e.g., <cite>:need:`target</cite>).
+The modification involves replacing these patterns with their resolved URIs.</p>
+<p><strong>Component Diagram:</strong> <a class="reference internal" href="../extension_architecture.html#extension-architecture"><span class="std std-ref">Extension Architecture</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="need_container docutils container" id="SNCB-16b3aa91">
+<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_spc table" id="spc_demo_00002">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Specification</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Standard Sphinx Reference Resolution</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#spc_demo_00002" title="spc_demo_00002">spc_demo_00002</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span><div class="line">refined by: <span class="refinement"><span><a class="reference internal" href="#spc_demo_00001" title="spc_demo_00002">spc_demo_00001</a></span></span></div>
+<div class="line">satisfies: <span class="satisfy"><span><a class="reference internal" href="requirements.html#req_demo_00002" title="spc_demo_00002">req_demo_00002</a></span></span></div>
+<div class="line">verified by spec: <span class="verify_spc"><span><a class="reference internal" href="tests.html#tsc_demo_00001" title="spc_demo_00002">tsc_demo_00001</a></span></span></div>
+</span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>The <cite>_resolve_ref</cite> internal method shall utilize <cite>app.env.domains[‘std’].resolve_xref</cite>
+to convert Sphinx reference targets (e.g., <cite>my-section</cite>, <cite>my-document</cite>) into
+their corresponding relative or absolute URIs. This process must handle
+<cite>sphinx.errors.NoUri</cite> by returning <cite>None</cite> if a reference cannot be resolved
+by Sphinx’s standard mechanisms.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="need_container docutils container" id="SNCB-6d8478c6">
+<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_spc table" id="spc_demo_00003">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Specification</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Sphinx-Needs Reference Resolution</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#spc_demo_00003" title="spc_demo_00003">spc_demo_00003</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span><div class="line">refined by: <span class="refinement"><span><a class="reference internal" href="#spc_demo_00001" title="spc_demo_00003">spc_demo_00001</a></span></span></div>
+<div class="line">satisfies: <span class="satisfy"><span><a class="reference internal" href="requirements.html#req_demo_00003" title="spc_demo_00003">req_demo_00003</a></span></span></div>
+</span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>If <cite>app.config.needs_build_json</cite> is set to <cite>True</cite>, the <cite>resolve_references</cite>
+method shall load <cite>needs.json</cite> using <cite>sphinx_needs.needsfile.NeedsList</cite>.
+For <cite>xlink:href</cite> attributes matching a Sphinx-Needs reference pattern (e.g.,
+<cite>:need:`ID</cite>), the system shall look up the ‘docname’ associated with the
+‘ID’ in the loaded <cite>needs.json</cite> data. The <cite>xlink:href</cite> shall then be
+updated to <cite>../&lt;docname&gt;.html#&lt;ID&gt;</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="need_container docutils container" id="SNCB-5276018f">
+<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_spc table" id="spc_demo_00004">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Specification</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Error Handling for Unresolved References</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#spc_demo_00004" title="spc_demo_00004">spc_demo_00004</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span><div class="line">satisfies: <span class="satisfy"><span><a class="reference internal" href="requirements.html#req_demo_00004" title="spc_demo_00004">req_demo_00004</a></span></span></div>
+</span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>The <cite>resolve_references</cite> method shall log a warning message using
+<cite>sphinx.util.logging.getLogger(__name__).warning</cite> when a Sphinx or
+Sphinx-Needs reference pattern found in an <cite>xlink:href</cite> attribute cannot be
+successfully resolved. The warning message shall include the unresolved
+reference and the filename where it occurred. The warning type shall be
+“sphinx-diagram-connect-missing-reference”.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="need_container docutils container" id="SNCB-d6a74b82">
+<div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_spc table" id="spc_demo_00005">
+<tbody>
+<tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
+<div class="line"><span><span class="needs_type_name"><span class="needs_data">Specification</span></span>: </span><strong><span><span class="needs_title"><span class="needs_data">Verbose Logging Configuration</span></span></span></strong><span> <span class="needs-id"><a class="reference internal" href="#spc_demo_00005" title="spc_demo_00005">spc_demo_00005</a></span>  <span class="needs needs_collapse" id="target__show__meta"><span class="needs collapsed"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 12 16 16 12"></polyline><line x1="12" y1="8" x2="12" y2="16"></line></svg></span><span class="needs visible collapse_is_hidden"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg></span></span> </span></div>
+</div>
+</td>
+</tr>
+<tr class="need meta row-even"><td class="need meta"><div class="needs_meta line-block">
+<div class="line"><span><span><div class="line"><span class="needs_status"><span class="needs_label">status: </span><span class="needs_data">open</span></span></div>
+</span></span></div>
+<div class="line"><span><div class="line">satisfies: <span class="satisfy"><span><a class="reference internal" href="requirements.html#req_demo_00010" title="spc_demo_00005">req_demo_00010</a></span></span></div>
+</span></div>
+</div>
+</td>
+</tr>
+<tr class="need content row-odd"><td class="need content" colspan="1"><p>The extension shall expose a configuration option,
+<cite>sphinx_diagram_connect_verbose</cite> (defaulting to <cite>False</cite>), which, when set
+to <cite>True</cite>, shall enable additional <cite>logger.info</cite> messages during the
+<cite>resolve_references</cite> process, specifically detailing the transformation
+of original <cite>href</cite> values to their resolved URIs.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="requirements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Requirements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tests</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By MP
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

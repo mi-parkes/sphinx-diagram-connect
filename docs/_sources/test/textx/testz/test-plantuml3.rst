@@ -23,13 +23,7 @@ Some other text here
 
     *[#Orange] Clickable references
     **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Arbitrary Reference ]]
-    **[#lightblue] [[ ":ref:`N_00001`" sphinx-needs Reference ]]
+    **[#lightblue] [[ ":ref:`spc_demo_00001`" sphinx-needs Reference ]]
     **[#Tomato] [[ ":ref:`N_00003`" Internal Page Arbitrary Invalid Reference ]]
 
     @endmindmap
-
-.. need:: Some Other Need
-    :id: N_00002
-    :status: open
-
-    Some Other Need description

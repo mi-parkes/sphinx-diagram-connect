@@ -15,7 +15,7 @@
 <!-- node2 -->
 <g id="node2" class="node">
 <title>node2</title>
-<g id="a_node2"><a xlink:href="../test/textx/testz/test-plantuml3.html#N_00002" xlink:title="Node tooltip" target="_top">
+<g id="a_node2"><a xlink:href="../traceability/specifications.html#spc_demo_00001" xlink:title="Node tooltip" target="_top">
 <ellipse fill="lightgrey" stroke="black" cx="93.5" cy="-47" rx="93.5" ry="47"/>
 <text text-anchor="middle" x="93.5" y="-41.4" font-family="Times,serif" font-size="22.00">Node2</text>
 </a>

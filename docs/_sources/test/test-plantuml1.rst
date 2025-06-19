@@ -13,7 +13,7 @@ Test PlantUML 1
     *[#Orange] Clickable references
     **[#yellow] [[ https://www.sphinx-doc.org/en/master/ External Page Reference ]]
     **[#lightgreen] [[ ":ref:`Heading 2`" Internal Page Arbitrary Reference ]]
-    **[#lightblue] [[ ":ref:`N_00002`" sphinx-needs Reference ]]
+    **[#lightblue] [[ ":ref:`spc_demo_00001`" sphinx-needs Reference ]]
     **[#lightgrey] [[ ":doc:`Test PlantUML 3`" Internal Page Reference ]]
 
     @endmindmap
