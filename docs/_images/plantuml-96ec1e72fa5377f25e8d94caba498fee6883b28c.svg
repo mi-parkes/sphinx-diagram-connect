@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="578px" preserveAspectRatio="none" style="width:439px;height:578px;background:#FFFFFF;" version="1.1" viewBox="0 0 439 578" width="439px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="562px" preserveAspectRatio="none" style="width:464px;height:562px;background:#FFFFFF;" version="1.1" viewBox="0 0 464 562" width="464px" zoomAndPan="magnify">
   <defs>
     <style type="text/css">.elem {cursor: pointer;} 
 .elem, .link {opacity: 0.3;}
@@ -234,117 +234,118 @@ document.addEventListener('DOMContentLoaded', (event) =&gt; {
   <g>
     <!--entity customer-->
     <g class="elem customer selected" id="elem_customer">
-      <rect fill="#08427B" height="165.7813" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="178.5459" x="117.5" y="7"/>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55.9453" x="178.8003" y="28.1387">«person»</text>
-      <image height="48" width="48" x="182.7729" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" y="30.9688"/>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="86.7109" x="163.4175" y="93.8203">Customer</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="204.5479" y="110.5889"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.4482" x="130.1694" y="126.8857">Uses</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="163.6177" y="126.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="22.9756" x="168.0679" y="126.8857">the</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="191.0435" y="126.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.8828" x="195.4937" y="126.8857">e-commerce</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54.2363" x="127.5" y="143.1826">website</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="181.7363" y="143.1826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="186.1865" y="143.1826">to</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="200.2412" y="143.1826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.5654" x="204.6914" y="143.1826">browse</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="255.2568" y="143.1826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="259.707" y="143.1826">and</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64.5723" x="139.3125" y="159.4795">purchase</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="203.8848" y="159.4795"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65.8984" x="208.335" y="159.4795">products.</text>
+      <rect fill="#08427B" height="165.7813" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="177" x="126" y="7"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="186" y="28.1387">«person»</text>
+      <image height="48" width="48" x="190.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" y="30.9688"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="87" x="171" y="93.8203">Customer</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212.5" y="110.5889"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="137.5" y="126.8857">Uses</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="172.5" y="126.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="176.5" y="126.8857">the</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="199.5" y="126.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="203.5" y="126.8857">e-commerce</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="136" y="143.1826">website</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="190" y="143.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="194" y="143.1826">to</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="208" y="143.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="212" y="143.1826">browse</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="263" y="143.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="267" y="143.1826">and</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="147" y="159.4795">purchase</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212" y="159.4795"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="216" y="159.4795">products.</text>
     </g>
     <!--entity ecommerce_system-->
     <g class="elem ecommerce_system selected" id="elem_ecommerce_system">
       <a href="../c4/component_diagram.html#web-application-component-diagram" target="_top" title=":ref:`web application component diagram`" xlink:actuate="onRequest" xlink:href=":ref:`web application component diagram`" xlink:show="new" xlink:title=":ref:`web application component diagram`" xlink:type="simple">
-        <rect fill="#D3D3D3" filter="url(#f1m7a7ekdfkdyz)" height="117.7813" rx="12.5" ry="12.5" style="stroke:#8B0000;stroke-width:0.5;" width="202.6875" x="105.5" y="248"/>
-        <text fill="#8B0000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="125.5078" x="144.0898" y="269.1387">«clickable»«system»</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="110.4688" x="115.5" y="286.8203">E-commerce</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="225.9688" y="286.8203"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="66.6484" x="231.5391" y="286.8203">System</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="204.6187" y="303.5889"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44.666" x="136.4233" y="319.8857">Allows</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="181.0894" y="319.8857"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2197" x="185.5396" y="319.8857">customers</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="258.7593" y="319.8857"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14.0547" x="263.2095" y="319.8857">to</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.0156" x="136.085" y="336.1826">browse,</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="191.1006" y="336.1826"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.2627" x="195.5508" y="336.1826">search,</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="246.8135" y="336.1826"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26.3389" x="251.2637" y="336.1826">and</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64.5723" x="115.8062" y="352.4795">purchase</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="180.3784" y="352.4795"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.4482" x="184.8286" y="352.4795">products</text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="246.2769" y="352.4795"> </text>
-        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.1543" x="250.7271" y="352.4795">online.</text>
+        <rect fill="#D3D3D3" filter="url(#f1m7a7ekdfkdyz)" height="117.7813" rx="12.5" ry="12.5" style="stroke:#8B0000;stroke-width:0.5;" width="218" x="105.5" y="248"/>
+        <text fill="#8B0000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="125" x="152" y="269.1387">«clickable»«system»</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="110" x="123.5" y="286.8203">E-commerce</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="233.5" y="286.8203"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="66" x="239.5" y="286.8203">System</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212.5" y="303.5889"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="115.5" y="319.8857">Allows</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="158.5" y="319.8857"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="162.5" y="319.8857">customers</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="236.5" y="319.8857"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="240.5" y="319.8857">to</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="254.5" y="319.8857"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="258.5" y="319.8857">browse,</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="139.5" y="336.1826">search,</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="190.5" y="336.1826"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="194.5" y="336.1826">and</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="220.5" y="336.1826"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="224.5" y="336.1826">purchase</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="158.5" y="352.4795">products</text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="220.5" y="352.4795"> </text>
+        <text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="224.5" y="352.4795">online.</text>
       </a>
     </g>
     <!--entity payment_gateway-->
     <g class="elem payment_gateway selected" id="elem_payment_gateway">
-      <rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="183.5234" x="7" y="463.5"/>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="58.1953" x="69.6641" y="484.6387">«system»</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="79.5156" x="17" y="502.3203">Payment</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="96.5156" y="502.3203"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="78.4375" x="102.0859" y="502.3203">Gateway</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="96.5366" y="519.0889"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.0049" x="20.3774" y="535.3857">Third-party</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="98.3823" y="535.3857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.6133" x="102.8325" y="535.3857">system</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="153.4458" y="535.3857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="157.896" y="535.3857">for</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75.7559" x="21.6045" y="551.6826">processing</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="97.3604" y="551.6826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74.1084" x="101.8105" y="551.6826">payments.</text>
+      <rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="181" x="7" y="455"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="69" y="476.1387">«system»</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="78" x="17" y="493.8203">Payment</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="95" y="493.8203"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="77" x="101" y="493.8203">Gateway</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="95.5" y="510.5889"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="22.5" y="526.8857">Third-party</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="96.5" y="526.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="100.5" y="526.8857">system</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="150.5" y="526.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="154.5" y="526.8857">for</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="21" y="543.1826">processing</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="98" y="543.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="102" y="543.1826">payments.</text>
     </g>
     <!--entity delivery_service-->
     <g class="elem delivery_service selected" id="elem_delivery_service">
-      <rect fill="#1168BD" height="117.7813" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="176.7686" x="226.5" y="455"/>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="58.1953" x="285.7866" y="476.1387">«system»</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="74.7031" x="241.4897" y="493.8203">Delivery</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="5.5703" x="316.1929" y="493.8203"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="66.5156" x="321.7632" y="493.8203">Service</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="312.6592" y="510.5889"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.0049" x="236.5" y="526.8857">Third-party</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="314.5049" y="526.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.6133" x="318.9551" y="526.8857">system</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="369.5684" y="526.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.25" x="374.0186" y="526.8857">for</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70.2051" x="250.4795" y="543.1826">managing</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="320.6846" y="543.1826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54.1543" x="325.1348" y="543.1826">product</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72.1807" x="278.7939" y="559.4795">deliveries.</text>
+      <rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="219" x="223" y="455"/>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="304" y="476.1387">«system»</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="71" x="261.5" y="493.8203">Delivery</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="332.5" y="493.8203"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="65" x="338.5" y="493.8203">Service</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="330.5" y="510.5889"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="257.5" y="526.8857">Third-party</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="331.5" y="526.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="335.5" y="526.8857">system</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="385.5" y="526.8857"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="389.5" y="526.8857">for</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="233" y="543.1826">managing</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="301" y="543.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="305" y="543.1826">product</text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="359" y="543.1826"> </text>
+      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="363" y="543.1826">deliveries.</text>
     </g>
     <!--link customer to ecommerce_system-->
     <g class="link customer ecommerce_system selected" id="link_customer_ecommerce_system">
-      <path d="M207,173.2 C207,198.1 207,216.91 207,239.88 " fill="none" id="customer-to-ecommerce_system" style="stroke:#666666;stroke-width:1.0;"/>
-      <polygon fill="#666666" points="207,247.88,210,239.88,204,239.88,207,247.88" style="stroke:#666666;stroke-width:1.0;"/>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="32.168" x="208" y="215.1387">Uses</text>
+      <path d="M214.5,173.2 C214.5,198.1 214.5,216.91 214.5,239.88 " fill="none" id="customer-to-ecommerce_system" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="214.5,247.88,217.5,239.88,211.5,239.88,214.5,247.88" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="35" x="215.5" y="215.1387">Uses</text>
     </g>
     <!--link ecommerce_system to payment_gateway-->
     <g class="link ecommerce_system payment_gateway selected" id="link_ecommerce_system_payment_gateway">
-      <path d="M157.76,366.31 C150.92,375.89 144.4,385.97 139,396 C127.66,417.08 120.9667,434.345 114.3667,455.755 " fill="none" id="ecommerce_system-to-payment_gateway" style="stroke:#666666;stroke-width:1.0;"/>
-      <polygon fill="#666666" points="112.01,463.4,117.2336,456.6388,111.4998,454.8712,112.01,463.4" style="stroke:#666666;stroke-width:1.0;"/>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="68.0566" x="140" y="408.1387">Delegates</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4.1777" x="208.0566" y="408.1387"> </text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="59.4316" x="212.2344" y="408.1387">payment</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="73.5352" x="159.9863" y="422.1074">processing</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4.1777" x="233.5215" y="422.1074"> </text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="13.9805" x="237.6992" y="422.1074">to</text>
+      <path d="M168.41,366.01 C161.39,375.8 154.5,386.02 148.5,396 C137.34,414.55 130.1446,428.6544 121.5946,447.5044 " fill="none" id="ecommerce_system-to-payment_gateway" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="118.29,454.79,124.3267,448.7436,118.8625,446.2652,118.29,454.79" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="73" x="149.5" y="408.1387">Delegates</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="222.5" y="408.1387"> </text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="226.5" y="408.1387">payment</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="78" x="170.5" y="422.1074">processing</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="248.5" y="422.1074"> </text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="15" x="252.5" y="422.1074">to</text>
     </g>
     <!--link ecommerce_system to delivery_service-->
     <g class="link ecommerce_system delivery_service selected" id="link_ecommerce_system_delivery_service">
-      <path d="M257.06,366.21 C263.99,375.8 270.58,385.91 276,396 C285.84,414.29 291.403,427.8938 297.523,447.2038 " fill="none" id="ecommerce_system-to-delivery_service" style="stroke:#666666;stroke-width:1.0;"/>
-      <polygon fill="#666666" points="299.94,454.83,300.3828,446.2975,294.6632,448.1102,299.94,454.83" style="stroke:#666666;stroke-width:1.0;"/>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="52.752" x="289" y="408.1387">Notifies</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4.1777" x="341.752" y="408.1387"> </text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="13.4648" x="345.9297" y="408.1387">of</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4.1777" x="359.3945" y="408.1387"> </text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="43.9512" x="363.5723" y="408.1387">orders</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4.1777" x="407.5234" y="408.1387"> </text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="19.3828" x="411.7012" y="408.1387">for</text>
-      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="54.6563" x="332.7139" y="422.1074">delivery</text>
+      <path d="M272.22,366.15 C280,375.67 287.39,385.78 293.5,396 C304.33,414.13 310.3524,428.1499 316.6424,447.2899 " fill="none" id="ecommerce_system-to-delivery_service" style="stroke:#666666;stroke-width:1.0;"/>
+      <polygon fill="#666666" points="319.14,454.89,319.4924,446.3533,313.7923,448.2265,319.14,454.89" style="stroke:#666666;stroke-width:1.0;"/>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="55" x="308.5" y="408.1387">Notifies</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="363.5" y="408.1387"> </text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="14" x="367.5" y="408.1387">of</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="381.5" y="408.1387"> </text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="47" x="385.5" y="408.1387">orders</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="432.5" y="408.1387"> </text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20" x="436.5" y="408.1387">for</text>
+      <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="56" x="354.5" y="422.1074">delivery</text>
     </g>
     <!--SRC=[VLBVRzem47xFNt6ra029TYzzgiOabg9kKjLL9TMqfzJO5sFXs97jGFFVxqp2oWHRdkplBj-FErzfAqmh4Jxdjv_osp9tDk9x_99bLutdgkOGTaeJvhc8UeSGVOjPjf1oQR166mkk9i9eiULhWpCOhLNkZFDpPhJQHELvnmYjY7R09VTRZpAXQ-Sb-dCyRBXqUstLd2Mv0MfmpbvSQoNAh-vzbO39DDKCAhIo8DjpziSAcsRZnyMl7wz5-VDxyQryN3uid-udqonxHX-SdOWsH5UZdm7BXoEHiTU00U860Q-5gmaK27jS1nqfkuErT_k0mAs4flLYm-dIU2TR4SCDQQww4B6UuF7VCXm08bv-yFLDIMrX3F71qKlua9X1G4u2iyjQuApH5c-8XBuHdRVpCRlpMDszaLtWJKEJu54x2wJRE4kx0gavRQH-O-FPA78L_fxNuBtXNLfigNZ4FU_8vNEFm4EF9EF5HdjvtN0VE-WZGkLyiYSm15eT33IdKv5ew0dvhWpeTrfGHdO_GB3geVzmrznoTM3kPm03dSQ3HlQ2vcIf5pQGLakDgU-yUfwQh66wXMFjD5rq_sIwaFB9HLsHJt0L7DvyE2GwTXBLRm00]-->
   </g>

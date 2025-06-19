@@ -1,0 +1,38 @@
+{
+    "version": "0.3.0",
+    "configurations": [
+        {
+            "name": "Python: pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Sphinx Module",
+            "type": "debugpy",
+            "console": "integratedTerminal",
+            "request": "launch",
+            "module": "sphinx",
+            "justMyCode": false,
+            "stopOnEntry": true,
+            "args": [
+                "-b",
+                "html",
+                "source",
+                "build",
+                "-Ea"
+            ],
+            "cwd": "${workspaceFolder}/doc"
+        }
+    ]
+}

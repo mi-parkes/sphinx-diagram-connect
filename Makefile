@@ -1,4 +1,9 @@
 .ONESHELL:
+SHELL           =/bin/bash
+MAKEFLAGS       += $(if $(VERBOSE),,--no-print-directory)
+MINMAKEVERSION  =3.82
+
+$(if $(findstring $(MINMAKEVERSION),$(firstword $(sort $(MINMAKEVERSION) $(MAKE_VERSION)))),,$(error The Makefile requires minimal GNU make version:$(MINMAKEVERSION) and you are using:$(MAKE_VERSION)))
 
 ALPINE := $(shell if [ -f /etc/alpine-release ]; then echo yes; else echo no; fi)
 
@@ -15,6 +20,8 @@ endif
 	echo "$(MAKE) html            # Build sphinx-diagram-connect documentation"
 	echo "$(MAKE) webserver       # Run webserver hosting sphinx-diagram-connect documentation in docker container"
 	echo "$(MAKE) show            # View the documentation for sphinx-diagram-connect, which is hosted on a server running nginx, in a web browser"
+	echo "$(MAKE) html-api"
+	echo "$(MAKE) html-api-dd"
 
 helpx:
 	echo "$(MAKE) prep-release    # Prepare release data"
@@ -48,17 +55,29 @@ installx:
 html:
 	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build"
 
+html-api:
+	poetry run $(SHELL) -c "cd doc && sphinx-build -M html source build -t APIDOC"
+
+html-api-dd:
+	$(eval OFILE=/tmp/$@.txt)
+	poetry run $(SHELL) -c \
+		"cd doc && sphinx-build -M html source build -t APIDOC_DD $(if $(VERBOSE),-vvv,)" | tee $(OFILE)
+
 htmlx:html
 	cp -r doc/build/html/* docs
 
 doc-clean:
 	rm -rf doc/build
+	rm -rfv doc/source/reference
 
 WEBSERVERPORT=8080
 
 webserver:
 	docker ps | awk '$$NF=="sphinx-diagram-connect"{print "docker stop "$$1}' | $(SHELL)
 	sleep 1
+	$(MAKE) show -n
+	echo or
+	echo $(MAKE) show
 	docker run -it --rm -d -p $(WEBSERVERPORT):80 --name sphinx-diagram-connect -v $$PWD/doc/build/html:/usr/share/nginx/html nginx
 
 show:
@@ -109,4 +128,3 @@ test-using-package:
 
 clean-dc:
 	docker images | awk '$$1=="<none>"{print "docker rmi "$$3}' | $(SHELL)
-

@@ -34,6 +34,7 @@ lxml = "^5.4.0"
 [tool.poetry.group.dev.dependencies]
 taskipy = ">=1.11.0"
 black   = ">=24.1.0"
+pytest = "^8.4.0"
 
 [tool.poetry.group.sphinx.dependencies]
 sphinx-book-theme = "*"
@@ -41,10 +42,34 @@ sphinxcontrib-plantuml = "0.30"
 sphinxcontrib-drawio = "^0.0.17"
 pillow = "*"
 myst-parser = "*"
+sphinxcontrib-apidoc = "*"
+sphinx-needs-data-explorer = "^0.9.6"
 
 [tool.taskipy.tasks]
 help        = { cmd = "task --list", help="Show this help" }
 doc         = { cmd = "cd doc && sphinx-build -M html source build", help = "Generate the package documentation using Sphinx." }
-doc-clean   = { cmd = "rm -rf doc/build",  help = "Remove all intermediate and output documentation files."}
+doc-clean   = { cmd = "rm -rfv doc/source/reference && rm -rf doc/build",  help = "Remove all intermediate and output documentation files."}
 labels      = { cmd = "python -m sphinx.ext.intersphinx doc/build/html/objects.inv", help = "List available reference labels." }
 doc-release = { cmd = "rm -rf docs/* && cp -r doc/build/html/* docs/ && rm -rf docs/_plantuml",  help = "Prepare docs for realease."}
+black       = { cmd = "poetry run -vvv black .", help = "Apply the Black code formatter to the package's source tree." }
+
+# pyproject.toml
+[tool.pytest.ini_options]
+#minversion = "6.0"
+#addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+#include = 'sphinx_diagram_connect\/.*\.pyi?$'
+extend-exclude = '''
+/(
+  # Exclude Example
+  build/
+  | dist/
+  | docs/
+)
+'''

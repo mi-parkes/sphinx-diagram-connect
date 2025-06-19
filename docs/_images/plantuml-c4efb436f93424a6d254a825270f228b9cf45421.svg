@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1396pt" height="748pt" viewBox="0.00 0.00 1396.00 748.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 744)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-744 1392,-744 1392,4 -4,4"/>
+<!-- ftr -->
+<g id="node1" class="node">
+<title>ftr</title>
+<g id="a_node1"><a xlink:href="../traceability/meta/ftr.html#ftr" xlink:title="feature" target="_top">
+<ellipse fill="LightGreen" stroke="black" cx="93.5" cy="-593" rx="93.5" ry="47"/>
+<text text-anchor="start" x="77.5" y="-593.4" font-family="Times,serif" font-weight="bold" font-size="22.00">ftr</text>
+<text text-anchor="start" x="67" y="-579.4" font-family="Times,serif" font-size="12.00">(feature)</text>
+</a>
+</g>
+</g>
+<!-- ftr&#45;&gt;ftr -->
+<g id="edge1" class="edge">
+<title>ftr-&gt;ftr</title>
+<path fill="none" stroke="black" d="M111.46,-639.42C118.18,-675.35 112.19,-712 93.5,-712 76.56,-712 70.06,-681.9 73.98,-649.51"/>
+<polygon fill="black" stroke="black" points="77.48,-649.83 75.54,-639.42 70.56,-648.77 77.48,-649.83"/>
+<text text-anchor="middle" x="93.5" y="-720" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">refines</text>
+</g>
+<!-- usc -->
+<g id="node2" class="node">
+<title>usc</title>
+<g id="a_node2"><a xlink:href="../traceability/meta/usc.html#usc" xlink:title="usecase" target="_top">
+<ellipse fill="#bfd8d2" stroke="black" cx="920.5" cy="-444" rx="93.5" ry="47"/>
+<text text-anchor="start" x="899" y="-444.4" font-family="Times,serif" font-weight="bold" font-size="22.00">usc</text>
+<text text-anchor="start" x="892" y="-430.4" font-family="Times,serif" font-size="12.00">(usecase)</text>
+</a>
+</g>
+</g>
+<!-- usc&#45;&gt;ftr -->
+<g id="edge6" class="edge">
+<title>usc-&gt;ftr</title>
+<path fill="none" stroke="black" d="M901.53,-490.23C873.27,-554.22 811.95,-662 719.5,-662 719.5,-662 719.5,-662 304,-662 257.56,-662 208.1,-646.51 168.91,-630.22"/>
+<polygon fill="black" stroke="black" points="170.26,-626.99 159.69,-626.29 167.52,-633.43 170.26,-626.99"/>
+<text text-anchor="middle" x="516.5" y="-670" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">realizes</text>
+</g>
+<!-- usc&#45;&gt;usc -->
+<g id="edge2" class="edge">
+<title>usc-&gt;usc</title>
+<path fill="none" stroke="black" d="M938.73,-490.11C945.66,-526.14 939.59,-563 920.5,-563 903.2,-563 896.59,-532.73 900.66,-500.23"/>
+<polygon fill="black" stroke="black" points="904.16,-500.53 902.27,-490.11 897.25,-499.43 904.16,-500.53"/>
+<text text-anchor="middle" x="920.5" y="-571" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">refines</text>
+</g>
+<!-- req -->
+<g id="node3" class="node">
+<title>req</title>
+<g id="a_node3"><a xlink:href="../traceability/meta/req.html#req" xlink:title="requirement" target="_top">
+<ellipse fill="Coral" stroke="black" cx="516.5" cy="-353" rx="93.5" ry="47"/>
+<text text-anchor="start" x="495.5" y="-353.4" font-family="Times,serif" font-weight="bold" font-size="22.00">req</text>
+<text text-anchor="start" x="474.5" y="-339.4" font-family="Times,serif" font-size="12.00">(requirement)</text>
+</a>
+</g>
+</g>
+<!-- usc&#45;&gt;req -->
+<g id="edge7" class="edge">
+<title>usc-&gt;req</title>
+<path fill="none" stroke="black" d="M834.74,-424.81C769.53,-410.05 679.45,-389.66 611.94,-374.38"/>
+<polygon fill="black" stroke="black" points="612.67,-370.96 602.15,-372.16 611.13,-377.78 612.67,-370.96"/>
+<text text-anchor="middle" x="718.5" y="-422" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">elaborates</text>
+</g>
+<!-- req&#45;&gt;ftr -->
+<g id="edge8" class="edge">
+<title>req-&gt;ftr</title>
+<path fill="none" stroke="black" d="M453.83,-388.16C376.97,-431.97 245.91,-506.69 165.1,-552.75"/>
+<polygon fill="black" stroke="black" points="162.94,-549.95 155.99,-557.95 166.41,-556.03 162.94,-549.95"/>
+<text text-anchor="middle" x="305" y="-526" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">satisfies</text>
+</g>
+<!-- req&#45;&gt;req -->
+<g id="edge3" class="edge">
+<title>req-&gt;req</title>
+<path fill="none" stroke="black" d="M534.73,-399.11C541.66,-435.14 535.59,-472 516.5,-472 499.2,-472 492.59,-441.73 496.66,-409.23"/>
+<polygon fill="black" stroke="black" points="500.16,-409.53 498.27,-399.11 493.25,-408.43 500.16,-409.53"/>
+<text text-anchor="middle" x="516.5" y="-480" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">refines</text>
+</g>
+<!-- spc -->
+<g id="node4" class="node">
+<title>spc</title>
+<g id="a_node4"><a xlink:href="../traceability/meta/spc.html#spc" xlink:title="specification" target="_top">
+<ellipse fill="#ffff99" stroke="black" cx="93.5" cy="-181" rx="93.5" ry="47"/>
+<text text-anchor="start" x="72" y="-181.4" font-family="Times,serif" font-weight="bold" font-size="22.00">spc</text>
+<text text-anchor="start" x="50.5" y="-167.4" font-family="Times,serif" font-size="12.00">(specification)</text>
+</a>
+</g>
+</g>
+<!-- req&#45;&gt;spc -->
+<g id="edge9" class="edge">
+<title>req-&gt;spc</title>
+<path fill="none" stroke="black" d="M439.03,-326.63C375.65,-304.19 283.55,-270.24 205,-236 193.03,-230.78 180.49,-224.93 168.33,-219.04"/>
+<polygon fill="black" stroke="black" points="169.65,-215.79 159.13,-214.54 166.58,-222.08 169.65,-215.79"/>
+<text text-anchor="middle" x="305" y="-315" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">derived from</text>
+</g>
+<!-- spc&#45;&gt;req -->
+<g id="edge10" class="edge">
+<title>spc-&gt;req</title>
+<path fill="none" stroke="black" d="M183.71,-168.43C243.98,-164.06 323.63,-166.59 386,-198 429.31,-219.81 463.61,-263.28 486.01,-298.65"/>
+<polygon fill="black" stroke="black" points="483.21,-300.78 491.44,-307.45 489.16,-297.1 483.21,-300.78"/>
+<text text-anchor="middle" x="305" y="-206" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">satisfies</text>
+</g>
+<!-- spc&#45;&gt;spc -->
+<g id="edge4" class="edge">
+<title>spc-&gt;spc</title>
+<path fill="none" stroke="black" d="M111.46,-227.42C118.18,-263.35 112.19,-300 93.5,-300 76.56,-300 70.06,-269.9 73.98,-237.51"/>
+<polygon fill="black" stroke="black" points="77.48,-237.83 75.54,-227.42 70.56,-236.77 77.48,-237.83"/>
+<text text-anchor="middle" x="93.5" y="-308" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">refines</text>
+</g>
+<!-- tsc -->
+<g id="node5" class="node">
+<title>tsc</title>
+<g id="a_node5"><a xlink:href="../traceability/meta/tsc.html#tsc" xlink:title="test case and suite" target="_top">
+<ellipse fill="#87cefa" stroke="black" cx="1294.5" cy="-263" rx="93.5" ry="47"/>
+<text text-anchor="start" x="1276" y="-263.4" font-family="Times,serif" font-weight="bold" font-size="22.00">tsc</text>
+<text text-anchor="start" x="1234" y="-249.4" font-family="Times,serif" font-size="12.00">(test case and suite)</text>
+</a>
+</g>
+</g>
+<!-- tsc&#45;&gt;usc -->
+<g id="edge11" class="edge">
+<title>tsc-&gt;usc</title>
+<path fill="none" stroke="black" d="M1227.54,-296C1212.89,-303.28 1197.43,-310.93 1183,-318 1120.88,-348.42 1050.2,-382.45 997.99,-407.46"/>
+<polygon fill="black" stroke="black" points="996.3,-404.39 988.8,-411.87 999.33,-410.7 996.3,-404.39"/>
+<text text-anchor="middle" x="1107.5" y="-389" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">validates</text>
+</g>
+<!-- tsc&#45;&gt;req -->
+<g id="edge12" class="edge">
+<title>tsc-&gt;req</title>
+<path fill="none" stroke="black" d="M1200.81,-263C1171.3,-263 1138.53,-263 1108.5,-263 1108.5,-263 1108.5,-263 717.5,-263 668.15,-263 617.51,-286.07 579.53,-308.85"/>
+<polygon fill="black" stroke="black" points="577.33,-306.09 570.64,-314.31 581,-312.05 577.33,-306.09"/>
+<text text-anchor="middle" x="920.5" y="-271" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">verifies req</text>
+</g>
+<!-- tsc&#45;&gt;spc -->
+<g id="edge13" class="edge">
+<title>tsc-&gt;spc</title>
+<path fill="none" stroke="black" d="M1283.26,-216.28C1263.62,-140.71 1213.03,0 1108.5,0 1108.5,0 1108.5,0 304,0 225.3,0 161.57,-74.05 125.85,-127.42"/>
+<polygon fill="black" stroke="black" points="122.92,-125.51 120.36,-135.79 128.77,-129.35 122.92,-125.51"/>
+<text text-anchor="middle" x="718.5" y="-8" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">verifies spc</text>
+</g>
+<!-- tsc&#45;&gt;tsc -->
+<g id="edge5" class="edge">
+<title>tsc-&gt;tsc</title>
+<path fill="none" stroke="black" d="M1312.73,-309.11C1319.66,-345.14 1313.59,-382 1294.5,-382 1277.2,-382 1270.59,-351.73 1274.66,-319.23"/>
+<polygon fill="black" stroke="black" points="1278.16,-319.53 1276.27,-309.11 1271.25,-318.43 1278.16,-319.53"/>
+<text text-anchor="middle" x="1294.5" y="-390" font-family="Helvetica,sans-Serif" font-size="25.00" fill="red">refines</text>
+</g>
+</g>
+</svg>

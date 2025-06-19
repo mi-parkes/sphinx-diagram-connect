@@ -40,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=8b9fed1e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -58,10 +59,11 @@
     <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
     <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'c4/system_context';</script>
+    <script src="../_static/js/explorer_button.js?v=5d26fb50"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Container Diagram" href="container_diagram.html" />
-    <link rel="prev" title="C4-PlantUML Example" href="index.html" />
+    <link rel="prev" title="C4-PlantUML" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,20 +175,63 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">QuickStart</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">C4-PlantUML Example</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">System Context Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="container_diagram.html">Container Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="component_diagram.html">Web Application Component Diagram</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../usage-examples.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">C4-PlantUML</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">System Context Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="container_diagram.html">Container Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="component_diagram.html">Web Application Component Diagram</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-plantuml1.html">Test PlantUML 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/textx/test-plantuml2.html">Test PlantUML 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/textx/testz/test-plantuml3.html">Test PlantUML 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-plantuml4.html">Test PlantUML 4 (Graphviz)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test/test-drawio1.html">Test DrawIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-plantuml1.html">Test PlantUML 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/textx/testz/test-plantuml3.html">Test PlantUML 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-plantuml4.html">Test PlantUML 3 (Graphviz)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/test-drawio1.html">Test DrawIO</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Technical Details</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extension_architecture.html">Extension Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">API Reference</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html">tests.integration.test_diagram_connect_integration module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.unit.html">tests.unit package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_diagram_connect_unit.html">tests.unit.test_diagram_connect_unit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_setup_function_unit.html">tests.unit.test_setup_function_unit module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/tests.conftest.html">tests.conftest module</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../traceability/meta/index.html">Meta Model</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/ftr.html">ftr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/usc.html">usc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/req.html">req</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/spc.html">spc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/meta/tsc.html">tsc</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../traceability/index.html">Sphinx-Needs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/use_cases.html">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/requirements.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/specifications.html">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traceability/tests.html">Tests</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -394,6 +439,14 @@ document.write(`
 `);
 </script>
 
+<script>
+document.write(`
+  <button id="explorer-button" class="btn btn-sm navbar-btn explorer-button explorer-button__button" title="Sphinx Needs Data Explorer" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-e" style="color: #5C5A61;"></i>
+  </button>
+`);
+</script>
+
 </div></div>
       
     </div>
@@ -420,11 +473,13 @@ document.write(`
                   
   <section id="system-context-diagram">
 <h1>System Context Diagram<a class="headerlink" href="#system-context-diagram" title="Link to this heading">#</a></h1>
+<figure class="align-center">
 <p class="plantuml">
-<object data="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.svg" type="image/svg+xml" style="width:80%">
-<a href="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.png"><img src="../_images/plantuml-42e851b57c4d0a4d8a7e5c9f17789eceb872a73f.png" alt="E-commerce System Context Diagram" style="width: 80.0%"/></a>
+<object data="../_images/plantuml-bbff62c7ef7354ed82fa9ab487a636369e902f70.svg" type="image/svg+xml" style="width:464px;height:562px;background:#FFFFFF;">
+<img src="../_images/plantuml-bbff62c7ef7354ed82fa9ab487a636369e902f70.png" alt="E-commerce System Context Diagram"/>
 
 </object></p>
+</figure>
 </section>
 
 
@@ -444,7 +499,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">C4-PlantUML Example</p>
+        <p class="prev-next-title">C4-PlantUML</p>
       </div>
     </a>
     <a class="right-next"
