@@ -1,4 +1,4 @@
-Test PlantUML 3
+Test PlantUML 2
 ###############
 
 Heading 3 1

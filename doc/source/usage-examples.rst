@@ -14,7 +14,6 @@ best practices for integrating diagrams and connections into your Sphinx documen
 
    c4/index
    test/test-plantuml1
-   test/textx/test-plantuml2
    test/textx/testz/test-plantuml3
    test/test-plantuml4
    test/test-drawio1.rst

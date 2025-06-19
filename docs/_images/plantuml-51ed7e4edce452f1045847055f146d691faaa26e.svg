@@ -6,7 +6,7 @@
 <!-- node1 -->
 <g id="node1" class="node">
 <title>node1</title>
-<g id="a_node1"><a xlink:href="../test/textx/test-plantuml2.html#heading-2" xlink:title="Node tooltip" target="_top">
+<g id="a_node1"><a xlink:href="../extension_architecture.html#extension-architecture" xlink:title="Node tooltip" target="_top">
 <ellipse fill="lightgrey" stroke="black" cx="403.5" cy="-47" rx="93.5" ry="47"/>
 <text text-anchor="middle" x="403.5" y="-41.4" font-family="Times,serif" font-size="22.00">Node1</text>
 </a>
