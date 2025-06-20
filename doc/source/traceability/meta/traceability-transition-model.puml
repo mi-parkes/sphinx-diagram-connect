@@ -9,6 +9,7 @@ digraph G {
     'size="10,6";
     size="8,6";
     nodesep=1.0;
+    bgcolor="transparent"
     'ranksep=1.0
     node [
         fontsize = "22"

@@ -20,7 +20,7 @@ Some other text here
     @startmindmap mindmap2
     scale 0.3
     skinparam defaultFontSize 56
-
+    skinparam backgroundColor transparent
     *[#Orange] Clickable references
     **[#lightgreen] [[ ":ref:`plantuml label1`" Internal Page Arbitrary Reference ]]
     **[#lightblue] [[ ":ref:`spc_demo_00001`" sphinx-needs Reference ]]

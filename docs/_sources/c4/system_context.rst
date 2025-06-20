@@ -9,7 +9,8 @@ System Context Diagram
    !include <C4/C4_Context>
 
    !pragma svginteractive true
-   
+   skinparam backgroundColor transparent
+
    AddElementTag(clickable, $bgColor="lightgray", $fontColor="darkred", $borderColor="darkred", $shadowing="true", $shape="RoundedBoxShape()", $legendText="clickable")
 
    'LAYOUT_WITH_LEGEND()

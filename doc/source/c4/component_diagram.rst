@@ -9,6 +9,7 @@ Web Application Component Diagram
    !include <C4/C4_Component>
 
    !pragma svginteractive true
+   skinparam backgroundColor transparent
 
    LAYOUT_WITH_LEGEND()
 

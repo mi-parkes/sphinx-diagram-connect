@@ -8,6 +8,7 @@ Test PlantUML 1
     @startmindmap mindmap1
     scale 0.3
     skinparam defaultFontSize 56
+    skinparam backgroundColor transparent
     *[#Orange] Clickable references
     **[#yellow] [[ https://www.sphinx-doc.org/en/master/ External Page Reference ]]
     **[#lightgreen] [[ ":ref:`Extension Architecture`" Internal Page Arbitrary Reference ]]
