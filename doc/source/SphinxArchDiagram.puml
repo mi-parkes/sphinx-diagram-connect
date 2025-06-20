@@ -2,6 +2,7 @@
 
 !include <C4/C4_Container>
 !pragma svginteractive true
+skinparam backgroundColor transparent
 
 scale 0.8
 

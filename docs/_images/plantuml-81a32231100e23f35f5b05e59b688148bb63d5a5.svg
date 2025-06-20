@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="562px" preserveAspectRatio="none" style="width:464px;height:562px;background:#FFFFFF;" version="1.1" viewBox="0 0 464 562" width="464px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="562px" preserveAspectRatio="none" style="width:464px;height:562px;" version="1.1" viewBox="0 0 464 562" width="464px" zoomAndPan="magnify">
   <defs>
     <style type="text/css">.elem {cursor: pointer;} 
 .elem, .link {opacity: 0.3;}
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', (event) =&gt; {
   main();
 });
 </script>
-    <filter height="300%" id="f1m7a7ekdfkdyz" width="300%" x="-1" y="-1">
+    <filter height="300%" id="f1jd9lnk9uvs7v" width="300%" x="-1" y="-1">
       <feGaussianBlur result="blurOut" stdDeviation="2.0"/>
       <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/>
       <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/>
@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', (event) =&gt; {
     </g>
     <!--entity ecommerce_system-->
     <g class="elem ecommerce_system selected" id="elem_ecommerce_system">
-      <a href="../c4/component_diagram.html#web-application-component-diagram" target="_top" title=":ref:`web application component diagram`" xlink:actuate="onRequest" xlink:href=":ref:`web application component diagram`" xlink:show="new" xlink:title=":ref:`web application component diagram`" xlink:type="simple">
-        <rect fill="#D3D3D3" filter="url(#f1m7a7ekdfkdyz)" height="117.7813" rx="12.5" ry="12.5" style="stroke:#8B0000;stroke-width:0.5;" width="218" x="105.5" y="248"/>
+      <a href="../c4/container_diagram.html#container-diagram" target="_top" title=":ref:`container diagram`" xlink:actuate="onRequest" xlink:href=":ref:`container diagram`" xlink:show="new" xlink:title=":ref:`container diagram`" xlink:type="simple">
+        <rect fill="#D3D3D3" filter="url(#f1jd9lnk9uvs7v)" height="117.7813" rx="12.5" ry="12.5" style="stroke:#8B0000;stroke-width:0.5;" width="218" x="105.5" y="248"/>
         <text fill="#8B0000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="125" x="152" y="269.1387">«clickable»«system»</text>
         <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="110" x="123.5" y="286.8203">E-commerce</text>
         <text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="233.5" y="286.8203"> </text>
@@ -283,20 +283,22 @@ document.addEventListener('DOMContentLoaded', (event) =&gt; {
     </g>
     <!--entity payment_gateway-->
     <g class="elem payment_gateway selected" id="elem_payment_gateway">
-      <rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="181" x="7" y="455"/>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="69" y="476.1387">«system»</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="78" x="17" y="493.8203">Payment</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="95" y="493.8203"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="77" x="101" y="493.8203">Gateway</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="95.5" y="510.5889"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="22.5" y="526.8857">Third-party</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="96.5" y="526.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="100.5" y="526.8857">system</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="150.5" y="526.8857"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="154.5" y="526.8857">for</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="21" y="543.1826">processing</text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="98" y="543.1826"> </text>
-      <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="102" y="543.1826">payments.</text>
+      <a href="../extension_architecture.html#extension-architecture" target="_top" title=":ref:`Extension Architecture`" xlink:actuate="onRequest" xlink:href=":ref:`Extension Architecture`" xlink:show="new" xlink:title=":ref:`Extension Architecture`" xlink:type="simple">
+        <rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="181" x="7" y="455"/>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="69" y="476.1387">«system»</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="78" x="17" y="493.8203">Payment</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="95" y="493.8203"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="77" x="101" y="493.8203">Gateway</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="95.5" y="510.5889"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="22.5" y="526.8857">Third-party</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="96.5" y="526.8857"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="100.5" y="526.8857">system</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="150.5" y="526.8857"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="154.5" y="526.8857">for</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="21" y="543.1826">processing</text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="98" y="543.1826"> </text>
+        <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="102" y="543.1826">payments.</text>
+      </a>
     </g>
     <!--entity delivery_service-->
     <g class="elem delivery_service selected" id="elem_delivery_service">
@@ -347,7 +349,7 @@ document.addEventListener('DOMContentLoaded', (event) =&gt; {
       <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20" x="436.5" y="408.1387">for</text>
       <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="56" x="354.5" y="422.1074">delivery</text>
     </g>
-    <!--SRC=[VLBVRzem47xFNt6ra029TYzzgiOabg9kKjLL9TMqfzJO5sFXs97jGFFVxqp2oWHRdkplBj-FErzfAqmh4Jxdjv_osp9tDk9x_99bLutdgkOGTaeJvhc8UeSGVOjPjf1oQR166mkk9i9eiULhWpCOhLNkZFDpPhJQHELvnmYjY7R09VTRZpAXQ-Sb-dCyRBXqUstLd2Mv0MfmpbvSQoNAh-vzbO39DDKCAhIo8DjpziSAcsRZnyMl7wz5-VDxyQryN3uid-udqonxHX-SdOWsH5UZdm7BXoEHiTU00U860Q-5gmaK27jS1nqfkuErT_k0mAs4flLYm-dIU2TR4SCDQQww4B6UuF7VCXm08bv-yFLDIMrX3F71qKlua9X1G4u2iyjQuApH5c-8XBuHdRVpCRlpMDszaLtWJKEJu54x2wJRE4kx0gavRQH-O-FPA78L_fxNuBtXNLfigNZ4FU_8vNEFm4EF9EF5HdjvtN0VE-WZGkLyiYSm15eT33IdKv5ew0dvhWpeTrfGHdO_GB3geVzmrznoTM3kPm03dSQ3HlQ2vcIf5pQGLakDgU-yUfwQh66wXMFjD5rq_sIwaFB9HLsHJt0L7DvyE2GwTXBLRm00]-->
+    <!--SRC=[VLDXQzim4FtkNt4LXQIGTb_wgIo3B0tTe7IbIIcZ54UMBeg8B1b9Jk9_lvFjj1t9zarwTtxltJtvJ5jXQedmTNhzPNgTJvsDk8_VikoiyboL7C9MQS8y5r5l4QAlCGiRRIlkUGa55nlbNMtbr1ddgSnje1BQc6KJAMS6Ipelk1eAeyM65mP7S5wejdtCZ5Rhg3nl6A4h4kznoVt6eqneuRn4Vuo7DPTkfwqQisIgXoeSiwVa1-LtjvydO7YHQWOLMhcWuSRitGgxoBB1_UJth-T5_l9pyIE_dztD7cw713-Y3yuEHHsYAz6FW4tx8x6nvu01uXe1BuKh2HG8Eoo2ZhGY1uLtku30hOIgzcBDwL9v9siHmnM9pfiGiHpYuTiyj00HppxukgQaDZ66-E3W9Nn8Z20W9u7HQIrmrcYBLsnq7haAVqqEhw_0RZokRfQ25i-fpuFKdD8ebmpUtWukAzwa37F58-vuGtuUEmJkEYHPNAorbvUKV6oW6mPMz1x8YC0GA2NeQK8oGwOsuq6lFjj7j44x2nEoJniKiVQuP8FtFKaqzFPyamVqMoreQdRRGp3leFzuABdbgdNGRGLwEerj5jaJcayndyWaXKsDgU-uUhmTieRf5Wwrprk8xfzC9wPyS56lo2Uu5RI_GMWdEdGIrHy0]-->
   </g>
   <style type="text/css">[data-mouse-over-selected="false"] {
 	opacity: 0.2;

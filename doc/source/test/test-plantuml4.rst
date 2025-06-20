@@ -11,6 +11,7 @@ Test PlantUML 3 (Graphviz)
         labelloc = "t";
         fontsize = "28pt";
         nodesep=1.0
+        bgcolor="transparent"
         node [
             fontsize = "22"
             fixedsize=true 

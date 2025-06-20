@@ -2,7 +2,9 @@
 
 title <SIZE:40>Sphinx-Diagram-Connect Component Diagram</SIZe>
 
-scale 0.5
+scale 0.44
+skinparam backgroundColor transparent
+'skinparam backgroundColor #b5b4a8ff
 
 skinparam defaultFontSize 30
 skinparam defaultText {
