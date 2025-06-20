@@ -2,13 +2,9 @@ p {
     font-size: 1.2em;
 }
 
-/*http://localhost:8080/_static/styles/pydata-sphinx-theme.css*/
-    /*--pst-color-table-row-hover-bg: #eaea70c0;*/
-    /*--pst-color-table-row-hover-bg: #31eb46bf;*/
-
 html[data-theme=light] {
     --pst-color-table-row-hover-bg:#b5b4a8ff;
-    --pst-color-background: #bababa;
+    --pst-color-background: #e9e9e9;
     --pst-color-surface: rgb(231, 221, 180);
 
     dl[class]:not(.option-list, .field-list, .footnote, .glossary, .simple) dd > dl.simple > dt {
