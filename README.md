@@ -1,6 +1,6 @@
 # Enhance Your Sphinx Documentation with Dynamic Diagram Links
 
-See the [complete documentation rendered with Sphinx](https://mi-parkes.github.io/sphinx-diagram-connect/) .
+See the **[complete documentation rendered with Sphinx](https://mi-parkes.github.io/sphinx-diagram-connect/)** 📚.
 
 ## Unlock Seamless Navigation Between Diagrams and Documentation
 
