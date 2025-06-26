@@ -1,5 +1,7 @@
 # Enhance Your Sphinx Documentation with Dynamic Diagram Links
 
+See the [complete documentation rendered with Sphinx](https://github.com/mi-parkes/sphinx-diagram-connect?tab=readme-ov-file) .
+
 ## Unlock Seamless Navigation Between Diagrams and Documentation
 
 `sphinx_diagram_connect` is a powerful [Sphinx](https://www.sphinx-doc.org/en/master/index.html) extension designed to create intelligent, clickable links within your [PlantUML](https://plantuml.com) and [DrawIO](https://pypi.org/project/sphinxcontrib-drawio/) diagrams. By automatically resolving `std:doc:` and `std:ref:` syntax, this extension allows you to effortlessly connect elements in your diagrams directly to relevant sections or components within your Sphinx documentation. This means enhanced navigation, improved information flow, and a more interactive experience for your readers.
