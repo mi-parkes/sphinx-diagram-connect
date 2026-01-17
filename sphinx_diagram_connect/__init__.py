@@ -154,7 +154,7 @@ class DiagramConnect:
                 self.needs_list = self._init_needs()  # _init_needs uses self.app
 
             # Regex pattern to find Sphinx references in the format :ref:`target` or :doc:`target`
-            pattern = r"(:(ref|doc):`([^`]+)`)"
+            pattern = r"(:([a-z:]+):`([^`]+)`)"
             href = ""
 
             # Iterate over all SVG files in the image directory
