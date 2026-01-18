@@ -1,17 +1,3 @@
-# sphinx_diagram_connect/__init__.py
-"""
-A Sphinx extension for connecting references within SVG diagrams.
-
-This extension processes SVG files generated as part of a Sphinx build,
-identifying Sphinx cross-references (e.g., `:ref:`, `:doc:`) and Sphinx-Needs
-references (`:need:`), and replaces them with the actual resolved URLs
-in the SVG's `xlink:href` attributes. This allows interactive, clickable
-diagrams within your Sphinx documentation.
-
-The extension integrates into the Sphinx build process and modifies SVG
-outputs to ensure links remain functional in the final HTML documentation.
-"""
-
 import os
 import sys
 import sphinx
@@ -84,7 +70,7 @@ class DiagramConnect:
                         return needs_list_obj.needs_list["versions"][version]["needs"]
         return None
 
-    def _resolve_ref(self, target):
+    def _resolve_ref(self, target, rtype):
         """
         Resolves a Sphinx reference (e.g., ``:ref:`target```, ``:doc:`target```) to its URI.
 
@@ -100,12 +86,22 @@ class DiagramConnect:
         :rtype: str or None
         :raises sphinx.errors.NoUri: If the reference domain or type is not found.
         """
-        refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
-        typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
+        if ':' not in rtype:
+            refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
+            typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
+        else:
+            logger.info(
+                "href resolution of domain: '%s'"
+                % (rtype),
+                color="purple",
+            )
+            refdomain,typ = rtype.split(':')
+            
         # refdoc is a dummy document name needed for resolve_xref, as per Sphinx API
         # Use self.app as the app object is stored during initialization
         refdoc = self.app.builder.imagedir + "/dummy.svg"
         node = nodes.literal_block("dummy", "dummy")
+        contnode = nodes.literal(target, target)
         node["refexplicit"] = False
         try:
             try:
@@ -116,7 +112,7 @@ class DiagramConnect:
             # Resolve the cross-reference
             # Use self.app as the app object is stored during initialization
             newnode = domain.resolve_xref(
-                self.app.env, refdoc, self.app.builder, typ, target.lower(), node, None
+                self.app.env, refdoc, self.app.builder, typ, target, node, contnode
             )
             if newnode:
                 return newnode.attributes["refuri"]
@@ -194,7 +190,7 @@ class DiagramConnect:
 
                             # Attempt to resolve using the internal _resolve_ref method
                             new_href = self._resolve_ref(
-                                old_href
+                                old_href, type
                             )  # _resolve_ref uses self.app
                             if new_href:
                                 element.attrib[href] = new_href
