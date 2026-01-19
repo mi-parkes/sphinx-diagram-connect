@@ -86,9 +86,15 @@ class DiagramConnect:
         :rtype: str or None
         :raises sphinx.errors.NoUri: If the reference domain or type is not found.
         """
+
         if ':' not in rtype:
             refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
             typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
+            node = nodes.literal_block("dummy", "dummy")
+            node["refexplicit"] = False
+            contnode = None
+            rtarget = target.lower()
+
         else:
             logger.info(
                 "href resolution of domain: '%s'"
@@ -96,13 +102,14 @@ class DiagramConnect:
                 color="purple",
             )
             refdomain,typ = rtype.split(':')
+            node = nodes.literal_block("dummy", "dummy")
+            contnode = nodes.literal(target, target)
+            node["refexplicit"] = False
+            rtarget = target
             
         # refdoc is a dummy document name needed for resolve_xref, as per Sphinx API
         # Use self.app as the app object is stored during initialization
         refdoc = self.app.builder.imagedir + "/dummy.svg"
-        node = nodes.literal_block("dummy", "dummy")
-        contnode = nodes.literal(target, target)
-        node["refexplicit"] = False
         try:
             try:
                 # Use self.app as the app object is stored during initialization
@@ -112,7 +119,7 @@ class DiagramConnect:
             # Resolve the cross-reference
             # Use self.app as the app object is stored during initialization
             newnode = domain.resolve_xref(
-                self.app.env, refdoc, self.app.builder, typ, target, node, contnode
+                self.app.env, refdoc, self.app.builder, typ, rtarget, node, contnode
             )
             if newnode:
                 return newnode.attributes["refuri"]
