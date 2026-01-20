@@ -61,15 +61,14 @@ class DiagramConnect:
             self.app.env.config, self.app.outdir, self.app.srcdir
         )
         needs_list_obj.load_json(os.path.join(self.app.builder.outdir, "needs.json"))
-        ret = None
         if needs_list_obj and needs_list_obj.needs_list:
             if "versions" in needs_list_obj.needs_list:
                 keys = list(needs_list_obj.needs_list["versions"].keys())
                 if keys:
                     version = keys[0]
                     if "needs" in needs_list_obj.needs_list["versions"][version]:
-                        ret = needs_list_obj.needs_list["versions"][version]["needs"]
-        return ret
+                        return needs_list_obj.needs_list["versions"][version]["needs"]
+        return None
 
     def _resolve_ref(self, target, rtype):
         """
