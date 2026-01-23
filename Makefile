@@ -134,8 +134,10 @@ plantuml-version:
 
 plantuml-test:
 	$(eval OFILE=$@.svg)
-	cat doc/source/traceability/meta/traceability-transition-model.puml | java -jar $(PLANTUML_PATH) \
-		--pipe \
+	cat doc/source/traceability/meta/traceability-transition-model.puml | \
+		java -Djava.awt.headless=true \
+		-jar $(PLANTUML_PATH) \
+		-pipe \
 		--verbose \
-		--svg > $(OFILE)
-	file $(OFILE)
+		-tsvg > $(OFILE)
+	ls -l $(OFILE)
