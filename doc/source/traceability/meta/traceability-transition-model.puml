@@ -22,7 +22,8 @@ digraph G {
         target="_top"
     ];
     'edge [ fontname=Helvetica, fontcolor=red, fontsize=15, minlen=2, decorate=true ];
-    edge [ fontname=Helvetica, fontcolor=red, fontsize=25, minlen=2 ];
+    'edge [ fontname=Helvetica, fontcolor=red, fontsize=25, minlen=2 ];
+    edge [ fontcolor=red, fontsize=25, minlen=2 ];
 
         "ftr" [ label=<<B>ftr</B><BR/><FONT POINT-SIZE="12.0">(feature)</FONT>> tooltip="feature" fillcolor="LightGreen" URL=":ref:`ftr`"]
         "usc" [ label=<<B>usc</B><BR/><FONT POINT-SIZE="12.0">(usecase)</FONT>> tooltip="usecase" fillcolor="#BFD8D2" URL=":ref:`usc`"]

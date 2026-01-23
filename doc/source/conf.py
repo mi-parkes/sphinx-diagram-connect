@@ -85,6 +85,7 @@ else:
     elif sys.platform == "darwin":
         plantuml = "java -jar /usr/local/plantuml/plantuml.jar"
 plantuml_output_format = "svg"
+#plantuml_syntax_error_image = True
 
 # SPHINX-NEEDS SETTINGS
 """

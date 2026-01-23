@@ -166,6 +166,14 @@ class DiagramConnect:
                 os.path.join(app.builder.outdir, app.builder.imagedir) + "/*.svg",
                 recursive=True,
             ):
+                if os.stat(filename).st_size == 0:
+                    logger.info(
+                        "Empty SVG file:'%s'"
+                        % filename[len(os.getcwd()) + 1 :],
+                        color="darkblue",
+                    )
+                    continue
+
                 # Read the SVG file content as binary
                 with open(filename, "rb") as file:
                     svg_content = file.read()
