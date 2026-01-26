@@ -1,3 +1,17 @@
+# sphinx_diagram_connect/__init__.py
+"""
+A Sphinx extension for connecting references within SVG diagrams.
+
+This extension processes SVG files generated as part of a Sphinx build,
+identifying Sphinx cross-references (e.g., `:ref:`, `:doc:`) and Sphinx-Needs
+references (`:need:`), and replaces them with the actual resolved URLs
+in the SVG's `xlink:href` attributes. This allows interactive, clickable
+diagrams within your Sphinx documentation.
+
+The extension integrates into the Sphinx build process and modifies SVG
+outputs to ensure links remain functional in the final HTML documentation.
+"""
+
 import os
 import sys
 import sphinx
