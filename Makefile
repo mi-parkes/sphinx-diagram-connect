@@ -128,3 +128,16 @@ test-using-package:
 
 clean-dc:
 	docker images | awk '$$1=="<none>"{print "docker rmi "$$3}' | $(SHELL)
+
+plantuml-version:
+	java -jar $(PLANTUML_PATH) -version
+
+plantuml-test:
+	$(eval OFILE=$@.svg)
+	cat doc/source/traceability/meta/traceability-transition-model.puml | \
+		java -Djava.awt.headless=true \
+		-jar $(PLANTUML_PATH) \
+		-pipe \
+		--verbose \
+		-tsvg > $(OFILE)
+	ls -l $(OFILE)
