@@ -110,11 +110,6 @@ class DiagramConnect:
             rtarget = target.lower()
 
         else:
-            logger.info(
-                "href resolution of domain: '%s'"
-                % (rtype),
-                color="purple",
-            )
             refdomain,typ = rtype.split(':')
             node = nodes.literal_block("dummy", "dummy")
             contnode = nodes.literal(target, target)
@@ -227,12 +222,20 @@ class DiagramConnect:
                                     self.sphinx_diagram_connect_verbose
                                 ):  # Using stored config value
                                     logger.info(
-                                        "href resolution: '%s' -> '%s'"
-                                        % (old_href, new_href),
+                                        "href resolution: ('%s') '%s' -> '%s'"
+                                        % (type, old_href, new_href),
                                         color="purple",
                                     )
                                 resolved = True
                             elif self.needs_list:  # Using stored needs_list
+                                if (
+                                    self.sphinx_diagram_connect_verbose
+                                ):  # Using stored config value
+                                    logger.info(
+                                        "href resolution with needs logic: ('%s') '%s' -> '%s'"
+                                        % (type, old_href, new_href),
+                                        color="purple",
+                                    )
                                 # If Sphinx resolver fails, try to resolve using sphinx-needs data
                                 if old_href in self.needs_list:
                                     # Construct the path to the needs document.
@@ -292,16 +295,16 @@ def setup(app):
     :returns: A dictionary containing Sphinx extension metadata.
     :rtype: dict
     """
+    # Add a configuration value that can be set in conf.py
+    # 'sphinx_diagram_connect_verbose': default value False, applies to 'html' builder.
+    app.add_config_value("sphinx_diagram_connect_verbose", False, "html")
+
     # Instantiate the DiagramConnect class
     diagram_connect_instance = DiagramConnect(app)
 
     # Connect the resolve_references method of the instance to the 'build-finished' event
     # The method needs to accept both 'app' and 'exception' arguments from the event.
     app.connect("build-finished", diagram_connect_instance.resolve_references)
-
-    # Add a configuration value that can be set in conf.py
-    # 'sphinx_diagram_connect_verbose': default value False, applies to 'html' builder.
-    app.add_config_value("sphinx_diagram_connect_verbose", False, "html")
 
     # Return metadata about the extension
     return {

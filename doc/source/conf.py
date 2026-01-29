@@ -196,7 +196,7 @@ needs_flow_configs = {
 
 # suppress_warnings = ['sphinx-diagram-connect-missing-reference']
 
-# sphinx_diagram_connect_verbose=True
+sphinx_diagram_connect_verbose = True
 
 
 def copy_readme_md(app):
