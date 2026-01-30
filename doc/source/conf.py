@@ -53,6 +53,9 @@ extensions = [
 if checkIfDrawIOAvailable():
     extensions.append("sphinxcontrib.drawio")
 
+drawio_disable_verbose_electron = True
+drawio_no_sandbox = True
+
 exclude_patterns = []
 
 language = "en"
