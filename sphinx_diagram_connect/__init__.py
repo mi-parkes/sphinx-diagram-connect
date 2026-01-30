@@ -102,12 +102,20 @@ class DiagramConnect:
         """
 
         if ':' not in rtype:
-            refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
-            typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
-            node = nodes.literal_block("dummy", "dummy")
-            node["refexplicit"] = False
-            contnode = None
-            rtarget = target.lower()
+            if rtype in ['doc','ref']:
+                refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
+                typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
+                node = nodes.literal_block("dummy", "dummy")
+                node["refexplicit"] = False
+                contnode = None
+                rtarget = target.lower()
+            else:
+                refdomain = rtype  # domain for other types
+                typ = rtype # The type of reference being resolved
+                node = nodes.literal_block("dummy", "dummy")
+                contnode = nodes.literal(target, target)
+                node["refexplicit"] = False
+                rtarget = target
 
         else:
             refdomain,typ = rtype.split(':')
