@@ -102,7 +102,7 @@ class DiagramConnect:
         """
 
         if ':' not in rtype:
-            if rtype in ['doc','ref']:
+            if rtype in ['doc','ref','need']:
                 refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
                 typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
                 node = nodes.literal_block("dummy", "dummy")
@@ -131,6 +131,7 @@ class DiagramConnect:
         try:
             try:
                 # Use self.app as the app object is stored during initialization
+                #domain = app.env.get_domain(refdomain)
                 domain = app.env.domains[refdomain]
             except KeyError as exc:
                 raise NoUri(target, typ) from exc
@@ -237,21 +238,20 @@ class DiagramConnect:
                                     )
                                 resolved = True
                             elif self.needs_list:  # Using stored needs_list
-                                if (
-                                    self.sphinx_diagram_connect_verbose
-                                ):  # Using stored config value
-                                    logger.info(
-                                        "href resolution with needs logic: ('%s') '%s' -> '%s'"
-                                        % (type, old_href, new_href),
-                                        color="purple",
-                                    )
                                 # If Sphinx resolver fails, try to resolve using sphinx-needs data
                                 if old_href in self.needs_list:
                                     # Construct the path to the needs document.
                                     # TODO: This relative path needs to be robustly handled based on build paths.
-                                    element.attrib[href] = (
-                                        f"../{self.needs_list[old_href]['docname']}.html#{old_href}"
-                                    )
+                                    new_href = f"../{self.needs_list[old_href]['docname']}.html#{old_href}"
+                                    element.attrib[href] = new_href
+                                    if (
+                                        self.sphinx_diagram_connect_verbose
+                                    ):  # Using stored config value
+                                        logger.info(
+                                            "href resolution with needs logic: ('%s') '%s' -> '%s'"
+                                            % (type, old_href, new_href),
+                                            color="purple",
+                                        )
                                     resolved = True
                             if resolved:
                                 modified = True
