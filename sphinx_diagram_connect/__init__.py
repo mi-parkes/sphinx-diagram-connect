@@ -23,6 +23,8 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 from sphinx.events import EventListener
 from sphinx_needs.needsfile import NeedsList
+from sphinx_needs.data import SphinxNeedsData
+
 
 # Get the Sphinx logger for informative messages
 logger = sphinx.util.logging.getLogger(__name__)
@@ -102,29 +104,19 @@ class DiagramConnect:
         """
 
         if ':' not in rtype:
-            if rtype in ['doc','ref','need']:
-                refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
-                typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
-                node = nodes.literal_block("dummy", "dummy")
-                node["refexplicit"] = False
-                contnode = None
-                rtarget = target.lower()
-            else:
-                # https://www.sphinx-doc.org/en/master/usage/domains/index.html
-                refdomain = rtype  # domain for other types 
-                typ = rtype # The type of reference being resolved
-                node = nodes.literal_block("dummy", "dummy")
-                contnode = nodes.literal(target, target)
-                node["refexplicit"] = False
-                rtarget = target
+            refdomain = "std"  # Standard Sphinx domain for 'ref' and 'doc' types
+            typ = "ref"  # The type of reference being resolved (can be 'doc' or 'ref')
+            contnode = None
+            rtarget = target.lower()
 
         else:
             refdomain,typ = rtype.split(':')
-            node = nodes.literal_block("dummy", "dummy")
             contnode = nodes.literal(target, target)
-            node["refexplicit"] = False
             rtarget = target
-            
+
+        node = nodes.literal_block("dummy", "dummy")
+        node["refexplicit"] = False
+
         # refdoc is a dummy document name needed for resolve_xref, as per Sphinx API
         # Use self.app as the app object is stored during initialization
         refdoc = app.builder.imagedir + "/dummy.svg"
@@ -172,8 +164,11 @@ class DiagramConnect:
         if app.builder.format == "html":
             # Access config values and needs list using the app object from the event
             # or the already stored self.sphinx_diagram_connect_verbose and self.needs_build_json
-            if self.needs_build_json and self.needs_list is None:
-                self.needs_list = self._init_needs(app)  # _init_needs uses self.app
+            # if self.needs_build_json and self.needs_list is None:
+                # self.needs_list = self._init_needs(app)  # _init_needs uses self.app
+
+            if self.needs_list is None:
+                self.needs_list = SphinxNeedsData(app.env).get_needs_view()
 
             # Regex pattern to find Sphinx references in the format :ref:`target` or :doc:`target`
             pattern = r"(:([a-z:]+):`([^`]+)`)"
