@@ -13,6 +13,7 @@ Test PlantUML 1
     **[#yellow] [[ https://www.sphinx-doc.org/en/master/ External Page Reference ]]
     **[#lightgreen] [[ ":ref:`Extension Architecture`" Internal Page Arbitrary Reference ]]
     **[#lightblue] [[ ":ref:`spc_demo_00001`" sphinx-needs Reference ]]
+    **[#lightgreen] [[ ":need:`req_demo_00010`" generic sphinx-needs Reference ]]
     **[#lightgrey] [[ ":doc:`Meta Model`" Internal Page Reference ]]
 
     @endmindmap

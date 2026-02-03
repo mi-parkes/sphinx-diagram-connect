@@ -12,9 +12,12 @@ from sphinx.util import logging
 from sphinx.errors import ExtensionError
 
 import sphinx
+import importlib.util
 
 logger = sphinx.util.logging.getLogger(__name__)
 
+def checkIFNeedsAvailable():
+    return importlib.util.find_spec("sphinx_needs") is not None
 
 def checkIfDrawIOAvailable():
     drawio_in_path = shutil.which("drawio")
@@ -44,14 +47,19 @@ extensions = [
     "sphinxcontrib.plantuml",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.githubpages",
-    "sphinx_needs",
     "sphinx_diagram_connect",
-    "myst_parser",
-    'sphinx_needs_data_explorer'
+    "myst_parser"
 ]
 
 if checkIfDrawIOAvailable():
     extensions.append("sphinxcontrib.drawio")
+
+if checkIFNeedsAvailable():
+    extensions.append("sphinx_needs")
+    extensions.append("sphinx_needs_data_explorer")
+
+drawio_disable_verbose_electron = True
+drawio_no_sandbox = True
 
 exclude_patterns = []
 
@@ -102,7 +110,7 @@ needs_types = [
 
 needs_id_required = True
 needs_id_regex = "^[a-z]{3,3}_demo_[0-9]{5,5}"
-needs_build_json = True
+# needs_build_json = True
 
 needs_default_layout = 'clean' # clean | complete | focus
 
@@ -196,7 +204,7 @@ needs_flow_configs = {
 
 # suppress_warnings = ['sphinx-diagram-connect-missing-reference']
 
-# sphinx_diagram_connect_verbose=True
+sphinx_diagram_connect_verbose = True
 
 
 def copy_readme_md(app):
