@@ -20,8 +20,13 @@ import glob
 import re
 import xml.etree.ElementTree as ET
 from lxml import etree
-from sphinx_needs.data import SphinxNeedsData
+import importlib.util
 
+HAS_NEEDS = importlib.util.find_spec("sphinx_needs") is not None
+if HAS_NEEDS:
+    from sphinx_needs.data import SphinxNeedsData
+else:
+    SphinxNeedsData = None
 
 # Get the Sphinx logger for informative messages
 logger = sphinx.util.logging.getLogger(__name__)
@@ -52,7 +57,6 @@ class DiagramConnect:
         self.sphinx_diagram_connect_verbose = getattr(
             app.config, "sphinx_diagram_connect_verbose", False
         )
-        self.needs_build_json = getattr(app.config, "needs_build_json", False)
         self.needs_list = None
 
     def _resolve_ref(self, app, target, rtype):
@@ -133,7 +137,7 @@ class DiagramConnect:
         if app.builder.format == "html":
             # Access config values and needs list using the app object from the event
 
-            if self.needs_list is None:
+            if self.needs_list is None and HAS_NEEDS:
                 self.needs_list = SphinxNeedsData(app.env).get_needs_view()
 
             # Regex pattern to find Sphinx references in the format :ref:`target` or :doc:`target`
