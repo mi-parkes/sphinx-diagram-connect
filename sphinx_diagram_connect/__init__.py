@@ -138,7 +138,10 @@ class DiagramConnect:
             # Access config values and needs list using the app object from the event
 
             if self.needs_list is None and HAS_NEEDS:
-                self.needs_list = SphinxNeedsData(app.env).get_needs_view()
+                try:
+                    self.needs_list = SphinxNeedsData(app.env).get_needs_view()
+                except Exception as exc:
+                    logger.warning("Failed to get NeedsData")
 
             # Regex pattern to find Sphinx references in the format :ref:`target` or :doc:`target`
             pattern = r"(:([a-z:]+):`([^`]+)`)"
