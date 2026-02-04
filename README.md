@@ -10,7 +10,7 @@ See the **[complete documentation rendered with Sphinx](https://mi-parkes.github
 
 * Also references to other domain like `py:func` will be resolved.
 
-* **Optionally**, references to *sphinx-needs* items will also be resolved. Precondition is that you have the corresponding package available in your pyhton environment and the extension *sphinx-needs* is configured in your documentation setup.
+* **Optionally**, references to *sphinx-needs* items will also be resolved. Precondition is that you have the corresponding package available in your Python environment and the extension *sphinx-needs* is configured in your documentation setup.
 
 The **sphinx_diagram_connect** extension works on the generated *svg* files of your graphical tools. This means also other diagram types are supported automatically.
 
