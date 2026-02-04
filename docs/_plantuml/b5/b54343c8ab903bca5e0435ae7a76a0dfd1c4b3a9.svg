@@ -1,0 +1,312 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="562px" preserveAspectRatio="none" style="width:464px;height:562px;" version="1.1" viewBox="0 0 464 562" width="464px" zoomAndPan="magnify"><defs><style type="text/css"><![CDATA[.elem {cursor: pointer;} 
+.elem, .link {opacity: 0.3;}
+.elem.selected, .link.selected {opacity: 1;}
+]]></style><script>function addItemToMapOfLists(mapOfLists, name, item) {
+  // mapOfLists = {
+  //   'key1': [item1, item2, ...],
+  //   'key2': [item3, item4, ...],
+  // }
+  if (mapOfLists[name].length &gt; 0) {
+    if (!mapOfLists[name].includes(item)) {
+      mapOfLists[name].push(item);
+    }
+  } else {
+    mapOfLists[name] = [item];
+  }
+}
+
+function main() {
+  let elems = Array.from(document.getElementsByClassName('elem'));
+  let links = Array.from(document.getElementsByClassName('link'));
+
+  let elemsMap = {};
+  let linkedFromElems = {};
+  let linkedToElems = {};
+  let linkedFromLinks = {};
+  let linkedToLinks = {};
+
+  elems.forEach(elem =&gt; {
+    let name = elem.classList[1];
+    elemsMap[name] = elem;
+    linkedFromElems[name] = [];
+    linkedToElems[name] = [];
+    linkedFromLinks[name] = [];
+    linkedToLinks[name] = [];
+  });
+
+  links.forEach(link =&gt; {
+    let fromName = link.classList[1];
+    let toName = link.classList[2];
+
+    if (elemsMap[fromName] &amp;&amp; elemsMap[toName]) {
+      let fromElem = elemsMap[fromName];
+      let toElem = elemsMap[toName];
+
+      addItemToMapOfLists(linkedFromElems, toName, fromElem);
+      addItemToMapOfLists(linkedToElems, fromName, toElem);
+
+      addItemToMapOfLists(linkedFromLinks, toName, link);
+      addItemToMapOfLists(linkedToLinks, fromName, link);
+    }
+  });
+
+  let selectedElems = [];
+  let selectedLinks = [];
+  let selectedElemName = null;
+
+  function clearSelected() {
+    selectedElems.forEach(item =&gt; {
+      item.classList.remove('selected');
+    });
+    selectedElems = [];
+
+    selectedLinks.forEach(item =&gt; {
+      item.classList.remove('selected');
+    });
+    selectedLinks = [];
+  }
+
+  function selectAll() {
+    selectedElemName = null;
+    clearSelected();
+
+    selectedElems = Array.from(elems);
+    selectedElems.forEach(item =&gt; {
+      item.classList.add('selected');
+    });
+
+    selectedLinks = Array.from(links);
+    selectedLinks.forEach(item =&gt; {
+      item.classList.add('selected');
+    });
+  }
+
+  function selectElem(elemName) {
+    if (elemName === selectedElemName) {
+      selectAll();
+    } else {
+      clearSelected();
+      selectedElemName = elemName;
+
+      elemsMap[elemName].classList.add('selected');
+      selectedElems.push(elemsMap[elemName]);
+
+      linkedFromElems[elemName].forEach(linkedElem =&gt; {
+        // Avoid repetitive processing
+        if (selectedElems.includes(linkedElem)) {
+          return;
+        }
+        selectedElems.push(linkedElem);
+        linkedElem.classList.add('selected');
+      });
+      linkedToElems[elemName].forEach(linkedElem =&gt; {
+        // Avoid repetitive processing
+        if (selectedElems.includes(linkedElem)) {
+          return;
+        }
+        selectedElems.push(linkedElem);
+        linkedElem.classList.add('selected');
+      });
+
+      linkedFromLinks[elemName].forEach(linkedLink =&gt; {
+        // Avoid repetitive processing
+        if (selectedLinks.includes(linkedLink)) {
+          return;
+        }
+        selectedLinks.push(linkedLink);
+        linkedLink.classList.add('selected');
+      });
+      linkedToLinks[elemName].forEach(linkedLink =&gt; {
+        // Avoid repetitive processing
+        if (selectedLinks.includes(linkedLink)) {
+          return;
+        }
+        selectedLinks.push(linkedLink);
+        linkedLink.classList.add('selected');
+      });
+    }
+  }
+
+  function selectElemOfLine(elemName) {
+    clearSelected();
+    selectedElemName = elemName;
+
+    elemsMap[elemName].classList.add('selected');
+    selectedElems.push(elemsMap[elemName]);
+
+    selectFromElem(elemName);
+    selectToElem(elemName);
+  }
+
+  function selectFromElem(elemName) {
+    console.log(elemName, "linkedFromLinks", linkedFromLinks[elemName])
+    linkedFromLinks[elemName].forEach(linkedLink =&gt; {
+      // Avoid repetitive processing
+      if (selectedLinks.includes(linkedLink)) {
+        return;
+      }
+      selectedLinks.push(linkedLink);
+      linkedLink.classList.add('selected');
+      console.log(elemName, "from link", linkedLink);
+    });
+
+    console.log(elemName, "linkedFromElems", linkedFromElems[elemName])
+    linkedFromElems[elemName].forEach(linkedElem =&gt; {
+      // break loop reference
+      if (selectedElems.includes(linkedElem)) {
+        return;
+      }
+      selectedElems.push(linkedElem);
+      linkedElem.classList.add('selected');
+      console.log(elemName, "from elem", linkedElem);
+
+      let nextName = linkedElem.classList[1];
+      selectFromElem(nextName);
+    });
+  }
+
+  function selectToElem(elemName) {
+    console.log(elemName, "linkedToLinks", linkedToLinks[elemName]);
+    linkedToLinks[elemName].forEach(linkedLink =&gt; {
+      // Avoid repetitive processing
+      if (selectedLinks.includes(linkedLink)) {
+        return;
+      }
+      selectedLinks.push(linkedLink);
+      linkedLink.classList.add('selected');
+      console.log(elemName, "to link", linkedLink);
+    });
+
+    console.log(elemName, "linkedToElems", linkedToElems[elemName])
+    linkedToElems[elemName].forEach(linkedElem =&gt; {
+      // break loop reference
+      if (selectedElems.includes(linkedElem)) {
+        return;
+      }
+      selectedElems.push(linkedElem);
+      linkedElem.classList.add('selected');
+      console.log(elemName, "to elem", linkedElem);
+
+      let nextName = linkedElem.classList[1];
+      selectToElem(nextName);
+    });
+  }
+
+  Object.keys(elemsMap).forEach(name =&gt; {
+    elemsMap[name].onclick = (event) =&gt; {
+      console.log("onclick: ", event);
+      selectElem(name);
+    };
+    // double click, and then selectElemOfLine
+    elemsMap[name].ondblclick = (event) =&gt; {
+      console.log("ondblclick", event);
+      selectElemOfLine(name);
+    };
+  });
+
+  selectAll();
+
+  document.querySelector('svg').addEventListener('keydown', event =&gt; {
+    console.log('svg keydown: ', event.key);
+    // Press Escape, and then selectAll
+    // https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+    if (event.code === "Escape") {
+      selectAll();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', (event) =&gt; {
+  main();
+});
+</script><filter height="300%" id="f1hvzgqo8tugdk" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity customer--><g class="elem customer selected" id="elem_customer"><rect fill="#08427B" height="165.7813" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="177" x="126" y="7"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="186" y="28.1387">&#171;person&#187;</text><image height="48" width="48" x="190.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" y="30.9688"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="87" x="171" y="93.8203">Customer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212.5" y="110.5889">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="137.5" y="126.8857">Uses</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="172.5" y="126.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="23" x="176.5" y="126.8857">the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="199.5" y="126.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="203.5" y="126.8857">e-commerce</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="136" y="143.1826">website</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="190" y="143.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="194" y="143.1826">to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="208" y="143.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="212" y="143.1826">browse</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="263" y="143.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="267" y="143.1826">and</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="147" y="159.4795">purchase</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212" y="159.4795">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="216" y="159.4795">products.</text></g><!--entity ecommerce_system--><g class="elem ecommerce_system selected" id="elem_ecommerce_system"><a href=":ref:`web application component diagram`" target="_top" title=":ref:`web application component diagram`" xlink:actuate="onRequest" xlink:href=":ref:`web application component diagram`" xlink:show="new" xlink:title=":ref:`web application component diagram`" xlink:type="simple"><rect fill="#D3D3D3" filter="url(#f1hvzgqo8tugdk)" height="117.7813" rx="12.5" ry="12.5" style="stroke:#8B0000;stroke-width:0.5;" width="218" x="105.5" y="248"/><text fill="#8B0000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="125" x="152" y="269.1387">&#171;clickable&#187;&#171;system&#187;</text><text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="110" x="123.5" y="286.8203">E-commerce</text><text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="233.5" y="286.8203">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="66" x="239.5" y="286.8203">System</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="212.5" y="303.5889">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="115.5" y="319.8857">Allows</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="158.5" y="319.8857">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="162.5" y="319.8857">customers</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="236.5" y="319.8857">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="14" x="240.5" y="319.8857">to</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="254.5" y="319.8857">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="258.5" y="319.8857">browse,</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="139.5" y="336.1826">search,</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="190.5" y="336.1826">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="194.5" y="336.1826">and</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="220.5" y="336.1826">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="224.5" y="336.1826">purchase</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="158.5" y="352.4795">products</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="220.5" y="352.4795">&#160;</text><text fill="#8B0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="224.5" y="352.4795">online.</text></a></g><!--entity payment_gateway--><g class="elem payment_gateway selected" id="elem_payment_gateway"><rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="181" x="7" y="455"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="69" y="476.1387">&#171;system&#187;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="78" x="17" y="493.8203">Payment</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="95" y="493.8203">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="77" x="101" y="493.8203">Gateway</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="95.5" y="510.5889">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="22.5" y="526.8857">Third-party</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="96.5" y="526.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="100.5" y="526.8857">system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="150.5" y="526.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="154.5" y="526.8857">for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="21" y="543.1826">processing</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="98" y="543.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="102" y="543.1826">payments.</text></g><!--entity delivery_service--><g class="elem delivery_service selected" id="elem_delivery_service"><rect fill="#1168BD" height="101.4844" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="219" x="223" y="455"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="304" y="476.1387">&#171;system&#187;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="71" x="261.5" y="493.8203">Delivery</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="6" x="332.5" y="493.8203">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="65" x="338.5" y="493.8203">Service</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="330.5" y="510.5889">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="257.5" y="526.8857">Third-party</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="331.5" y="526.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="335.5" y="526.8857">system</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="385.5" y="526.8857">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="18" x="389.5" y="526.8857">for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="233" y="543.1826">managing</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="301" y="543.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="305" y="543.1826">product</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="359" y="543.1826">&#160;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="363" y="543.1826">deliveries.</text></g><!--link customer to ecommerce_system--><g class="link customer ecommerce_system selected" id="link_customer_ecommerce_system"><path d="M214.5,173.2 C214.5,198.1 214.5,216.91 214.5,239.88 " fill="none" id="customer-to-ecommerce_system" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="214.5,247.88,217.5,239.88,211.5,239.88,214.5,247.88" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="35" x="215.5" y="215.1387">Uses</text></g><!--link ecommerce_system to payment_gateway--><g class="link ecommerce_system payment_gateway selected" id="link_ecommerce_system_payment_gateway"><path d="M168.41,366.01 C161.39,375.8 154.5,386.02 148.5,396 C137.34,414.55 130.1446,428.6544 121.5946,447.5044 " fill="none" id="ecommerce_system-to-payment_gateway" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="118.29,454.79,124.3267,448.7436,118.8625,446.2652,118.29,454.79" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="73" x="149.5" y="408.1387">Delegates</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="222.5" y="408.1387">&#160;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="62" x="226.5" y="408.1387">payment</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="78" x="170.5" y="422.1074">processing</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="248.5" y="422.1074">&#160;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="15" x="252.5" y="422.1074">to</text></g><!--link ecommerce_system to delivery_service--><g class="link ecommerce_system delivery_service selected" id="link_ecommerce_system_delivery_service"><path d="M272.22,366.15 C280,375.67 287.39,385.78 293.5,396 C304.33,414.13 310.3524,428.1499 316.6424,447.2899 " fill="none" id="ecommerce_system-to-delivery_service" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="319.14,454.89,319.4924,446.3533,313.7923,448.2265,319.14,454.89" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="55" x="308.5" y="408.1387">Notifies</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="363.5" y="408.1387">&#160;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="14" x="367.5" y="408.1387">of</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="381.5" y="408.1387">&#160;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="47" x="385.5" y="408.1387">orders</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="4" x="432.5" y="408.1387">&#160;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20" x="436.5" y="408.1387">for</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="56" x="354.5" y="422.1074">delivery</text></g><!--SRC=[VLBBRjim4BphApQ20Tk0arvo2ke2hcEa1O8qY1KKFIahSaqJfaY1fEpexxjwk75XjpejPrSpiuyhROMf9S7dvUsdvMs-T3RIU_oI95ULHrKYXBtIZ7aKKUy9egyf2JjjA_HOGe5YfxohhLmwupodqGPEaOr9if1oPQZaE4Cr4KQB7HQ6PZ0gL5S-JurMswWyDYcZ6nOVS8b-vqcsQE6y97-EXorATz1MpTFMr01LD4zVMZyalxhtTGjCfctEa28hCsvkdlwnaawJyUFYru_NBF_vFVkMFwuULa_tascIF9CFpav47Q8hoSyWNGuXawMlWGB4BG5T2rSoA0WEL0GTUK8E2kyEWG2jXAhsOelygBoJjOZXXZNNJOXKJkZuRnuwW8bN7tnzKQksC8RvuEWbV4ZC812omEoo5ZXhjAKR9k5lnF5kFaxlF6tktjWkO5Nn931gPu5rAsTvLo0ryaRAjtGy6qLKuUzv3TuhRDh5vWeZ7R1Xbyyz0WyzqXhFjjhBQpw7s43V8cpuIDYUe11uTJ3Gd4v5ak53yqqUoE-ru1xJ-m62TG_zXxj4YwfZxcS00vscJYDv8NEor0iRQ5VBXMtTUVQyQxP6xIiSSwVTHVTFfWjTFhceD-mJt0QwcmzTHyTAfleD]--></g><style type="text/css"><![CDATA[[data-mouse-over-selected="false"] {
+	opacity: 0.2;
+}
+[data-mouse-over-selected="true"] {
+	opacity: 1.0;
+}
+]]></style><script type="text/javascript" xlink:href="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"/><script><![CDATA[(function (){
+	/**
+	 * @param {SVG.G} node
+	 * @param {SVG.G} topG
+	 * @return {{node: Set<SVG.G>, edges:Set<SVG.G>}}
+	 */
+	function getEdgesAndDistance1Nodes(node, topG) {
+		const nodeName = node.attr("id").match(/elem_(.+)/)[1];
+		const selector = "[id^=link_]"
+		const candidates = topG.find(selector)
+		let edges = new Set();
+		let nodes = new Set();
+		for (let link of candidates) {
+			const res = link.attr("id").match(/link_([A-Za-z\d]+)_([A-Za-z\d]+)/);
+			if (res && res.length==3) {
+				const N1 = res[1];
+				const N2 = res[2];
+				if (N1==nodeName) {
+					const N2selector = `[id=elem_${N2}]`;
+					nodes.add(topG.findOne(N2selector));
+					edges.add(link);
+				} else if (N2==nodeName) {
+					const N1selector = `[id=elem_${N1}]`;
+					nodes.add(topG.findOne(N1selector));
+					edges.add(link);
+				}
+			}
+		}
+		return {
+			"nodes" : nodes,
+			"edges" : edges
+		};
+	}
+
+	/**
+	 * @param {SVG.G} node
+	 * @param {function(SVG.Dom)}
+	 * @return {{node: Set<SVG.G>, edges:Set<SVG.G>}}
+	 */
+	function walk(node, func) {
+		let children = node.children();
+		for (let child of children) {
+			walk(child, func)
+		}
+		func(node);
+	}
+	let s = SVG("svg > g")
+	/**
+	 * @param {SVGElement} domEl
+	 * @return {{SVGElement}}
+	 */
+	function findEnclosingG(domEl) {
+		let curEl = domEl;
+		while (curEl.nodeName != "g") {
+			curEl = curEl.parentElement;
+		}
+		return curEl;
+	}
+	function onMouseOverElem(domEl) {
+		let e = SVG(findEnclosingG(domEl.target));
+		walk(s,
+			e => { if (SVG(e)!=s)
+				SVG(e).attr('data-mouse-over-selected',"false");
+			});
+		walk(e, e => SVG(e).attr('data-mouse-over-selected',"true"));
+		let {nodes, edges} = getEdgesAndDistance1Nodes(SVG(e), s);
+		for (let node of nodes) {
+			walk(node, e => SVG(e).attr('data-mouse-over-selected',"true"));
+		}
+		for (let edge of edges) {
+			walk(edge, e => SVG(e).attr('data-mouse-over-selected',"true"));
+		}
+	}
+
+	function onMouseOutElem(domEl) {
+		let e = SVG(findEnclosingG(domEl.target));
+		walk(s, e => e.attr('data-mouse-over-selected',null));
+	}
+	let gs = s.find("g[id^=elem_]");
+	for (let g of gs) {
+		g.on("mouseover", onMouseOverElem);
+		g.on("mouseout", onMouseOutElem);
+	}
+})();
+]]></script></svg>

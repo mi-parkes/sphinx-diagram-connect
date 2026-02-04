@@ -1,6 +1,8 @@
 Requirements
 ============
 
+This is some text with a reference to a requirement: :need:`req_demo_00010`.
+
 Functional Requirements
 ------------------------
 .. needtable::

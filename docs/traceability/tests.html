@@ -30,15 +30,15 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/drawio.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=eaad6355" />
   
@@ -198,20 +198,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../sphinx-architecture.html">Sphinx Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extension_architecture.html">Extension Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference/sphinx_diagram_connect.html">API Reference</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/tests.html">Tests Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.integration.html">tests.integration package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html">tests.integration.test_diagram_connect_integration module</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/tests.unit.html">tests.unit package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_diagram_connect_unit.html">tests.unit.test_diagram_connect_unit module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../reference/tests.unit.test_setup_function_unit.html">tests.unit.test_setup_function_unit module</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="../reference/tests.conftest.html">tests.conftest module</a></li>
-</ul>
-</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Traceability</span></p>
 <ul class="current nav bd-sidenav">
@@ -524,7 +510,7 @@ document.write(`
 </table>
 </div>
 </div>
-<div class="need_container docutils container" id="SNCB-6c428310">
+<div class="need_container docutils container" id="SNCB-94c606c9">
 <div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_tsc table" id="tsc_demo_00001">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -541,7 +527,7 @@ document.write(`
 </td>
 </tr>
 <tr class="need content row-odd"><td class="need content" colspan="1"><p><strong>Purpose:</strong> Verify that standard Sphinx references (<cite>:ref:</cite>, <cite>:doc:</cite>) within SVG <cite>xlink:href</cite> attributes are correctly resolved to their corresponding URIs when <cite>resolve_references</cite> is executed, primarily testing the specification for standard resolution.</p>
-<p><strong>Implementation:</strong> <a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html#tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_success" title="tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_success"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_success()</span></code></a></p>
+<p><strong>Implementation:</strong> <code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_success()</span></code></p>
 <p><strong>Test Steps:</strong></p>
 <ol class="arabic simple">
 <li><p>Set up a mock Sphinx environment with an output directory containing an SVG file.</p></li>
@@ -560,7 +546,7 @@ document.write(`
 </table>
 </div>
 </div>
-<div class="need_container docutils container" id="SNCB-19f0e5fe">
+<div class="need_container docutils container" id="SNCB-b586e53a">
 <div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_tsc table" id="tsc_demo_00002">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -577,7 +563,7 @@ document.write(`
 </td>
 </tr>
 <tr class="need content row-odd"><td class="need content" colspan="1"><p><strong>Purpose:</strong> Verify that <cite>resolve_references</cite> logs a warning for any standard Sphinx reference in an SVG that cannot be resolved, ensuring robust error handling.</p>
-<p><strong>Implementation:</strong> <a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html#tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_unresolved" title="tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_unresolved"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_unresolved()</span></code></a></p>
+<p><strong>Implementation:</strong> <code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_html_format_unresolved()</span></code></p>
 <p><strong>Test Steps:</strong></p>
 <ol class="arabic simple">
 <li><p>Set up a mock Sphinx environment with an output directory containing an SVG file.</p></li>
@@ -598,7 +584,7 @@ document.write(`
 </table>
 </div>
 </div>
-<div class="need_container docutils container" id="SNCB-3a88dfe7">
+<div class="need_container docutils container" id="SNCB-6229b822">
 <div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_tsc table" id="tsc_demo_00003">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -615,7 +601,7 @@ document.write(`
 </td>
 </tr>
 <tr class="need content row-odd"><td class="need content" colspan="1"><p><strong>Purpose:</strong> Verify that Sphinx-Needs references within SVG <cite>xlink:href</cite> attributes are correctly resolved when <cite>needs_build_json</cite> is enabled, validating the use case.</p>
-<p><strong>Implementation:</strong> <a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html#tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_with_needs_json_success" title="tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_with_needs_json_success"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_with_needs_json_success()</span></code></a></p>
+<p><strong>Implementation:</strong> <code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_with_needs_json_success()</span></code></p>
 <p><strong>Test Steps:</strong></p>
 <ol class="arabic simple">
 <li><p>Set up a mock Sphinx environment with <cite>needs_build_json</cite> set to <cite>True</cite>.</p></li>
@@ -633,7 +619,7 @@ document.write(`
 </table>
 </div>
 </div>
-<div class="need_container docutils container" id="SNCB-2a6ca58a">
+<div class="need_container docutils container" id="SNCB-358f8e9a">
 <div class="pst-scrollable-table-container"><table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_tsc table" id="tsc_demo_00004">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -650,7 +636,7 @@ document.write(`
 </td>
 </tr>
 <tr class="need content row-odd"><td class="need content" colspan="1"><p><strong>Purpose:</strong> Verify that verbose logging messages are generated as specified when <cite>sphinx_diagram_connect_verbose</cite> is <cite>True</cite>, confirming the requirement for configurable verbosity.</p>
-<p><strong>Implementation:</strong> <a class="reference internal" href="../reference/tests.integration.test_diagram_connect_integration.html#tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_verbose_logging" title="tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_verbose_logging"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_verbose_logging()</span></code></a></p>
+<p><strong>Implementation:</strong> <code class="xref py py-meth docutils literal notranslate"><span class="pre">tests.integration.test_diagram_connect_integration.TestDiagramConnectIntegration.test_resolve_references_verbose_logging()</span></code></p>
 <p><strong>Test Steps:</strong></p>
 <ol class="arabic simple">
 <li><p>Set up a mock Sphinx environment with <cite>sphinx_diagram_connect_verbose</cite> set to <cite>True</cite>.</p></li>
