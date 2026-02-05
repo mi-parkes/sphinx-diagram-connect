@@ -18,7 +18,6 @@ from sphinx.errors import NoUri
 from docutils import nodes
 import glob
 import re
-import xml.etree.ElementTree as ET
 from lxml import etree
 import importlib.util
 
@@ -68,11 +67,14 @@ class DiagramConnect:
 
         This is an internal helper method.
 
+        :param app: The Sphinx application object passed by the event.
+        :type app: sphinx.application.Sphinx
         :param target: The target name of the reference (e.g., 'my-section', 'my-document').
         :type target: str
+        :param rtype: The domain for the target
+        :type rtype: str or None
         :returns: The resolved URI (path to the HTML page with anchor), or None if
                   the reference cannot be resolved.
-        :rtype: str or None
         :raises sphinx.errors.NoUri: If the reference domain or type is not found.
         """
 
@@ -125,18 +127,15 @@ class DiagramConnect:
 
         This is the main method connected to Sphinx's 'build-finished' event.
 
-        :param app_from_event: The Sphinx application object passed by the event.
-        :type app_from_event: sphinx.application.Sphinx
+        :param app: The Sphinx application object passed by the event.
+        :type app: sphinx.application.Sphinx
         :param exception: The exception object if an error occurred during the build, otherwise None.
         :type exception: Exception or None
         """
         # It's safer to use the 'app' object passed directly by the event handler for consistency.
-        # Although self.app is available, using app_from_event explicitly ensures the correct context.
-        # app = app_from_event
 
         if app.builder.format == "html":
             # Access config values and needs list using the app object from the event
-
             if self.needs_list is None and HAS_NEEDS:
                 try:
                     self.needs_list = SphinxNeedsData(app.env).get_needs_view()
