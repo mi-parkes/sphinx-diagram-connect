@@ -374,32 +374,6 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
-name = "jsonschema-rs"
-version = "0.37.4"
-description = "A high-performance JSON Schema validator for Python"
-optional = false
-python-versions = ">=3.10"
-groups = ["main"]
-files = [
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:5975e448092e99d6cc60793a71f0fee516dbf0fd1e6d2f6f1e4689627268f344"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:1d3f8c8b376966c19fd4183fa979dbadc9fdd6070f2bfa4d127bdf70946963cc"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:393ece7037a0d19fd528f7a67a32749453876468871a0bd2267909a57d8d4e32"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dedf72e5e673e3af5b9925979fd71484debada61fb7a3dfabf9bbc74b8012664"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e159075b1846718466998d5a9294c661113b347b8b4749767680a97c8ed2bf4d"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-win32.whl", hash = "sha256:0f17a61deb557faa57dffb9596e4f022873404f935114367788b1eebdec2bb00"},
-    {file = "jsonschema_rs-0.37.4-cp310-abi3-win_amd64.whl", hash = "sha256:03b34f911e99343fc388651688683010daee538a3cf8cf86a7997bca28fdf16b"},
-    {file = "jsonschema_rs-0.37.4-pp311-pypy311_pp73-macosx_10_12_x86_64.whl", hash = "sha256:75f3b4e0707dcb3dccf911ff49e387b4db54957fe1a19d3423015a65e3762057"},
-    {file = "jsonschema_rs-0.37.4-pp311-pypy311_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e93a8720f6e858d872dc2882e7d3b3243ee76f7aa4d60048272773d44df466e7"},
-    {file = "jsonschema_rs-0.37.4-pp311-pypy311_pp73-manylinux_2_24_aarch64.whl", hash = "sha256:a56d154b638deb947dbd0dfc285c349eb23a877221f2b0496a2dfa25948cc239"},
-    {file = "jsonschema_rs-0.37.4-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:10fd978a145a6f8d11373879e7d0ff232b409f77c7faf608e6b4549a7f90aaed"},
-    {file = "jsonschema_rs-0.37.4.tar.gz", hash = "sha256:67f36f1c445c70f9975d17a84ce37f79593f6234d7eb292830d7749e5fa58ff4"},
-]
-
-[package.extras]
-bench = ["fastjsonschema (>=2.20.0)", "jsonschema (>=4.23.0)", "pytest-benchmark (>=4.0.0)"]
-tests = ["flask (>=2.2.5)", "hypothesis (>=6.79.4)", "pytest (>=7.4.4)"]
-
-[[package]]
 name = "lxml"
 version = "5.4.0"
 description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
@@ -1203,21 +1177,6 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
-name = "requests-file"
-version = "2.1.0"
-description = "File transport adapter for Requests"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "requests_file-2.1.0-py2.py3-none-any.whl", hash = "sha256:cf270de5a4c5874e84599fc5778303d496c10ae5e870bfa378818f35d21bda5c"},
-    {file = "requests_file-2.1.0.tar.gz", hash = "sha256:0f549a3f3b0699415ac04d167e9cb39bccfb730cb832b4d20be3d9867356e658"},
-]
-
-[package.dependencies]
-requests = ">=1.0.0"
-
-[[package]]
 name = "setuptools"
 version = "80.10.2"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -1320,58 +1279,6 @@ doc = ["ablog", "folium", "ipywidgets", "matplotlib", "myst-nb", "nbclient", "nu
 test = ["beautifulsoup4", "coverage", "defusedxml", "myst-nb", "pytest", "pytest-cov", "pytest-regressions", "sphinx_thebe"]
 
 [[package]]
-name = "sphinx-data-viewer"
-version = "0.1.5"
-description = "\"Sphinx extension to show data in an interactive list view."
-optional = false
-python-versions = ">=3.8"
-groups = ["main"]
-files = [
-    {file = "sphinx_data_viewer-0.1.5-py3-none-any.whl", hash = "sha256:b74b1d304c505c464d07c7b225ed0d84ea02dcc88bc1c49cdad7c2275fbbdad4"},
-    {file = "sphinx_data_viewer-0.1.5.tar.gz", hash = "sha256:a7d5e58613562bb745380bfe61ca8b69997998167fd6fa9aea55606c9a4b17e4"},
-]
-
-[package.dependencies]
-sphinx = ">=5"
-
-[package.extras]
-docs = ["furo", "sphinx-copybutton", "sphinx-design", "sphinx-needs", "sphinxcontrib.plantuml"]
-test = ["pytest", "pytest-cov"]
-
-[[package]]
-name = "sphinx-needs"
-version = "6.3.0"
-description = "Sphinx needs extension for managing needs/requirements and specifications"
-optional = false
-python-versions = "<4,>=3.10"
-groups = ["main"]
-files = [
-    {file = "sphinx_needs-6.3.0-py3-none-any.whl", hash = "sha256:761901765844c69f6181580065b099b31016895a86962a25e7860a9f5bea54a2"},
-    {file = "sphinx_needs-6.3.0.tar.gz", hash = "sha256:a8a1cccc1525b94551e7a2f9525bf36eaae88654abceb5047b5470d57472b346"},
-]
-
-[package.dependencies]
-jsonschema-rs = ">=0.37.1,<0.38.0"
-requests = ">=2.32,<3.0"
-requests-file = ">=2.1,<3.0"
-sphinx = ">=7.4,<9"
-sphinx-data-viewer = ">=0.1.5,<0.2.0"
-sphinxcontrib-jquery = ">=4.0,<5.0"
-tomli = {version = "*", markers = "python_version < \"3.11\""}
-typing-extensions = ">=4.14.0"
-
-[package.extras]
-benchmark = ["memray (>=1.3.1,<2.0.0) ; sys_platform != \"win32\"", "pytest-benchmark (>=5.0,<6.0) ; sys_platform != \"win32\""]
-docs = ["matplotlib (>=3.3.0)", "sphinx-copybutton (>=0.5,<1.0)", "sphinx-design (>=0.6,<1.0)", "sphinxcontrib-plantuml (>=0.0,<1.0)", "sphinxcontrib-programoutput (>=0.17,<1.0)"]
-plotting = ["matplotlib (>=3.3.0)"]
-test = ["defusedxml (>=0.7.1,<0.8.0)", "lxml (>=6.0,<7.0)", "matplotlib (>=3.3.0)", "pydantic (>=2.12,<3.0)", "pytest (>=8.0,<9.0)", "pytest-cov (>=6.0,<7.0)", "pytest-xprocess (>=1.0,<2.0)", "pyyaml (>=6.0,<7.0)", "responses (>=0.22.0,<0.23.0)", "sphinxcontrib-plantuml (>=0.0,<1.0)", "syrupy (>=4.0,<5.0)"]
-test-parallel = ["pytest-xdist"]
-theme-furo = ["furo (>=2024.8.6,<2024.9.0)"]
-theme-im = ["sphinx-immaterial (>=0.11.11,<0.12.0)"]
-theme-pds = ["pydata-sphinx-theme (>=0.15.2,<0.16.0)"]
-theme-rtd = ["sphinx_rtd_theme (>=3.0.2,<4)"]
-
-[[package]]
 name = "sphinx-needs-data-explorer"
 version = "0.9.6"
 description = "Sphinx-needs-data-explorer is a Sphinx extension to visualize Sphinx-Needs data"
@@ -1467,21 +1374,6 @@ files = [
 lint = ["mypy", "ruff (==0.5.5)", "types-docutils"]
 standalone = ["Sphinx (>=5)"]
 test = ["html5lib", "pytest"]
-
-[[package]]
-name = "sphinxcontrib-jquery"
-version = "4.1"
-description = "Extension to include jQuery on newer Sphinx releases"
-optional = false
-python-versions = ">=2.7"
-groups = ["main"]
-files = [
-    {file = "sphinxcontrib-jquery-4.1.tar.gz", hash = "sha256:1620739f04e36a2c779f1a131a2dfd49b2fd07351bf1968ced074365933abc7a"},
-    {file = "sphinxcontrib_jquery-4.1-py2.py3-none-any.whl", hash = "sha256:f936030d7d0147dd026a4f2b5a57343d233f1fc7b363f68b3d4f1cb0993878ae"},
-]
-
-[package.dependencies]
-Sphinx = ">=1.8"
 
 [[package]]
 name = "sphinxcontrib-jsmath"
@@ -1631,7 +1523,7 @@ version = "4.15.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
 python-versions = ">=3.9"
-groups = ["main", "dev", "sphinx"]
+groups = ["dev", "sphinx"]
 files = [
     {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
     {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
@@ -1659,4 +1551,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "79101e2f1f49787e05a461af3bd0a7f6515efd01da76808fb84f9d3c0de93c40"
+content-hash = "8509f2c3ad7779ba644ba19df49b1cfc0aaeceed78ffa013940b471e539622f6"
