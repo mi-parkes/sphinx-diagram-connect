@@ -1,4 +1,5 @@
 .DS_Store
 doc/source/README.md
 doc/source/reference
+doc/build/
 __pycache__
