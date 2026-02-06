@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/drawio.css?v=25a831d2" />
+    <link rel="stylesheet" type="text/css" href="_static/drawio.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
@@ -482,7 +482,7 @@ document.write(`
 <ul class="simple">
 <li><p>By automatically resolving <code class="docutils literal notranslate"><span class="pre">std:doc</span></code> or <code class="docutils literal notranslate"><span class="pre">std:ref</span></code> syntax, this extension allows you to effortlessly connect elements in your diagrams directly to relevant sections or components within your Sphinx documentation.</p></li>
 <li><p>Also references to other domain like <code class="docutils literal notranslate"><span class="pre">py:func</span></code> will be resolved.</p></li>
-<li><p><strong>Optionally</strong>, references to <em>sphinx-needs</em> items will also be resolved. Precondition is that you have the corresponding package available in your pyhton environment and the extension <em>sphinx-needs</em> is configured in your documentation setup.</p></li>
+<li><p><strong>Optionally</strong>, references to<code class="docutils literal notranslate"><span class="pre">need</span></code> items can be resolved if the <em>sphinx-needs</em> package is available in the <strong>Python environment</strong> and the extension is enabled in the documentation project’s <strong>conf.py</strong>.</p></li>
 </ul>
 <p>The <strong>sphinx_diagram_connect</strong> extension works on the generated <em>svg</em> files of your graphical tools. This means also other diagram types are supported automatically.</p>
 <blockquote>
