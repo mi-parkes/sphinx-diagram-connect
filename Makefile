@@ -93,7 +93,7 @@ test-building-package:
 			https://github.com/mi-parkes/sphinx-diagram-connect.git
 	cd sphinx-diagram-connect
 #	poetry install --only test,docs
-	poetry install
+	poetry install --with sphinx
 	poetry build
 	$(MAKE) html
 
@@ -119,6 +119,7 @@ test-using-package:
 		sphinx-book-theme="*" \
 		sphinxcontrib-plantuml="0.30" \
 		sphinxcontrib-drawio="^0.0.17" \
+		sphinx-needs = "^6.3.0" \
 		pillow="*" \
 		myst-parser="*"
 
