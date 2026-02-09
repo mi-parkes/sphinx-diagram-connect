@@ -119,7 +119,7 @@ test-using-package:
 		sphinx-book-theme="*" \
 		sphinxcontrib-plantuml="0.30" \
 		sphinxcontrib-drawio="^0.0.17" \
-		sphinx-needs = "^6.3.0" \
+		sphinx-needs="^6.3.0" \
 		pillow="*" \
 		myst-parser="*"
 
