@@ -120,7 +120,7 @@ test-using-package:
 		sphinxcontrib-plantuml="0.30" \
 		sphinxcontrib-drawio="^0.0.17" \
 		sphinx-needs="^6.3.0" \
-		sphinx-needs-data-explorer = "^0.9.6" \
+		sphinx-needs-data-explorer="^0.9.6" \
 		pillow="*" \
 		myst-parser="*"
 
