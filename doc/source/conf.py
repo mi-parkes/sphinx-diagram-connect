@@ -224,7 +224,7 @@ def copy_readme_md(app):
         logger.error(f"Source file '{ifilename}' not found.")
 
 
-if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
+if "APIDOC" in tags or "APIDOC_DD" in tags:
     extensions.extend(["sphinxcontrib.apidoc", "sphinx.ext.autodoc"])
     #apidoc_module_dir = "../../sphinx_diagram_connect"
     apidoc_module_dir = "../../"
@@ -235,7 +235,7 @@ if "APIDOC" in tags.tags or "APIDOC_DD" in tags.tags:
     #apidoc_extra_args = ["--no-toc","--force"]
     apidoc_extra_args = ["--force"]
 
-    if "APIDOC_DD" in tags.tags:
+    if "APIDOC_DD" in tags:
         apidoc_extra_args.append("-P")
         autodoc_default_options = {
             "members": True,
