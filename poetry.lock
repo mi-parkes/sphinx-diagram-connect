@@ -983,14 +983,14 @@ test = ["pytest", "pytest-xdist", "setuptools"]
 
 [[package]]
 name = "pydata-sphinx-theme"
-version = "0.16.1"
+version = "0.15.4"
 description = "Bootstrap-based Sphinx theme from the PyData community"
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "sphinx"]
 files = [
-    {file = "pydata_sphinx_theme-0.16.1-py3-none-any.whl", hash = "sha256:225331e8ac4b32682c18fcac5a57a6f717c4e632cea5dd0e247b55155faeccde"},
-    {file = "pydata_sphinx_theme-0.16.1.tar.gz", hash = "sha256:a08b7f0b7f70387219dc659bff0893a7554d5eb39b59d3b8ef37b8401b7642d7"},
+    {file = "pydata_sphinx_theme-0.15.4-py3-none-any.whl", hash = "sha256:2136ad0e9500d0949f96167e63f3e298620040aea8f9c74621959eda5d4cf8e6"},
+    {file = "pydata_sphinx_theme-0.15.4.tar.gz", hash = "sha256:7762ec0ac59df3acecf49fd2f889e1b4565dbce8b88b2e29ee06fdd90645a06d"},
 ]
 
 [package.dependencies]
@@ -998,8 +998,9 @@ accessible-pygments = "*"
 Babel = "*"
 beautifulsoup4 = "*"
 docutils = "!=0.17.0"
+packaging = "*"
 pygments = ">=2.7"
-sphinx = ">=6.1"
+sphinx = ">=5"
 typing-extensions = "*"
 
 [package.extras]
@@ -1665,4 +1666,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "2125e4db9f9b6ef6ea008cf92beb193d41f9626502edf6ec2e5675a4d82160f8"
+content-hash = "06b620d02b9c4cd79245fe05d270f8dbe35e7c8a65a1ff996ff07051a9b6e6c7"
