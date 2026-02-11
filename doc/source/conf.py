@@ -110,7 +110,7 @@ needs_types = [
 
 needs_id_required = True
 needs_id_regex = "^[a-z]{3,3}_demo_[0-9]{5,5}"
-# needs_build_json = True
+needs_build_json = True
 
 needs_default_layout = 'clean' # clean | complete | focus
 
