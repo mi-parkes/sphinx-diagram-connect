@@ -2,7 +2,7 @@ Test PlantUML 2
 ###############
 
 Heading 3 1
-============
+===========
 
 Some Text here
 
@@ -40,3 +40,33 @@ Some more text here
     **[#Tomato] [[ ":ref:`N_00003`" Internal Page Arbitrary Invalid Reference ]]
 
     @endmindmap
+
+
+
+Cross References
+================
+
+Here some tests to anchors in other document:
+
+
+See :ref:`Explicit-CPP-Anchor`
+
+Or the reference to the role: :cpp:func:`myMethod`
+
+
+See :ref:`Explicit-Python-Anchor`
+
+Or the reference to the role: :py:func:`Timer.repeat`
+
+
+.. uml::
+   :caption: PlantUML Caption with **bold** and *italic*
+   :name: PlantUML Cross Ref
+
+   @startuml
+   A -> B: Request [[":ref:`Explicit-CPP-Anchor`" Exp Cpp]]
+   B --> A: Response [[":ref:`Explicit-Python-Anchor`" Exp Python]]
+
+   A -> B: another Request [[":cpp:func:`myMethod`" Cpp role]]
+   A <-- B: another Response [[":py:func:`Timer.repeat`" Python role]]
+   @enduml

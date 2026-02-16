@@ -17,3 +17,4 @@ best practices for integrating diagrams and connections into your Sphinx documen
    test/textx/testz/test-plantuml3
    test/test-plantuml4
    test/test-drawio1.rst
+   test/test-crossref.rst
